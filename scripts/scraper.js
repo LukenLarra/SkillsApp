@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 const icons = [];
 const ids = [];
 const texts = [];
