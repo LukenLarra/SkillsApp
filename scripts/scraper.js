@@ -5,7 +5,7 @@ const icons = [];
 const ids = [];
 const texts = [];
 
-async function obtenerDatos() {
+export async function obtenerDatos() {
   try {
     const response = await fetch(
       "https://tinkererway.dev/web_skill_trees/electronics_skill_tree"
@@ -19,7 +19,7 @@ async function obtenerDatos() {
     elements.forEach((wrapper) => {
       const svgImage = wrapper.querySelector("image").getAttribute("href");
       const rawText = wrapper.querySelector("text").textContent; // Selecciona el elemento text
-      const textElement = rawText.replace(/\s+/g, ' ');
+      const textElement = rawText.replace(/\s+/g, " ");
       const id = wrapper.getAttribute("data-id"); // Selecciona el atributo data-id
 
       icons.push(svgImage);
