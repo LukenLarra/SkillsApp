@@ -22,7 +22,7 @@ export async function obtenerDatos() {
       const textElement = rawText.replace(/\s+/g, " ");
       const id = wrapper.getAttribute("data-id"); // Selecciona el atributo data-id
 
-      icons.push(svgImage);
+      icons.push(("https://tinkererway.dev/" + svgImage));
       texts.push(textElement);
       ids.push(id);
     });
