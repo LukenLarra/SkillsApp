@@ -9,34 +9,30 @@ const __dirname = path.dirname(__filename);
 const dirPath = path.join(__dirname, "../public", "electronics", "icons");
 
 export async function downloadIcons() {
-  for (let i = 0; i < icons.length; i++) {
-    const iconUrl = icons[i]; 
-    console.log(iconUrl);
-    const fileName = `icon${i + 1}.svg`;
+  icons.forEach(async (iconUrl) => {
+    const fileName =  path.basename(iconUrl);
     const filePath = path.join(dirPath, fileName)
-    
     if (fs.existsSync(filePath)) {
       console.log(`El archivo ya existe: ${filePath}. Pasando al siguiente.`);
-      continue;
-    }
+      
+    }else{
+      try {
+        const response = await fetch(iconUrl);
+        if (!response.ok) {
+          throw new Error(
+            `Error al descargar el SVG desde ${iconUrl}: ${response.statusText}`
+          );
+        }
+        const svgContent = await response.text();
+      ;
 
-    try {
-      const response = await fetch(iconUrl);
-      if (!response.ok) {
-        throw new Error(
-          `Error al descargar el SVG desde ${iconUrl}: ${response.statusText}`
-        );
+        fs.writeFileSync(filePath, svgContent);
+        console.log(`SVG guardado en: ${filePath}`);
+      } catch (error) {
+        console.error(`Error al descargar el SVG desde ${iconUrl}:`, error);
       }
-      const svgContent = await response.text();
-     ;
-
-      fs.writeFileSync(filePath, svgContent);
-      console.log(`SVG guardado en: ${filePath}`);
-    } catch (error) {
-      console.error(`Error al descargar el SVG desde ${iconUrl}:`, error);
     }
-  }
-  console.log("Se han descargado todos los iconos");
+  });
 }
 
 
