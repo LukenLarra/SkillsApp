@@ -34,8 +34,8 @@ export async function obtenerDatos() {
     });
 
     console.log("Íconos:", icons);
-    console.log("Textos:", texts);
-    console.log("IDs:", ids);
+    console.log("Textos:", texts.length);
+    console.log("IDs:", ids.length);
   } catch (error) {
     console.error("Error al obtener los datos:", error);
   } finally {
