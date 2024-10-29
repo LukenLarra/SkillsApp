@@ -1,37 +1,45 @@
-import fetch from "node-fetch";
-import { JSDOM } from "jsdom";
+import puppeteer from 'puppeteer';
 
 const icons = [];
-const ids = [];
 const texts = [];
+const ids = [];
 
 export async function obtenerDatos() {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+
   try {
-    const response = await fetch(
-      "https://tinkererway.dev/web_skill_trees/electronics_skill_tree"
-    );
-    const data = await response.text();
-    const dom = new JSDOM(data);
-    const doc = dom.window.document;
-    const container = doc.querySelector(".svg-container");
-    const elements = container.querySelectorAll(".svg-wrapper");
+    await page.goto("https://tinkererway.dev/web_skill_trees/electronics_skill_tree", { waitUntil: 'networkidle0' });
 
-    elements.forEach((wrapper) => {
-      const svgImage = wrapper.querySelector("image").getAttribute("href");
-      const rawText = wrapper.querySelector("text").textContent; // Selecciona el elemento text
-      const textElement = rawText.replace(/\s+/g, " ");
-      const id = wrapper.getAttribute("data-id"); // Selecciona el atributo data-id
+    const elements = await page.evaluate(() => {
+      const wrappers = document.querySelectorAll('.svg-wrapper');
+      return Array.from(wrappers).map(wrapper => {
+        const svgImage = wrapper.querySelector("image").getAttribute("href");
+        const rawText = wrapper.querySelector("text").textContent;
+        const textElement = rawText.replace(/\s+/g, " ");
+        const id = wrapper.getAttribute("data-id");
 
-      icons.push(("https://tinkererway.dev/" + svgImage));
-      texts.push(textElement);
-      ids.push(id);
+        return {
+          svgImage: "https://tinkererway.dev/" + svgImage,
+          textElement,
+          id
+        };
+      });
+    });
+
+    elements.forEach(element => {
+      icons.push(element.svgImage);
+      texts.push(element.textElement);
+      ids.push(element.id);
     });
 
     console.log("Íconos:", icons);
     console.log("Textos:", texts);
     console.log("IDs:", ids);
   } catch (error) {
-    console.log(error);
+    console.error("Error al obtener los datos:", error);
+  } finally {
+    await browser.close();
   }
 }
 
