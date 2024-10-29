@@ -34,7 +34,3 @@ export async function downloadIcons() {
     }
   });
 }
-
-
-await obtenerDatos();
-downloadIcons();
