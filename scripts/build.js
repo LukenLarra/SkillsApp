@@ -1,4 +1,6 @@
-export function build_page(icons, ids, texts) {
+import { icons, ids, texts } from "./../../scripts/scraper.js";
+
+export function build_page() {
     const container = document.querySelector(".svg-container");
     for (let i = 0; i < icons.length; i++) {
         const svgWrapper = document.createElement('div');
