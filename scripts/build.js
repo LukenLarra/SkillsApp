@@ -1,4 +1,4 @@
-import { icons, ids, texts } from "./../../scripts/scraper.js";
+import { icons, ids, texts } from "./scraper.js";
 
 export function build_page() {
     const container = document.querySelector(".svg-container");
