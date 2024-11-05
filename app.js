@@ -1,4 +1,4 @@
-import express from 'express';
+import express, {json} from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
@@ -39,6 +39,28 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.post('/upload', (req, res) => {
+  const data = req.body.data;
+  fs.writeFile('data.json', JSON.stringify(data), (err)=>{
+    if(err){
+      console.log(err);
+    }else{
+      console.log('Data written to file');
+    }
+  });
+});
+
+app.post('/download', (req, res) => {
+  fs.readFile('data.json', (err, datos)=>{
+    if(err){
+      console.log(err);
+    }else{
+      const data = json(datos);
+        res.json({data});
+    }
+  });
 });
 
 export default app;
