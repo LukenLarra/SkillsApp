@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import http from "http";
 
 const icons = [];
 const texts = [];
@@ -33,9 +34,12 @@ export async function obtenerDatos() {
       ids.push(element.id);
     });
 
+    await upload({ icons, texts, ids });
+
     console.log("Íconos:", icons);
     console.log("Textos:", texts);
     console.log("IDs:", ids);
+
   } catch (error) {
     console.error("Error al obtener los datos:", error);
   } finally {
@@ -43,4 +47,21 @@ export async function obtenerDatos() {
   }
 }
 
+async function upload(data){
+  const response = await fetch("http://localhost:3000/upload", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data)
+  })
+
+  if (!response.ok) {
+    console.error("Error al subir los datos:", response.statusText);
+  } else {
+    console.log("Datos subidos correctamente");
+  }
+}
+
+obtenerDatos();
 export { icons, ids, texts };
