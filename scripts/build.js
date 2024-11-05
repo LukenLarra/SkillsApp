@@ -1,11 +1,11 @@
-import { icons, ids, texts } from "./scraper.js";
-
-export function build_page() {
+export async function build_page() {
+    const response = await fetch('http://localhost:3000/download');
+    const data = await response.json();
     const container = document.querySelector(".svg-container");
-    for (let i = 0; i < icons.length; i++) {
+    data.forEach(item => {
         const svgWrapper = document.createElement('div');
         svgWrapper.classList.add('svg-wrapper');
-        svgWrapper.setAttribute('data-id', ids[i]);
+        svgWrapper.setAttribute('data-id', item.id);
         svgWrapper.setAttribute('data-custom', 'false');
         container.appendChild(svgWrapper);
 
@@ -25,7 +25,7 @@ export function build_page() {
         text.setAttribute('text-anchor', 'middle');
         text.setAttribute('fill', 'black');
         text.setAttribute('font-size', '10');
-        text.textContent = texts[i];
+        text.textContent = item.text;
         svg.appendChild(text);
         
         const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
@@ -33,9 +33,9 @@ export function build_page() {
         image.setAttribute('y', '60%');
         image.setAttribute('width', '30');
         image.setAttribute('height', '30');
-        image.setAttribute('href', icons[i]);
+        image.setAttribute('href', item.icon);
         svg.appendChild(image);
 
         svgWrapper.appendChild(svg);
-    }
+    });
 }

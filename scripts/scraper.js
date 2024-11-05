@@ -1,9 +1,6 @@
 import puppeteer from 'puppeteer';
-import http from "http";
 
-const icons = [];
-const texts = [];
-const ids = [];
+const data = [];
 
 export async function obtenerDatos() {
   const browser = await puppeteer.launch();
@@ -21,24 +18,18 @@ export async function obtenerDatos() {
         const id = wrapper.getAttribute("data-id");
 
         return {
-          svgImage: "https://tinkererway.dev/" + svgImage,
-          textElement,
-          id
+          id,
+          text: textElement,
+          icon: "https://tinkererway.dev/" + svgImage
         };
       });
     });
 
-    elements.forEach(element => {
-      icons.push(element.svgImage);
-      texts.push(element.textElement);
-      ids.push(element.id);
-    });
+    data.push(...elements);
 
-    await upload({ icons, texts, ids });
+    await upload(data);
 
-    console.log("Íconos:", icons);
-    console.log("Textos:", texts);
-    console.log("IDs:", ids);
+    console.log("Datos:", data);
 
   } catch (error) {
     console.error("Error al obtener los datos:", error);
@@ -47,7 +38,7 @@ export async function obtenerDatos() {
   }
 }
 
-async function upload(data){
+async function upload(data) {
   const response = await fetch("http://localhost:3000/upload", {
     method: "POST",
     headers: {
@@ -62,6 +53,3 @@ async function upload(data){
     console.log("Datos subidos correctamente");
   }
 }
-
-obtenerDatos();
-export { icons, ids, texts };
