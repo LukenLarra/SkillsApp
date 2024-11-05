@@ -13,13 +13,13 @@ export async function obtenerDatos() {
       const wrappers = document.querySelectorAll('.svg-wrapper');
       return Array.from(wrappers).map(wrapper => {
         const svgImage = wrapper.querySelector("image").getAttribute("href");
-        const rawText = wrapper.querySelector("text").textContent;
-        const textElement = rawText.replace(/\s+/g, " ");
+        const textElement = wrapper.querySelector("text");
+        const tspans = Array.from(textElement.querySelectorAll("tspan")).map(tspan => tspan.textContent);
         const id = wrapper.getAttribute("data-id");
 
         return {
           id,
-          text: textElement,
+          text: tspans,
           icon: "https://tinkererway.dev/" + svgImage
         };
       });

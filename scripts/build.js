@@ -13,7 +13,8 @@ export async function build_page() {
         svg.setAttribute('width', '100');
         svg.setAttribute('height', '100');
         svg.setAttribute('viewBox', '0 0 100 100');
-        
+        svgWrapper.appendChild(svg);
+
         const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
         polygon.setAttribute('points', '50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5');
         polygon.classList.add('hexagon');
@@ -25,9 +26,16 @@ export async function build_page() {
         text.setAttribute('text-anchor', 'middle');
         text.setAttribute('fill', 'black');
         text.setAttribute('font-size', '10');
-        text.textContent = item.text;
+        item.text.forEach((tspanText) => {
+            const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+            tspan.setAttribute('x', '50%');
+            tspan.setAttribute('dy', '1.2em');
+            tspan.setAttribute('font-weight','bold');
+            tspan.textContent = tspanText;
+            text.appendChild(tspan);
+        });
         svg.appendChild(text);
-        
+
         const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
         image.setAttribute('x', '35%');
         image.setAttribute('y', '60%');
@@ -36,6 +44,6 @@ export async function build_page() {
         image.setAttribute('href', item.icon);
         svg.appendChild(image);
 
-        svgWrapper.appendChild(svg);
+
     });
 }
