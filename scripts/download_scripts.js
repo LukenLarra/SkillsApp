@@ -7,8 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const dirPath = path.join(__dirname, "../public", "electronics", "icons");
 
-async function download(){
-  const response = await fetch('http://localhost:3000/download');
+async function downloadSVG(){
+  const response = await fetch('http://localhost:3000/api');
   const data = await response.json();
 
   await Promise.all(data.map(async (item) => {

@@ -41,7 +41,7 @@ app.post('/upload', (req, res) => {
   });
 });
 
-app.get('/download', (req, res) => {
+app.get('/api', (req, res) => {
   const filePath = path.join(__dirname, 'data.json');
   fs.readFile(filePath, 'utf8',(err, data) =>{
     if(err){

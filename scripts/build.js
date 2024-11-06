@@ -1,5 +1,5 @@
 export async function build_page() {
-    const response = await fetch('http://localhost:3000/download');
+    const response = await fetch('http://localhost:3000/api');
     const data = await response.json();
     const container = document.querySelector(".svg-container");
     data.forEach(item => {
@@ -26,11 +26,12 @@ export async function build_page() {
         text.setAttribute('text-anchor', 'middle');
         text.setAttribute('fill', 'black');
         text.setAttribute('font-size', '10');
-        item.text.forEach((tspanText) => {
+        text.setAttribute('font-weight','bold');
+        text.setAttribute('style', 'dominant-baseline: middle;');
+        item.text.forEach((tspanText, index) => {
             const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
             tspan.setAttribute('x', '50%');
             tspan.setAttribute('dy', '1.2em');
-            tspan.setAttribute('font-weight','bold');
             tspan.textContent = tspanText;
             text.appendChild(tspan);
         });
@@ -43,7 +44,5 @@ export async function build_page() {
         image.setAttribute('height', '30');
         image.setAttribute('href', item.icon);
         svg.appendChild(image);
-
-
     });
 }
