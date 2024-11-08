@@ -28,7 +28,7 @@ app.use('/scripts', express.static(path.join(__dirname, 'scripts')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.post('/upload', (req, res) => {
+app.post('/api/data', (req, res) => {
   const data = req.body;
   fs.writeFile('data.json', JSON.stringify(data, null, 2), (err)=>{
     if(err){
@@ -41,7 +41,20 @@ app.post('/upload', (req, res) => {
   });
 });
 
-app.get('/api', (req, res) => {
+app.post('/api/badges', (req, res) => {
+  const data = req.body;
+  fs.writeFile('badges.json', JSON.stringify(data, null, 2), (err)=>{
+    if(err){
+      console.log(err);
+      res.status(500).send('Error writing to file');
+    }else{
+      console.log('Data written to file');
+      res.status(200).send('Data uploaded successfully');
+    }
+  });
+});
+
+app.get('/api/data', (req, res) => {
   const filePath = path.join(__dirname, 'data.json');
   fs.readFile(filePath, 'utf8',(err, data) =>{
     if(err){

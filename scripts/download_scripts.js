@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const dirPath = path.join(__dirname, "../public", "electronics", "icons");
 
 async function downloadSVG(){
-  const response = await fetch('http://localhost:3000/api');
+  const response = await fetch('http://localhost:3000/api/data');
   const data = await response.json();
 
   await Promise.all(data.map(async (item) => {

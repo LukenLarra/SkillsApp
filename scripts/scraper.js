@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import { upload } from './upload.js';
 
 const data = [];
 
@@ -27,7 +28,7 @@ export async function obtenerDatos() {
 
     data.push(...elements);
 
-    await upload(data);
+    await upload(data, "api/data");
 
     console.log("Datos:", data);
 
@@ -37,19 +38,4 @@ export async function obtenerDatos() {
     await browser.close();
   }
 }
-
-async function upload(data) {
-  const response = await fetch("http://localhost:3000/upload", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data)
-  })
-
-  if (!response.ok) {
-    console.error("Error al subir los datos:", response.statusText);
-  } else {
-    console.log("Datos subidos correctamente");
-  }
-}
+obtenerDatos();
