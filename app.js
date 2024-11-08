@@ -66,6 +66,18 @@ app.get('/api/data', (req, res) => {
   });
 });
 
+app.get('/api/badges', (req, res) => {
+  const filePath = path.join(__dirname, 'badges.json');
+  fs.readFile(filePath, 'utf8',(err, data) =>{
+    if(err){
+      console.log(err);
+      res.status(500).send('Error reading file');
+    }else{
+      res.json(JSON.parse(data));
+    }
+  });
+});
+
 app.listen (3000, function() {
   console.log ("El servidor localhost está escuchando desde el puerto 3000");
 });

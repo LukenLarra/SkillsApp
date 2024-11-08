@@ -23,7 +23,6 @@ async function getBadges() {
                     let imgSrc = cells[1]?.querySelector("img")?.src;
                     const strongText = cells[2]?.querySelector("strong")?.innerText;
 
-                    imgSrc = imgSrc.split("/png/")[1];
                     imgSrc = imgSrc.split(".png")[0];
                     imgSrc = imgSrc + "-min.png";
 
