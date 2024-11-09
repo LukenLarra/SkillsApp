@@ -27,10 +27,7 @@ async function getBadges() {
                     imgSrc = imgSrc + "-min.png";
 
                     badgesList.push({
-                        rango: strongText,
-                        bitpoints_min,
-                        bitpoints_max,
-                        png: imgSrc
+                        rango: strongText, bitpoints_min, bitpoints_max, png: imgSrc
                     });
 
                     bitpoints_min += 10;

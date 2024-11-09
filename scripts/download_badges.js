@@ -22,13 +22,13 @@ async function downloadBadgesSVG() {
             try {
                 const response = await fetch(badgeUrl);
                 if (!response.ok) {
-                    throw new Error(`Error al descargar el SVG desde ${badgeUrl}: ${response.statusText}`);
+                    throw new Error(`Error al descargar el PNG desde ${badgeUrl}: ${response.statusText}`);
                 }
                 const svgContent = await response.text();
                 fs.writeFileSync(filePath, svgContent);
-                console.log(`SVG guardado en: ${filePath}`);
+                console.log(`PNG guardado en: ${filePath}`);
             } catch (error) {
-                console.error(`Error al descargar el SVG desde ${badgeUrl}:`, error);
+                console.error(`Error al descargar el PNG desde ${badgeUrl}:`, error);
             }
         }
     }));
