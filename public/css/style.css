@@ -131,6 +131,10 @@ td:nth-child(2) img {
   margin: 0 auto;
 }
 
+th, td:not(:first-child) {
+  text-align: center;
+}
+
 .range-row:nth-child(even) {
   background-color: #f9f9f9;
   border-bottom: 1px solid #ddd;
