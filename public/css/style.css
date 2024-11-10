@@ -77,10 +77,15 @@ h1 {
 }
 
 .svg-wrapper {
+  position: relative;
   width: 100px;
   height: 100px;
-  cursor: pointer;
-  position: relative;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.svg-wrapper .hexagon {
+  width: 100%;
+  height: 100%;
 }
 
 .hexagon {
@@ -155,4 +160,39 @@ footer {
   text-align: center;
   background-color: #f0f0f0; /* Light background color */
   border-top: 1px solid #ccc; /* Border on top */
+}
+
+.svg-wrapper.expanded {
+  transform: scale(1.2); /* Aumenta el tamaño en 1.2x */
+}
+
+.svg-wrapper.expanded .hexagon {
+  transform-origin: center; /* Establece el centro como origen de transformación */
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 10px; /* Colocado en la parte inferior */
+  left: 10px;   /* Alineado a la izquierda */
+  font-size: 1.2em;
+  color: #000;
+  display: none; /* Inicialmente oculto */
+  z-index: 2;
+  cursor: pointer;
+}
+
+.notebook-icon {
+  position: absolute;
+  bottom: 10px; /* Colocado en la parte inferior */
+  right: 10px;   /* Alineado a la derecha */
+  font-size: 1.2em;
+  color: #000;
+  display: none; /* Inicialmente oculto */
+  z-index: 2;
+  cursor: pointer;
+}
+
+.svg-wrapper.expanded .edit-icon,
+.svg-wrapper.expanded .notebook-icon {
+    display: block; /* Mostrar iconos al hacer hover */
 }

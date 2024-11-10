@@ -16,6 +16,7 @@
     "morgan": "~1.9.1",
     "node-fetch": "^3.3.2",
     "puppeteer": "^23.6.1",
+    "skills": "file:",
     "xmldom": "^0.6.0"
   }
 }
