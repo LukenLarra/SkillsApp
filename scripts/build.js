@@ -70,11 +70,12 @@ export async function build_page() {
         image.setAttribute('height', '30');
         image.setAttribute('href', item.icon);
         svg.appendChild(image);
-    });
 
-    notebookIcon.addEventListener('click', () => {
-        showSkillDetails(item);
+        notebookIcon.addEventListener('click', () => {
+            window.location.href = `skill_details.html`;
+        });
     });
+    
 }
 
 export async function build_leaderboard() {
@@ -106,55 +107,4 @@ export async function build_leaderboard() {
     table.appendChild(tbody);
 }
 
-export function showSkillDetails(skill) {
-    // Selecciona el contenedor donde se mostrarán los detalles de la competencia
-    const detailsContainer = document.querySelector('#skill-details');
-    detailsContainer.style.display = 'block'; // Asegúrate de que sea visible
 
-    // Genera el contenido HTML para los detalles
-    detailsContainer.innerHTML = `
-        <h2>${skill.text.join(' ')}</h2>
-        <p>${skill.description}</p>
-        <img src="${skill.icon}" alt="${skill.text}" class="skill-icon" />
-        
-        <h3>Tareas</h3>
-        <ul class="tasks-list">
-            ${skill.tasks.map(task => `<li><input type="checkbox" class="task-checkbox" /> ${task}</li>`).join('')}
-        </ul>
-        
-        <h3>Recursos</h3>
-        <ul class="resources-list">
-            ${skill.resources.map(resource => `<li><a href="${resource}" target="_blank">${resource}</a></li>`).join('')}
-        </ul>
-        
-        <div class="evidence-form" style="display: none;">
-            <h3>Submit Evidence</h3>
-            <label for="evidence-url">URL de la evidencia:</label>
-            <input type="url" id="evidence-url" placeholder="https://example.com/mi-evidencia" required />
-            <button id="submit-evidence">Submit Evidence</button>
-        </div>
-    `;
-
-    // Configuración de eventos para checkboxes y envío de evidencia (opcional)
-    const checkboxes = detailsContainer.querySelectorAll('.task-checkbox');
-    checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', () => {
-            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-            if (allChecked) {
-                triggerConfetti();
-                detailsContainer.querySelector('.evidence-form').style.display = 'block';
-            }
-        });
-    });
-
-    const submitButton = detailsContainer.querySelector('#submit-evidence');
-    submitButton.addEventListener('click', () => {
-        const evidenceUrl = document.getElementById('evidence-url').value;
-        if (evidenceUrl) {
-            alert('Evidencia enviada: ' + evidenceUrl);
-            detailsContainer.style.display = 'none'; // Oculta el modal
-        } else {
-            alert('Por favor, ingresa una URL válida.');
-        }
-    });
-}
