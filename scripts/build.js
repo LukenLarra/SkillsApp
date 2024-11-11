@@ -25,7 +25,7 @@ export async function build_index() {
             notebookIcon.style.display = 'block';
     
             const descriptionDiv = document.querySelector('.description'); 
-            descriptionDiv.textContent = item.description;
+            //descriptionDiv.textContent = item.description;
         });
 
         svgWrapper.addEventListener('mouseleave', () => {
@@ -106,5 +106,3 @@ export async function build_leaderboard() {
     });
     table.appendChild(tbody);
 }
-
-
