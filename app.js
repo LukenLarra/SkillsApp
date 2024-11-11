@@ -78,10 +78,6 @@ app.get('/api/badges', (req, res) => {
     });
 });
 
-app.get('/leaderboard', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'leaderboard.html'));
-});
-
 app.listen(3000, function () {
     console.log("El servidor localhost está escuchando desde el puerto 3000");
 });
