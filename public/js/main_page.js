@@ -4,4 +4,4 @@ async function main() {
    await build_page();
 }
 
-window.onload = main;
+window.onload = await main;
