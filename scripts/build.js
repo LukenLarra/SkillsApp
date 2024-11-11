@@ -1,4 +1,4 @@
-export async function build_page() {
+export async function build_index() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
     const container = document.querySelector(".svg-container");
@@ -72,7 +72,7 @@ export async function build_page() {
         svg.appendChild(image);
 
         notebookIcon.addEventListener('click', () => {
-            window.location.href = `skill_details.html`;
+            window.location.href = `skill_details`;
         });
     });
     

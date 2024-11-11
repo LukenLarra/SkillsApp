@@ -1,7 +1,7 @@
-import { build_page} from "./../../scripts/build.js";
+import { build_index} from "./../../scripts/build.js";
 
 async function main() {
-   await build_page();
+   await build_index();
 }
 
 window.onload = await main;
