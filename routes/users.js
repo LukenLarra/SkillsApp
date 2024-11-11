@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/leaderboard', function(req, res, next) {
-  res.render('leaderboard', { title: 'Leaderboard' });
+  res.render('leaderboard', { title: 'Range Explanations' });
 });
 
 export default router;

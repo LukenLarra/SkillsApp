@@ -106,7 +106,7 @@ export async function build_leaderboard() {
     table.appendChild(tbody);
 }
 
-function showSkillDetails(skill) {
+export function showSkillDetails(skill) {
     // Selecciona el contenedor donde se mostrarán los detalles de la competencia
     const detailsContainer = document.querySelector('#skill-details');
     detailsContainer.style.display = 'block'; // Asegúrate de que sea visible
