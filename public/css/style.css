@@ -2,6 +2,7 @@ body {
   font-family: Arial, sans-serif;
   padding: 20px;
   background-color: #f0f0f0;
+  text-align: center;
 }
 
 h1 {
@@ -196,3 +197,17 @@ footer {
 .svg-wrapper.expanded .notebook-icon {
     display: block; /* Mostrar iconos al hacer hover */
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+}
+
+li {
+  margin: 10px 0;
+  position: relative;
+}
+
+
