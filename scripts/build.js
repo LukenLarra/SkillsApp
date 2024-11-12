@@ -1,4 +1,5 @@
-import { getSkillDetails } from './skill_details.js';
+import {getSkillDetails} from "./get_skills.js";
+
 export async function build_index() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
