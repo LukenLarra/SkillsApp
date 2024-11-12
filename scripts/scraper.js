@@ -21,7 +21,11 @@ export async function obtenerDatos() {
                 return {
                     id,
                     text: tspans,
-                    icon: "https://tinkererway.dev/" + svgImage
+                    icon: "https://tinkererway.dev/" + svgImage,
+                    description: "Descripción de la habilidad",
+                    points: 1,
+                    tasks: ["Task 1", "Task 2", "Task 3"],
+                    resources: ["Resource 1", "Resource 2", "Resource 3"],
                 };
             });
         });

@@ -1,3 +1,4 @@
+
 export let buffer = {
     title: '',
     score: '',
@@ -28,4 +29,15 @@ export async function setDetails(element){
     buffer.score = '1 points';
     buffer.title = element.querySelector('text').textContent;
     buffer.svg = element.outerHTML;
+
+    /*const response = await fetch('http://localhost:3000/api/data');
+    const data = await response.json();
+    await Promise.all(data.map(async (item) => {
+        buffer.resources = item.resources;
+        buffer.tasks = item.tasks;
+        buffer.description = item.description;
+        buffer.score = item.score;
+        buffer.title = item.text;
+    }));
+    buffer.svg = element.outerHTML;*/
 }
