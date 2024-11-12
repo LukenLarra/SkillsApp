@@ -213,4 +213,12 @@ li {
   position: relative;
 }
 
+.details-svg{
+  display: flex;                /* Usar flexbox */
+  justify-content: center;      /* Centra horizontalmente */
+  align-items: center;          /* Centra verticalmente */
+  width: 100%;                  /* Asegura que el div ocupe todo el ancho disponible */
+  height: 100%;
+}
+
 

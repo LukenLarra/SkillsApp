@@ -1,4 +1,4 @@
-import {setDetails} from "./skills.js";
+import {setDetails, buffer} from "./skills.js";
 
 export async function build_index() {
     const response = await fetch('http://localhost:3000/api/data');
@@ -75,7 +75,16 @@ export async function build_index() {
 
         notebookIcon.addEventListener('click', async () => {
             await setDetails(svgWrapper);
-            window.location.href = "/skill_details";
+            const params = new URLSearchParams({
+                title: buffer.title,
+                score: buffer.score,
+                svg: encodeURIComponent(buffer.svg),
+                description: buffer.description,
+                tasks: JSON.stringify(buffer.tasks),
+                resources: JSON.stringify(buffer.resources)
+            });
+
+            window.location.href = `/skill_details?${params.toString()}`;
         });
     });
     
