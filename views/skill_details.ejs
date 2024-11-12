@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles de la Competencia</title>
     <script src="/scripts/build.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -36,9 +38,10 @@
             <% tasks.forEach(function(task) { %>
                 <li>
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" class="task-checkbox">
                     </label> <%= task %>
                 </li>
+                
             <% }); %>
         </ul>
     </article>
@@ -54,6 +57,7 @@
         </ul>
     </article>
 </section>
+<script src="/scripts/confeti.js"></script>
 </body>
 
 </html>
