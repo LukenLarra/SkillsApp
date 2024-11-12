@@ -5,10 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles de la Competencia</title>
-    <link rel="stylesheet" href="./css/style.css"> <!-- Opcional: puedes enlazar el CSS si lo deseas -->
+    <script src="/scripts/build.js" type="module"></script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<h1><%= title %></h1>
-<!-- Aquí más adelante añadiremos el contenido dinámico -->
+<h1>Skill: <%= title %></h1>
+<h2>Skill Score: <%= score %></h2>
+<div><%= svg %></div>
+<h2>Description</h2>
+<p><%= description %></p>
+<h2>Task To Complete</h2>
+<ul>
+    <% tasks.forEach(function(task) { %>
+        <li><%= task %></li>
+    <% }); %>
+</ul>
+<h2>Resources</h2>
+<ul>
+    <% resources.forEach(function(resource) { %>
+        <li><%= resource %></li>
+    <% }); %>
+</ul>
 </body>
 </html>

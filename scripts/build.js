@@ -1,3 +1,4 @@
+import { getSkillDetails } from './skill_details.js';
 export async function build_index() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
@@ -72,7 +73,19 @@ export async function build_index() {
         svg.appendChild(image);
 
         notebookIcon.addEventListener('click', () => {
-            window.location.href = `skill_details`;
+            const skillDetails = getSkillDetails(svgWrapper);
+            fetch('/skill_details', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(skillDetails)
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = '/skill_details';
+                }
+            });
+
         });
     });
     
