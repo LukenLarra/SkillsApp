@@ -1,4 +1,4 @@
-import {getSkillDetails} from "./get_skills.js";
+import {setDetails} from "./skills.js";
 
 export async function build_index() {
     const response = await fetch('http://localhost:3000/api/data');
@@ -73,8 +73,8 @@ export async function build_index() {
         image.setAttribute('href', item.icon);
         svg.appendChild(image);
 
-        notebookIcon.addEventListener('click', () => {
-            const skillDetails = getSkillDetails(svgWrapper);
+        notebookIcon.addEventListener('click', async () => {
+            await setDetails(svgWrapper);
             window.location.href = "/skill_details";
         });
     });
