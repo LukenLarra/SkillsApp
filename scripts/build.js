@@ -75,18 +75,7 @@ export async function build_index() {
 
         notebookIcon.addEventListener('click', () => {
             const skillDetails = getSkillDetails(svgWrapper);
-            fetch('/skill_details', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(skillDetails)
-            }).then(response => {
-                if (response.ok) {
-                    window.location.href = '/skill_details';
-                }
-            });
-
+            window.location.href = "/skill_details";
         });
     });
     
