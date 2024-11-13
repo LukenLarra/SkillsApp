@@ -221,4 +221,29 @@ li {
   height: 100%;
 }
 
+.evidence-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.evidence-textarea {
+  margin: 0 auto;
+  display: flex;
+  width: 500px;
+  height: 40px;
+}
+
+.evidence-submit {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #199117;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
 
