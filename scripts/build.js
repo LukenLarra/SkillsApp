@@ -25,15 +25,26 @@ export async function build_index() {
             svgWrapper.classList.add('expanded');
             editIcon.style.display = 'block';
             notebookIcon.style.display = 'block';
-    
-            const descriptionDiv = document.querySelector('.description'); 
-            //descriptionDiv.textContent = item.description;
+
+            const descriptionDiv = document.querySelector('.description');
+            descriptionDiv.textContent = item.description;
+            descriptionDiv.style.backgroundColor = '#f1e187';
+            descriptionDiv.style.color = 'black';
+            descriptionDiv.style.borderTop = '1px solid black';
         });
 
         svgWrapper.addEventListener('mouseleave', () => {
             svgWrapper.classList.remove('expanded');
             editIcon.style.display = 'none';
             notebookIcon.style.display = 'none';
+
+
+            const descriptionDiv = document.querySelector('.description');
+            descriptionDiv.textContent = '';
+            descriptionDiv.style.backgroundColor = '';
+            descriptionDiv.style.color = '';
+            descriptionDiv.style.borderTop = 'none';
+
         });
 
 

@@ -1,8 +1,9 @@
 body {
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 0;
   background-color: #f0f0f0;
   text-align: center;
+  margin: 0;
 }
 
 h1 {
@@ -75,6 +76,7 @@ h1 {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  padding: 10px 20px;
 }
 
 .svg-wrapper {
@@ -93,10 +95,7 @@ h1 {
   fill: white;
   stroke: black;
   stroke-width: 1px;
-}
 
-.selected .hexagon {
-  fill: var(--selected-color, yellow);
 }
 
 @media print {
@@ -242,6 +241,14 @@ li {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.description {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+  z-index: 1000;
+  margin: 0;
 }
 
 
