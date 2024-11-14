@@ -86,7 +86,7 @@ export async function build_index() {
             editIcon.style.display = 'block';
             notebookIcon.style.display = 'block';
 
-            const descriptionDiv = document.querySelector('.description');
+            const descriptionDiv = document.querySelector('.description-index');
             descriptionDiv.textContent = item.description;
             descriptionDiv.style.backgroundColor = '#f1e187';
             descriptionDiv.style.color = 'black';
@@ -99,7 +99,7 @@ export async function build_index() {
             notebookIcon.style.display = 'none';
 
 
-            const descriptionDiv = document.querySelector('.description');
+            const descriptionDiv = document.querySelector('.description-index');
             descriptionDiv.textContent = '';
             descriptionDiv.style.backgroundColor = '';
             descriptionDiv.style.color = '';

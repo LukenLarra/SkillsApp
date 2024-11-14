@@ -25,7 +25,7 @@ h1 {
   border-radius: 5px;
 }
 
-.description {
+.description{
   text-align: center;
   font-size: 1em;
   margin: 20px 0;
@@ -242,7 +242,7 @@ li {
   border-radius: 5px;
   cursor: pointer;
 }
-.description {
+.description-index {
   position: fixed;
   bottom: 0;
   width: 100%;
