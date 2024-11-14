@@ -1,6 +1,6 @@
 import {setDetails, buffer} from "./skills.js";
 
-export async function build_index() {
+export async function buildIndex() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
     const container = document.querySelector(".svg-container");
@@ -58,58 +58,11 @@ export async function build_index() {
         svg.appendChild(image);
 
         if (item.unverified_evidences > 0) {
-            const canvas = document.createElement('canvas');
-            canvas.classList.add('ue-canvas');
-            canvas.width = 30;
-            canvas.height = 30;
-            canvas.style.position = 'absolute';
-            canvas.style.top = '-8px';
-            canvas.style.left = '0';
-            svgWrapper.appendChild(canvas);
-
-            const ctx = canvas.getContext('2d');
-            const gradient = ctx.createRadialGradient(15, 15, 5, 15, 15, 15);
-            gradient.addColorStop(0, '#e53939');
-            ctx.beginPath();
-            ctx.arc(15, 15, 9, 0, 2 * Math.PI);
-            ctx.fillStyle = gradient;
-            ctx.fill();
-            ctx.closePath();
-
-            ctx.fillStyle = 'white';
-            ctx.font = 'bold 11px Arial';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(item.unverified_evidences, 15, 15);
+            createEvidenceCanvas(item, 'left', svgWrapper);
         }
 
         if (item.verified_evidences > 0) {
-            const canvas = document.createElement('canvas');
-            canvas.classList.add('ve-canvas');
-            canvas.width = 30;
-            canvas.height = 30;
-            canvas.style.position = 'absolute';
-            canvas.style.top = '-8px';
-            canvas.style.right = '0';
-            svgWrapper.appendChild(canvas);
-
-            const ctx = canvas.getContext('2d');
-            const gradient = ctx.createRadialGradient(15, 15, 5, 15, 15, 15);
-            gradient.addColorStop(0, '#0d9f0f');
-            ctx.beginPath();
-            ctx.arc(15, 15, 9, 0, 2 * Math.PI);
-            ctx.fillStyle = gradient;
-            ctx.fill();
-            ctx.closePath();
-
-            ctx.fillStyle = 'white';
-            ctx.font = 'bold 11px Arial';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(item.verified_evidences, 15, 15);
-
-            const hexagon = svgWrapper.querySelector('.hexagon');
-            hexagon.style.fill = '#0d9f0f';
+            createEvidenceCanvas(item, 'right', svgWrapper);
         }
 
         svgWrapper.addEventListener('mouseover', () => {
@@ -155,7 +108,7 @@ export async function build_index() {
     
 }
 
-export async function build_leaderboard() {
+export async function buildLeaderboard() {
     const response = await fetch('http://localhost:3000/api/badges');
     const data = await response.json();
     const table = document.querySelector(".range-table");
@@ -182,4 +135,35 @@ export async function build_leaderboard() {
         tbody.appendChild(tr);
     });
     table.appendChild(tbody);
+}
+
+function createEvidenceCanvas(item, type, svgWrapper) {
+    const canvas = document.createElement('canvas');
+    canvas.classList.add(type === 'left' ? 'ue-canvas' : 've-canvas');
+    canvas.width = 30;
+    canvas.height = 30;
+    canvas.style.position = 'absolute';
+    canvas.style.top = '-8px';
+    canvas.style[type === 'left' ? 'left' : 'right'] = '0';
+    svgWrapper.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    const gradient = ctx.createRadialGradient(15, 15, 5, 15, 15, 15);
+    gradient.addColorStop(0, type === 'left' ? '#e53939' : '#0d9f0f');
+    ctx.beginPath();
+    ctx.arc(15, 15, 9, 0, 2 * Math.PI);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+    ctx.closePath();
+
+    ctx.fillStyle = 'white';
+    ctx.font = 'bold 11px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(type === 'left' ? item.unverified_evidences : item.verified_evidences, 15, 15);
+
+    if (type === 'right') {
+        const hexagon = svgWrapper.querySelector('.hexagon');
+        hexagon.style.fill = '#0d9f0f';
+    }
 }

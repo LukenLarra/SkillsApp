@@ -1,7 +1,7 @@
-import { build_leaderboard } from "./../../scripts/build.js";
+import { buildLeaderboard } from "./../../scripts/build.js";
 
 async function main() {
-    await build_leaderboard();
+    await buildLeaderboard();
 }
 
 window.onload = await main;
