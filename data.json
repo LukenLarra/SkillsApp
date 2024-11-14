@@ -19,7 +19,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "2",
@@ -40,7 +41,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 1
+    "unverified_evidences": 1,
+    "verified_evidences": 0
   },
   {
     "id": "3",
@@ -61,7 +63,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 1
   },
   {
     "id": "4",
@@ -81,7 +84,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "5",
@@ -102,7 +106,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "6",
@@ -124,7 +129,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "7",
@@ -145,7 +151,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "8",
@@ -167,7 +174,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "9",
@@ -189,7 +197,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "10",
@@ -210,7 +219,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "11",
@@ -231,7 +241,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "12",
@@ -254,7 +265,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "13",
@@ -277,7 +289,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "14",
@@ -299,7 +312,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "15",
@@ -322,7 +336,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "16",
@@ -344,7 +359,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "17",
@@ -367,7 +383,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "18",
@@ -390,7 +407,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "19",
@@ -413,7 +431,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "20",
@@ -435,7 +454,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "21",
@@ -458,7 +478,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "22",
@@ -480,7 +501,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "23",
@@ -502,7 +524,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "24",
@@ -524,7 +547,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "25",
@@ -546,7 +570,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "26",
@@ -569,7 +594,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "27",
@@ -592,7 +618,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "28",
@@ -614,7 +641,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "29",
@@ -637,7 +665,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "30",
@@ -659,7 +688,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "31",
@@ -681,7 +711,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "32",
@@ -703,7 +734,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "33",
@@ -725,7 +757,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "34",
@@ -747,7 +780,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "35",
@@ -769,7 +803,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "36",
@@ -791,7 +826,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "37",
@@ -813,7 +849,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "38",
@@ -835,7 +872,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "39",
@@ -857,7 +895,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "40",
@@ -879,7 +918,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "41",
@@ -901,7 +941,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "42",
@@ -923,7 +964,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "43",
@@ -945,7 +987,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "44",
@@ -967,7 +1010,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "45",
@@ -989,7 +1033,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "46",
@@ -1011,7 +1056,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "47",
@@ -1033,7 +1079,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "48",
@@ -1055,7 +1102,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "49",
@@ -1077,7 +1125,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "50",
@@ -1099,7 +1148,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "51",
@@ -1121,7 +1171,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "52",
@@ -1143,7 +1194,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "53",
@@ -1165,7 +1217,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "54",
@@ -1187,7 +1240,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "55",
@@ -1209,7 +1263,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "56",
@@ -1231,7 +1286,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "57",
@@ -1253,7 +1309,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "58",
@@ -1275,7 +1332,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "59",
@@ -1297,7 +1355,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "60",
@@ -1319,7 +1378,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "61",
@@ -1341,7 +1401,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "62",
@@ -1363,7 +1424,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "63",
@@ -1385,7 +1447,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "64",
@@ -1407,7 +1470,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "65",
@@ -1429,7 +1493,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "66",
@@ -1451,7 +1516,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "67",
@@ -1472,7 +1538,8 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   },
   {
     "id": "68",
@@ -1495,6 +1562,7 @@
       "Resource 2",
       "Resource 3"
     ],
-    "evidences": 0
+    "unverified_evidences": 0,
+    "verified_evidences": 0
   }
 ]
