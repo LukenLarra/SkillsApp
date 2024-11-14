@@ -1,4 +1,4 @@
-import { buildIndex} from "./../../scripts/build.js";
+import { buildIndex} from "../../scripts/build_index.js";
 
 async function main() {
    await buildIndex();

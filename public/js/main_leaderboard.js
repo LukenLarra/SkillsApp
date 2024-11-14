@@ -1,4 +1,4 @@
-import { buildLeaderboard } from "./../../scripts/build.js";
+import { buildLeaderboard } from "./../../scripts/build_leaderboard.js";
 
 async function main() {
     await buildLeaderboard();

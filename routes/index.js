@@ -1,5 +1,4 @@
 import express from 'express';
-import {getDetails} from '../scripts/skills.js';
 const router = express.Router();
 
 /* GET home page. */

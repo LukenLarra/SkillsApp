@@ -1,8 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-
     const checkboxes = document.querySelectorAll('.task-checkbox');
-    
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', () => {
             const allChecked = Array.from(checkboxes).every(cb => cb.checked);
