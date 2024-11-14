@@ -26,6 +26,7 @@ export async function obtenerDatos() {
                     points: 1,
                     tasks: ["Task 1", "Task 2", "Task 3"],
                     resources: ["Resource 1", "Resource 2", "Resource 3"],
+                    evidences: 0
                 };
             });
         });

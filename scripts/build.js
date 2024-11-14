@@ -11,8 +11,32 @@ export async function build_index() {
         svgWrapper.setAttribute('data-custom', 'false');
         container.appendChild(svgWrapper);
 
+        if (item.evidences > 0) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 30;
+            canvas.height = 30;
+            canvas.style.position = 'absolute';
+            canvas.style.top = '-8px';
+            svgWrapper.appendChild(canvas);
+
+            const ctx = canvas.getContext('2d');
+            const gradient = ctx.createRadialGradient(15, 15, 5, 15, 15, 15);
+            gradient.addColorStop(0, '#e53939');
+            ctx.beginPath();
+            ctx.arc(15, 15, 9, 0, 2 * Math.PI);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+            ctx.closePath();
+
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 11px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(item.evidences, 15, 15);
+        }
+
         const editIcon = document.createElement('i');
-        editIcon.classList.add('fas', 'fa-pencil-alt', 'edit-icon'); // FontAwesome icon
+        editIcon.classList.add('fas', 'fa-pencil-alt', 'edit-icon');
         editIcon.style.display = 'none';
         svgWrapper.appendChild(editIcon);
 
@@ -20,6 +44,42 @@ export async function build_index() {
         notebookIcon.classList.add('fas', 'fa-book', 'notebook-icon');
         notebookIcon.style.display = 'none';
         svgWrapper.appendChild(notebookIcon);
+
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute('width', '100');
+        svg.setAttribute('height', '100');
+        svg.setAttribute('viewBox', '0 0 100 100');
+        svgWrapper.appendChild(svg);
+
+        const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+        polygon.setAttribute('points', '50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5');
+        polygon.classList.add('hexagon');
+        svg.appendChild(polygon);
+
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute('x', '50%');
+        text.setAttribute('y', '20%');
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('fill', 'black');
+        text.setAttribute('font-size', '10');
+        text.setAttribute('font-weight','bold');
+        text.setAttribute('style', 'dominant-baseline: middle;');
+        item.text.forEach((tspanText) => {
+            const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+            tspan.setAttribute('x', '50%');
+            tspan.setAttribute('dy', '1.2em');
+            tspan.textContent = tspanText;
+            text.appendChild(tspan);
+        });
+        svg.appendChild(text);
+
+        const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+        image.setAttribute('x', '35%');
+        image.setAttribute('y', '60%');
+        image.setAttribute('width', '30');
+        image.setAttribute('height', '30');
+        image.setAttribute('href', item.icon);
+        svg.appendChild(image);
 
         svgWrapper.addEventListener('mouseover', () => {
             svgWrapper.classList.add('expanded');
@@ -47,43 +107,6 @@ export async function build_index() {
 
         });
 
-
-        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute('width', '100');
-        svg.setAttribute('height', '100');
-        svg.setAttribute('viewBox', '0 0 100 100');
-        svgWrapper.appendChild(svg);
-
-        const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-        polygon.setAttribute('points', '50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5');
-        polygon.classList.add('hexagon');
-        svg.appendChild(polygon);
-
-        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        text.setAttribute('x', '50%');
-        text.setAttribute('y', '20%');
-        text.setAttribute('text-anchor', 'middle');
-        text.setAttribute('fill', 'black');
-        text.setAttribute('font-size', '10');
-        text.setAttribute('font-weight','bold');
-        text.setAttribute('style', 'dominant-baseline: middle;');
-        item.text.forEach((tspanText, index) => {
-            const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
-            tspan.setAttribute('x', '50%');
-            tspan.setAttribute('dy', '1.2em');
-            tspan.textContent = tspanText;
-            text.appendChild(tspan);
-        });
-        svg.appendChild(text);
-
-        const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
-        image.setAttribute('x', '35%');
-        image.setAttribute('y', '60%');
-        image.setAttribute('width', '30');
-        image.setAttribute('height', '30');
-        image.setAttribute('href', item.icon);
-        svg.appendChild(image);
-
         notebookIcon.addEventListener('click', async () => {
             await setDetails(svgWrapper);
             const params = new URLSearchParams({
@@ -92,7 +115,7 @@ export async function build_index() {
                 svg: encodeURIComponent(buffer.svg),
                 description: buffer.description,
                 tasks: JSON.stringify(buffer.tasks),
-                resources: JSON.stringify(buffer.resources)
+                resources: JSON.stringify(buffer.resources),
             });
 
             window.location.href = `/skill_details?${params.toString()}`;
