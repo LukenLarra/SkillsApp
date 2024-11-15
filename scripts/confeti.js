@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (allChecked) {
                 triggerConfetti();
                 showEvidenceOption();
+            }else {
+                hideEvidenceOption();
             }
         });
     });
@@ -38,4 +40,9 @@ function showEvidenceOption(){
     section.appendChild(h2);
     section.appendChild(textarea);
     section.appendChild(button);
+}
+
+function hideEvidenceOption(){
+    const section = document.querySelector('.evidence');
+    section.innerHTML = '';
 }
