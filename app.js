@@ -78,6 +78,10 @@ app.get('/api/badges', (req, res) => {
     });
 });
 
+app.get('/skill_details', (req, res) => {
+    res.render('skill_details');
+});
+
 app.listen(3000, function () {
     console.log("El servidor localhost está escuchando desde el puerto 3000");
 });
