@@ -3,7 +3,7 @@ async function createSVGSkills(){
     const data = await response.json();
     const container = document.querySelector(".details-svg");
     const svgId = container.getAttribute("svgId");
-    const item = data.find(item => item.id == svgId);
+    const item = data.find(item => item.id === svgId);
 
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute('width', '100');
@@ -91,3 +91,13 @@ function createEvidenceTable() {
 }
 
 document.addEventListener('DOMContentLoaded', createSVGSkills);
+document.addEventListener('DOMContentLoaded', async () => {
+    const response = await fetch('http://localhost:3000/api/data');
+    const data = await response.json();
+    const container = document.querySelector(".details-svg");
+    const svgId = container.getAttribute("svgId");
+    const item = data.find(item => item.id === svgId);
+    if (item.verified_evidences > 0){
+        createEvidenceTable();
+    }
+});
