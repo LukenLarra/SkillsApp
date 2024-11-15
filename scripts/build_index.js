@@ -92,7 +92,9 @@ export async function buildIndex() {
         });
 
         notebookIcon.addEventListener('click', async () => {
-            await buildSkills(svgWrapper);
+            //await buildSkills(svgWrapper);
+            event.stopPropagation();
+            window.location.href = `/skill/${item.id}`;
         });
     });
     
