@@ -1,132 +1,49 @@
-export let buffer = {
-    title: '',
-    score: '',
-    svg: '',
-    description: '',
-    tasks: [],
-    resources: []
-};
-
-export async function buildSkills(wrapper){
-    const id = wrapper.getAttribute('data-id');
-    const response =  await fetch(`http://localhost:3000/api/data`)
-    const data = await response.json();
-    const element = data.find(item => item.id === id);
-    const skillHeader = document.createElement('section');
-    skillHeader.id = 'skill-header';
-
-    const skillTitle = document.createElement('article');
-    skillTitle.className = 'skill-title';
-    const titleH1 = document.createElement('h1');
-    titleH1.textContent = `Skill: ${element.text.toString()}`;
-    skillTitle.appendChild(titleH1);
-
-    const skillScore = document.createElement('article');
-    skillScore.className = 'skill-score';
-    const scoreH2 = document.createElement('h2');
-    scoreH2.textContent = `Skill Score: ${element.points}`;
-    skillScore.appendChild(scoreH2);
-
-    skillHeader.appendChild(skillTitle);
-    skillHeader.appendChild(skillScore);
-
-    const skillVisualization = document.createElement('section');
-    skillVisualization.id = 'skill-visualization';
-    const detailsSvg = document.createElement('div');
-    detailsSvg.className = 'details-svg';
-    detailsSvg.innerHTML = wrapper.outerHTML;
-    skillVisualization.appendChild(detailsSvg);
-
-    const skillDescription = document.createElement('section');
-    skillDescription.id = 'skill-description';
-    const descriptionH2 = document.createElement('h2');
-    descriptionH2.textContent = 'Description';
-    const descriptionContent = document.createElement('article');
-    descriptionContent.className = 'description-content';
-    const descriptionP = document.createElement('p');
-    descriptionP.className = 'description-skill';
-    descriptionP.textContent = element.description;
-    descriptionContent.appendChild(descriptionP);
-    skillDescription.appendChild(descriptionH2);
-    skillDescription.appendChild(descriptionContent);
-
-    const tasksToComplete = document.createElement('section');
-    tasksToComplete.id = 'tasks-to-complete';
-    const tasksH2 = document.createElement('h2');
-    tasksH2.textContent = 'Task To Complete';
-    const taskList = document.createElement('article');
-    taskList.className = 'task-list';
-    const tasksUl = document.createElement('ul');
-    tasksUl.className = 'tasks';
-    element.tasks.forEach(task => {
-        const taskLi = document.createElement('li');
-        const taskLabel = document.createElement('label');
-        const taskCheckbox = document.createElement('input');
-        taskCheckbox.type = 'checkbox';
-        taskCheckbox.className = 'task-checkbox';
-        taskLabel.appendChild(taskCheckbox);
-        taskLabel.appendChild(document.createTextNode(` ${task}`));
-        taskLi.appendChild(taskLabel);
-        tasksUl.appendChild(taskLi);
-    });
-    taskList.appendChild(tasksUl);
-    tasksToComplete.appendChild(tasksH2);
-    tasksToComplete.appendChild(taskList);
-
-    const resourcesSection = document.createElement('section');
-    resourcesSection.id = 'resources';
-    const resourcesH2 = document.createElement('h2');
-    resourcesH2.textContent = 'Resources';
-    const resourceList = document.createElement('article');
-    resourceList.className = 'resource-list';
-    const resourcesUl = document.createElement('ul');
-    resourcesUl.className = 'resources';
-    element.resources.forEach(resource => {
-        const resourceLi = document.createElement('li');
-        resourceLi.textContent = resource.toString();
-        resourcesUl.appendChild(resourceLi);
-    });
-    resourceList.appendChild(resourcesUl);
-    resourcesSection.appendChild(resourcesH2);
-    resourcesSection.appendChild(resourceList);
-
-    window.location.href = 'http://localhost:3000/skill_details';
-
-    window.addEventListener('load', () => {
-        document.body.appendChild(skillHeader);
-        document.body.appendChild(skillVisualization);
-        document.body.appendChild(skillDescription);
-        document.body.appendChild(tasksToComplete);
-        document.body.appendChild(resourcesSection);
-    });
-}
-
-export function getDetails() {
-    return {
-        title: buffer.title,
-        score: buffer.score,
-        svg: buffer.svg,
-        description: buffer.description,
-        tasks: buffer.tasks,
-        resources: buffer.resources
-    };
-
-}
-
-async function setDetails(element){
+async function createSVGSkills(){
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
-    await Promise.all(data.map(async (item) => {
-        buffer.resources = item.resources;
-        buffer.tasks = item.tasks;
-        buffer.description = item.description;
-        buffer.score = item.points;
-        buffer.title = element.querySelector('text').textContent;
-        buffer.svg = element.outerHTML;
-    }));
+    const container = document.querySelector(".details-svg");
+    const svgId = container.getAttribute("svgId");
+    const item = data.find(item => item.id == svgId);
+
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute('width', '100');
+    svg.setAttribute('height', '100');
+    svg.setAttribute('viewBox', '0 0 100 100');
+    container.appendChild(svg);
+
+    const polygon = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+    polygon.setAttribute('points', '50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5');
+    polygon.classList.add('hexagon');
+    svg.appendChild(polygon);
+
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute('x', '50%');
+    text.setAttribute('y', '20%');
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('fill', 'black');
+    text.setAttribute('font-size', '10');
+    text.setAttribute('font-weight','bold');
+    text.setAttribute('style', 'dominant-baseline: middle;');
+    item.text.forEach((tspanText) => {
+        const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+        tspan.setAttribute('x', '50%');
+        tspan.setAttribute('dy', '1.2em');
+        tspan.textContent = tspanText;
+        text.appendChild(tspan);
+    });
+    svg.appendChild(text);
+
+    const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+    image.setAttribute('x', '35%');
+    image.setAttribute('y', '60%');
+    image.setAttribute('width', '30');
+    image.setAttribute('height', '30');
+    image.setAttribute('href', item.icon);
+    svg.appendChild(image);
 }
 
-export function createEvidenceTable() {
+
+function createEvidenceTable() {
     const section = document.querySelector(".evidence-submission");
 
     const heading = document.createElement('h2');
@@ -171,5 +88,6 @@ export function createEvidenceTable() {
 
     section.appendChild(heading);
     section.appendChild(table);
-
 }
+
+document.addEventListener('DOMContentLoaded', createSVGSkills);

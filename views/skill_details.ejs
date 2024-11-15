@@ -7,10 +7,63 @@
     <title>Detalles de la Competencia</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     <script src="/scripts/confeti.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    <script src="/scripts/build_skills.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<section id="skill-header">
+    <article class="skill-title">
+        <h1>Skill: <%= skill.text %></h1>
+    </article>
+    <article class="skill-score">
+        <h2>Skill Score: <%= skill.points %></h2>
+    </article>
+</section>
 
-    <script type="module" src="/scripts/build_skills.js"></script>
+<section id="skill-visualization">
+    <div class="details-svg" svgId=<%= skill.id%>></div>
+</section>
+
+<section id="skill-description">
+    <h2>Description</h2>
+    <article class="description-content">
+        <p class="description-skill"><%= skill.description %></p>
+    </article>
+</section>
+
+<section id="tasks-to-complete">
+    <h2>Task To Complete</h2>
+    <article class="task-list">
+        <ul class="tasks">
+            <% skill.tasks.forEach(function(task) { %>
+                <li>
+                    <label>
+                        <input type="checkbox" class="task-checkbox">
+                    </label> <%= task %>
+                </li>
+
+            <% }); %>
+        </ul>
+    </article>
+</section>
+
+<section class="evidence">
+
+</section>
+
+<section id="resources">
+    <h2>Resources</h2>
+    <article class="resource-list">
+        <ul class="resources">
+            <% skill.resources.forEach(function(resource) { %>
+                <li><%= resource %></li>
+            <% }); %>
+        </ul>
+    </article>
+</section>
+
+<section class="evidence-submission">
+
+</section>
 </body>
 </html>
