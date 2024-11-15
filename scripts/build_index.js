@@ -1,5 +1,3 @@
-import {buildSkills} from "./build_skills.js";
-
 export async function buildIndex() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
@@ -92,7 +90,8 @@ export async function buildIndex() {
         });
 
         notebookIcon.addEventListener('click', async () => {
-            await buildSkills(svgWrapper);
+            event.stopPropagation();
+            window.location.href = `/skill_details/${item.id}`;
         });
     });
     
