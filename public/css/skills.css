@@ -184,3 +184,57 @@ section h2 {
     margin-bottom: 15px;
     color: #333;
 }
+
+.evidence-submission table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.evidence-submission th, .evidence-submission td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.evidence-submission tbody td {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.evidence-submission tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.evidence-submission tr:hover {
+    background-color: #ddd;
+}
+
+/* Buttons */
+.evidence-submission button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.evidence-submission .approve-button {
+    background-color: green;
+    color: white;
+    margin-right: 5px;
+}
+
+.evidence-submission .reject-button {
+    background-color: red;
+    color: white;
+}
+
+.evidence-submission .approve-button:active {
+    background-color: darkgreen;
+}
+
+.evidence-submission .reject-button:active {
+    background-color: darkred;
+}
+

@@ -72,14 +72,11 @@ function createEvidenceTable() {
 
     const approveButton = document.createElement('button');
     approveButton.textContent = 'Approve';
-    approveButton.style.backgroundColor = 'green';
-    approveButton.style.color = 'white';
-    approveButton.style.marginRight = '5px';
+    approveButton.classList.add('approve-button');
 
     const rejectButton = document.createElement('button');
     rejectButton.textContent = 'Reject';
-    rejectButton.style.backgroundColor = 'red';
-    rejectButton.style.color = 'white';
+    rejectButton.classList.add('reject-button');
 
     actionTd.appendChild(approveButton);
     actionTd.appendChild(rejectButton);
