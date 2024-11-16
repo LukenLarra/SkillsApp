@@ -95,7 +95,6 @@ h1 {
   fill: white;
   stroke: black;
   stroke-width: 1px;
-
 }
 
 @media print {
@@ -183,18 +182,18 @@ footer {
 
 .notebook-icon {
   position: absolute;
-  bottom: 10px; /* Colocado en la parte inferior */
-  right: 10px;   /* Alineado a la derecha */
+  bottom: 10px;
+  right: 10px;
   font-size: 1.2em;
   color: #000;
-  display: none; /* Inicialmente oculto */
+  display: none;
   z-index: 2;
   cursor: pointer;
 }
 
 .svg-wrapper.expanded .edit-icon,
 .svg-wrapper.expanded .notebook-icon {
-    display: block; /* Mostrar iconos al hacer hover */
+    display: block;
 }
 
 ul {
@@ -212,14 +211,6 @@ li {
   position: relative;
 }
 
-.details-svg{
-  display: flex;                /* Usar flexbox */
-  justify-content: center;      /* Centra horizontalmente */
-  align-items: center;          /* Centra verticalmente */
-  width: 100%;                  /* Asegura que el div ocupe todo el ancho disponible */
-  height: 100%;
-}
-
 .evidence-title {
   font-size: 1.5em;
   font-weight: bold;
@@ -230,7 +221,7 @@ li {
   margin: 0 auto;
   display: flex;
   width: 500px;
-  height: 40px;
+  height: 100px;
 }
 
 .evidence-submit {
@@ -241,7 +232,11 @@ li {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .description-index {
   position: fixed;
   bottom: 0;

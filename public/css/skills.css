@@ -1,0 +1,186 @@
+/* Main styles */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    color: #333333;
+    background-color: rgba(211, 211, 211, 0.57);
+}
+
+.wrapper{
+    border-radius: 8px;
+    border: #333333;
+    padding: 40px 100px;
+    background-color: #f0f0f0;
+}
+
+/* Skill Header Section */
+#skill-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.skill-title h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 0 8px;
+}
+
+.skill-score h2 {
+    font-size: 25px;
+    margin: 10px 10px;
+    color: black;
+    font-weight: bold;
+}
+
+/* Skill Visualization Section */
+#skill-visualization {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 20px 0 30px 0;
+}
+
+.details-svg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hexagon {
+    fill: white;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+/* Description Section */
+#skill-description {
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center;
+}
+
+#skill-description h2 {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.description-content {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.description-skill {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Tasks Section */
+#tasks-to-complete {
+    margin-bottom: 30px;
+}
+
+#tasks-to-complete h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.tasks {
+    list-style: none;
+    padding: 0;
+    margin: 0 10px;
+}
+
+.tasks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+.task-checkbox {
+    margin-top: 3px;
+}
+
+.evidence {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+
+.evidence-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.evidence-textarea {
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    height: 100px;
+}
+
+.evidence-submit {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #199117;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Resources Section */
+#resources {
+    margin-bottom: 30px;
+}
+
+#resources h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.resources {
+    list-style: disc inside;
+    padding: 0;
+    margin: 0 15px;
+}
+
+.resources li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.4;
+    list-style-position: inside;
+}
+
+.resources a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.resources a:hover {
+    text-decoration: underline;
+}
+
+/* Section Dividers */
+section {
+    position: relative;
+}
+
+/* General section headers */
+section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}

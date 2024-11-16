@@ -8,15 +8,16 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
     <script src="/scripts/confeti.js"></script>
     <script src="/scripts/build_skills.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/skills.css">
 </head>
 <body>
+<div class="wrapper">
 <section id="skill-header">
     <article class="skill-title">
         <h1>Skill: <%= skill.text %></h1>
     </article>
     <article class="skill-score">
-        <h2>Skill Score: <%= skill.points %></h2>
+        <h2>Skill Score: <%= skill.points %> points</h2>
     </article>
 </section>
 
@@ -56,7 +57,7 @@
     <article class="resource-list">
         <ul class="resources">
             <% skill.resources.forEach(function(resource) { %>
-                <li><%= resource %></li>
+                <li><a href="<%= resource %>" target="_blank"><%= resource %></a></li>
             <% }); %>
         </ul>
     </article>
@@ -65,5 +66,6 @@
 <section class="evidence-submission">
 
 </section>
+</div>
 </body>
 </html>
