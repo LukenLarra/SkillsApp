@@ -71,7 +71,7 @@ export async function build_index() {
 
         svgWrapper.addEventListener('mouseover', () => {
             svgWrapper.classList.add('expanded');
-            editIcon.style.display = role === 'admin' ? 'block' : 'none';
+            editIcon.style.display = role.trim().replace(/['"]/g, '').toLowerCase() === 'admin' ? 'block' : 'none';
             notebookIcon.style.display = 'block';
 
             const descriptionDiv = document.querySelector('.description-index');
@@ -95,7 +95,7 @@ export async function build_index() {
 
         });
 
-        notebookIcon.addEventListener('click', async () => {
+        notebookIcon.addEventListener('click', async (event) => {
             event.stopPropagation();
             window.location.href = `/skill_details/${item.id}`;
         });
