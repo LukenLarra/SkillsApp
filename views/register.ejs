@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-Skill Tree : Registration Page</title>
+    <link rel="stylesheet" href="/css/authentication.css">
+    <script type="module" src="/scripts/register.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Register</h1>
+    <form class="registerForm" action="/users/login" method="get">
+        <div>
+            <label class="registerLabel" for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label class="registerLabel" for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <label class="registerLabel" for="password_conf">Confirm Password:</label>
+            <input type="password" id="password_conf" name="password" required>
+        </div>
+        <button class="registerBtn" type="submit">Register</button>
+    </form>
+</div>
+
+</body>
+</html>

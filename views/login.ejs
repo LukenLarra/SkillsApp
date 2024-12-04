@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web-Skill Tree : Login Page</title>
+    <link rel="stylesheet" href="/css/authentication.css">
+    <script type="module" src="/scripts/login.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Login</h1>
+    <p>Please log in to view that resource</p>
+    <form class="loginForm" action="/" method="get">
+        <div>
+            <label class="loginLabel" for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label class="loginLabel" for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button class="loginBtn" type="submit">Login</button>
+        <div>
+            <p>Don't have an account? <a href="/users/register">Register here</a></p>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

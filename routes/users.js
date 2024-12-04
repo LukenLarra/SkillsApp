@@ -6,8 +6,16 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/leaderboard', function(req, res, next) {
+router.get('/leaderboard', function(req, res) {
   res.render('leaderboard', { title: 'Range Explanations' });
+});
+
+router.get('/login', (req, res) => {
+  res.render('login');
+});
+
+router.get('/register', (req, res) => {
+  res.render('register');
 });
 
 export default router;
