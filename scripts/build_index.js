@@ -1,7 +1,12 @@
-export async function buildIndex() {
+document.addEventListener('DOMContentLoaded', async () => {
+    await build_index();
+});
+
+export async function build_index() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
     const container = document.querySelector(".svg-container");
+    const role = document.querySelector('.role').textContent;
 
     data.forEach(item => {
         const svgWrapper = document.createElement('div');
@@ -37,7 +42,7 @@ export async function buildIndex() {
         text.setAttribute('text-anchor', 'middle');
         text.setAttribute('fill', 'black');
         text.setAttribute('font-size', '10');
-        text.setAttribute('font-weight','bold');
+        text.setAttribute('font-weight', 'bold');
         text.setAttribute('style', 'dominant-baseline: middle;');
         item.text.forEach((tspanText) => {
             const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
@@ -66,7 +71,7 @@ export async function buildIndex() {
 
         svgWrapper.addEventListener('mouseover', () => {
             svgWrapper.classList.add('expanded');
-            editIcon.style.display = 'block';
+            editIcon.style.display = role === 'admin' ? 'block' : 'none';
             notebookIcon.style.display = 'block';
 
             const descriptionDiv = document.querySelector('.description-index');
@@ -95,7 +100,6 @@ export async function buildIndex() {
             window.location.href = `/skill_details/${item.id}`;
         });
     });
-    
 }
 
 function createEvidenceCanvas(item, type, svgWrapper) {

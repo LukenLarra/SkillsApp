@@ -12,7 +12,7 @@ const skills = JSON.parse(fs.readFileSync(skillDataPath, "utf-8"));
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    res.render('index', {title: 'ELECTRONICS'});
+    res.render('index', {title: 'ELECTRONICS', session: req.session});
 });
 
 router.get("/skill_details/:id", function (req, res) {
