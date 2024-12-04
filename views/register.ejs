@@ -25,6 +25,12 @@
             <input type="password" id="password_conf" name="password" required>
         </div>
         <button class="registerBtn" type="submit">Register</button>
+        <div>
+            <p>Already have an account? <a href="/users/login">Login here</a></p>
+        </div>
+        <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+            <p id="error-message" style="color: red;"><%= errorMessage %></p>
+        <% } %>
     </form>
 </div>
 

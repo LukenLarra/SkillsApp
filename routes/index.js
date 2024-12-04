@@ -11,11 +11,11 @@ const skillDataPath = path.join(__dirname, "./../data.json");
 const skills = JSON.parse(fs.readFileSync(skillDataPath, "utf-8"));
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', function (req, res) {
     res.render('index', {title: 'ELECTRONICS'});
 });
 
-router.get("/skill_details/:id", function (req, res, next) {
+router.get("/skill_details/:id", function (req, res) {
     const id = req.params.id;
     const skill = skills.find(skill => skill.id === id);
     if (skill) {

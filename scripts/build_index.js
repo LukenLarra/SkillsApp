@@ -2,6 +2,7 @@ export async function buildIndex() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
     const container = document.querySelector(".svg-container");
+
     data.forEach(item => {
         const svgWrapper = document.createElement('div');
         svgWrapper.classList.add('svg-wrapper');

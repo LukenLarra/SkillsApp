@@ -5,7 +5,7 @@ import logger from 'morgan';
 import {fileURLToPath} from 'url';
 import fs from 'fs';
 import createError from 'http-errors';
-
+import session from 'express-session';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 
@@ -25,8 +25,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(path.join(__dirname, 'scripts')));
 
+app.use(session({
+    secret: 'my-simple-secret',
+    resave: false,
+    saveUninitialized: true
+}));
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+
 
 app.post('/api/data', (req, res) => {
     const data = req.body;
