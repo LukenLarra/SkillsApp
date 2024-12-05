@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Skill</title>
+    <link rel="stylesheet" href="/css/skills.css">
+    <script src="/scripts/build_skills.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <form action="/skills/<%= skillTree %>/edit/<%= skill.id %>" method="POST">
+        <section id="skill-header">
+            <article class="skill-title">
+                <label for="skill-name">Skill Name:</label>
+                <textarea id="skill-name" name="text" spellcheck="false" required><%= skill.text %></textarea>
+            </article>
+            <article class="skill-score">
+                <label for="skill-score">Skill Score:</label>
+                <input type="number" min="1" id="skill-score" name="points" value="<%= skill.points %>" required>
+            </article>
+        </section>
+
+        <!-- Visualization Section -->
+        <section id="skill-visualization">
+            <div class="details-svg" svgId=<%= skill.id %>></div>
+        </section>
+
+        <!-- Description Section -->
+        <section id="skill-description">
+            <h2>Description</h2>
+            <label for="skill-description"></label>
+            <textarea id="skill-description" name="description" spellcheck="false" required><%= skill.description %></textarea>
+        </section>
+
+        <!-- Tasks Section -->
+        <section id="tasks-to-complete">
+            <h2>Tasks to Complete</h2>
+            <label for="task-list"></label>
+            <textarea id="task-list" name="tasks" spellcheck="false" required>
+                <%= skill.tasks.join('\n') %>
+            </textarea>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources">
+            <h2>Resources</h2>
+            <label for="resource-list"></label>
+            <textarea id="resource-list" name="resources" spellcheck="false" required>
+                <%= skill.resources.join('\n') %>
+            </textarea>
+        </section>
+
+        <!-- Submit Button -->
+        <button id="save" type="submit">Save</button>
+        <button id="cancel" type="submit">Cancel</button>
+        <button id="delete" type="submit">Delete Skill</button>
+    </form>
+</div>
+</body>
+</html>

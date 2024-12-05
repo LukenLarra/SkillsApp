@@ -1,7 +1,13 @@
-export async function buildIndex() {
+document.addEventListener('DOMContentLoaded', async () => {
+    await build_index();
+});
+
+export async function build_index() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
     const container = document.querySelector(".svg-container");
+    const role = document.querySelector('.role').textContent;
+
     data.forEach(item => {
         const svgWrapper = document.createElement('div');
         svgWrapper.classList.add('svg-wrapper');
@@ -36,15 +42,18 @@ export async function buildIndex() {
         text.setAttribute('text-anchor', 'middle');
         text.setAttribute('fill', 'black');
         text.setAttribute('font-size', '10');
-        text.setAttribute('font-weight','bold');
+        text.setAttribute('font-weight', 'bold');
         text.setAttribute('style', 'dominant-baseline: middle;');
-        item.text.forEach((tspanText) => {
+
+        const textArray = Array.isArray(item.text) ? item.text : item.text.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+        textArray.forEach((tspanText) => {
             const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
             tspan.setAttribute('x', '50%');
             tspan.setAttribute('dy', '1.2em');
             tspan.textContent = tspanText;
             text.appendChild(tspan);
         });
+
         svg.appendChild(text);
 
         const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
@@ -65,7 +74,7 @@ export async function buildIndex() {
 
         svgWrapper.addEventListener('mouseover', () => {
             svgWrapper.classList.add('expanded');
-            editIcon.style.display = 'block';
+            editIcon.style.display = role.trim().replace(/['"]/g, '').toLowerCase() === 'admin' ? 'block' : 'none';
             notebookIcon.style.display = 'block';
 
             const descriptionDiv = document.querySelector('.description-index');
@@ -89,12 +98,17 @@ export async function buildIndex() {
 
         });
 
-        notebookIcon.addEventListener('click', async () => {
+        notebookIcon.addEventListener('click', async (event) => {
             event.stopPropagation();
             window.location.href = `/skill_details/${item.id}`;
         });
+
+        editIcon.addEventListener('click', async (event) => {
+            event.stopPropagation();
+            const skillTree = 'electronics';
+            window.location.href = `/skills/${skillTree}/edit/${item.id}`;
+        });
     });
-    
 }
 
 function createEvidenceCanvas(item, type, svgWrapper) {

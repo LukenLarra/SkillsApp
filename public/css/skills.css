@@ -15,6 +15,109 @@ body {
     background-color: #f0f0f0;
 }
 
+textarea {
+    width: 100%;
+    min-height: 50px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+textarea:focus {
+    border-color: #5ba2f1;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+    background-color: #ffffff;
+}
+
+#skill-score {
+    width: 100%; /* Ajusta al ancho del contenedor */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#skill-score:focus {
+    border-color: #5ba2f1;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+    background-color: #ffffff;
+}
+
+form h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333333;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: #555555;
+}
+
+form #save {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #158505;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+form #save:hover {
+    background-color: #1da208;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form #cancel {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #5b5d5a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+form #cancel:hover {
+    background-color: #6f736f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form #delete {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #d70808;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+form #delete:hover {
+    background-color: #f61c1c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 /* Skill Header Section */
 #skill-header {
     display: flex;

@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-Skill Tree : Electronics</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script type="module" src="js/main_page.js"></script>
+    <script type="module" src="../scripts/build_index.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
 <h1>ELECTRONICS</h1>
-<div class="svg-container">
+<div class="svg-container"></div>
 
-</div>
 <div class="description-index"></div>
 
+<div class="logout-container">
+    <form action="/users/logout" method="POST">
+        <button type="submit" class="logout-button">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    </form>
+</div>
+<p class="role" style="display: none"> '<%= session.role %>'</p>
 </body>
 </html>

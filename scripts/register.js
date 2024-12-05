@@ -7,10 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
         }
     });
-
-    //Validar tambien que el nombre de usuario debe de ser unico
-
-
 });
 
 function checkPassword() {
