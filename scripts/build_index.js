@@ -44,13 +44,16 @@ export async function build_index() {
         text.setAttribute('font-size', '10');
         text.setAttribute('font-weight', 'bold');
         text.setAttribute('style', 'dominant-baseline: middle;');
-        item.text.forEach((tspanText) => {
+
+        const textArray = Array.isArray(item.text) ? item.text : item.text.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+        textArray.forEach((tspanText) => {
             const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
             tspan.setAttribute('x', '50%');
             tspan.setAttribute('dy', '1.2em');
             tspan.textContent = tspanText;
             text.appendChild(tspan);
         });
+
         svg.appendChild(text);
 
         const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
@@ -98,6 +101,12 @@ export async function build_index() {
         notebookIcon.addEventListener('click', async (event) => {
             event.stopPropagation();
             window.location.href = `/skill_details/${item.id}`;
+        });
+
+        editIcon.addEventListener('click', async (event) => {
+            event.stopPropagation();
+            const skillTree = 'electronics';
+            window.location.href = `/skills/${skillTree}/edit/${item.id}`;
         });
     });
 }

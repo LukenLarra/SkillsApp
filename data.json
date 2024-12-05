@@ -3,12 +3,12 @@
     "id": "1",
     "text": [
       "Light up an",
-      "LED for the first ",
+      "LED for the first",
       "time"
     ],
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon1.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "points": "1",
     "tasks": [
       "Task 1",
       "Task 2",
@@ -26,7 +26,8 @@
     "id": "2",
     "text": [
       "Learn to",
-      "use wire strippers "
+      "use wire",
+      "strippers "
     ],
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon2.svg",
     "description": "Descripción de la habilidad",
@@ -41,7 +42,7 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 1,
+    "unverified_evidences": 0,
     "verified_evidences": 0
   },
   {
@@ -64,7 +65,7 @@
       "Resource 3"
     ],
     "unverified_evidences": 0,
-    "verified_evidences": 1
+    "verified_evidences": 0
   },
   {
     "id": "4",
