@@ -1,5 +1,15 @@
 document.addEventListener('DOMContentLoaded', async () => {
     await build_index();
+
+    const logoutButton = document.querySelector('.logout-button');
+    const newSkillButton = document.querySelector('.newSkill-button');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', logout);
+    }
+
+    if (newSkillButton) {
+        newSkillButton.addEventListener('click', addNewSkill);
+    }
 });
 
 export async function build_index() {
@@ -140,4 +150,29 @@ function createEvidenceCanvas(item, type, svgWrapper) {
         const hexagon = svgWrapper.querySelector('.hexagon');
         hexagon.style.fill = '#0d9f0f';
     }
+}
+
+async function logout() {
+    try {
+        const response = await fetch('/users/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        });
+
+        if (response.ok) {
+            window.location.href = '/users/login';
+        } else {
+            console.error('Logout failed', response.status);
+        }
+    } catch (error) {
+        console.error('Error during logout:', error);
+    }
+}
+
+async function addNewSkill() {
+    const skillTree = 'electronics';
+    window.location.href = `/skills/${skillTree}/add`;
 }

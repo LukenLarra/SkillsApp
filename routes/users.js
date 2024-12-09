@@ -109,16 +109,4 @@ router.post('/logout', (req, res) => {
     });
 });
 
-router.get('/logout', (req, res) => {
-    req.session.destroy(err => {
-        if (err) {
-            console.log(err);
-            return res.status(500).send('Error logging out');
-        }
-        res.redirect('/users/login'); // Redirigir a la página de login o donde quieras
-    });
-});
-
-
-
 export default router;

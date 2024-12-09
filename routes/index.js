@@ -72,4 +72,10 @@ router.post('/skills/:skillTree/edit/:id', async (req, res) => {
         res.status(500).send('Error processing request');
     }
 });
+
+router.get('/skills/:skillTree/add', async (req, res) => {
+    res.send('Not implemented');
+
+
+});
 export default router;
