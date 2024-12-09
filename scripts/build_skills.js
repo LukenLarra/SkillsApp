@@ -87,7 +87,42 @@ function createEvidenceTable() {
     section.appendChild(table);
 }
 
+function changeIcon(){
+    document.getElementById('icon-upload').addEventListener('change', function () {
+        document.getElementById('file-name').textContent = this.files[0]?.name || 'No file selected';
+    });
+}
+
+function confirmDelete(){
+    const deleteButton = document.getElementById('delete');
+    const modal = document.getElementById('confirmation-modal');
+    const confirmDelete = document.getElementById('confirm-delete');
+    const cancelDelete = document.getElementById('cancel-delete');
+
+    deleteButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        modal.classList.remove('hidden');
+    });
+
+    confirmDelete.addEventListener('click', () => {
+        const form = deleteButton.closest('form');
+        const inputAction = document.createElement('input');
+        inputAction.type = 'hidden';
+        inputAction.name = 'action';
+        inputAction.value = 'delete';
+        form.appendChild(inputAction);
+        form.submit();
+    });
+
+    cancelDelete.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+}
+
 document.addEventListener('DOMContentLoaded', createSVGSkills);
+document.addEventListener('DOMContentLoaded', confirmDelete);
+document.addEventListener('DOMContentLoaded', changeIcon);
+
 document.addEventListener('DOMContentLoaded', async () => {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();

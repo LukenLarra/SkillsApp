@@ -28,41 +28,45 @@ router.get("/skill_details/:id", function (req, res) {
 
 router.get('/skills/:skillTree/edit/:id', async (req, res) => {
     const {skillTree, id} = req.params;
-    // Supongamos que tienes una función para obtener detalles de una habilidad
     const skill = skills.find(skill => skill.id === id);
     if (!skill) {
         return res.status(404).send('Skill not found');
     }
 
-    res.render('edit_skill', {skill, skillTree}); // Renderiza la página de edición
+    res.render('edit_skill', {skill, skillTree});
 });
 
 router.post('/skills/:skillTree/edit/:id', async (req, res) => {
     const { skillTree, id } = req.params;
-    const { text, points, description, tasks, resources } = req.body;
+    const { action, text, points, description, tasks, resources } = req.body;
 
     try {
         const data = await fs.promises.readFile(skillDataPath, 'utf8');
         let skills = JSON.parse(data);
 
-        // Buscar el elemento con el mismo id
         const skillIndex = skills.findIndex(skill => skill.id === id);
         if (skillIndex === -1) {
             return res.status(404).send('Skill not found');
         }
 
-        // Actualizar los campos del elemento
-        skills[skillIndex].text = text.split(',').map(t => t.trim()).filter(t => t.length > 0);
-        skills[skillIndex].points = points;
-        skills[skillIndex].description = description;
-        skills[skillIndex].tasks = tasks.split('\n').map(t => t.trim()).filter(t => t.length > 0);
-        skills[skillIndex].resources = resources.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+        if (action === 'save') {
+            skills[skillIndex].text = text.split(',').map(t => t.trim()).filter(t => t.length > 0);
+            skills[skillIndex].points = points;
+            skills[skillIndex].description = description;
+            skills[skillIndex].tasks = tasks.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+            skills[skillIndex].resources = resources.split('\n').map(t => t.trim()).filter(t => t.length > 0);
 
-        // Guardar los cambios en el archivo data.json
-        await fs.promises.writeFile(skillDataPath, JSON.stringify(skills, null, 2));
-
-        // Redirigir solo después de guardar
-        res.redirect(`/`);
+            await fs.promises.writeFile(skillDataPath, JSON.stringify(skills, null, 2));
+            res.redirect(`/`);
+        }else if (action === 'cancel') {
+            res.redirect(`/`);
+        } else if (action === 'delete') {
+            skills.splice(skillIndex, 1);
+            await fs.promises.writeFile(skillDataPath, JSON.stringify(skills, null, 2));
+            res.redirect(`/`);
+        } else {
+            res.status(400).send('Invalid action');
+        }
     } catch (err) {
         console.error(err);
         res.status(500).send('Error processing request');

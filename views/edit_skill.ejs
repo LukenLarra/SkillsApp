@@ -10,6 +10,14 @@
 </head>
 <body>
 <div class="wrapper">
+    <div id="confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+            <p>Are you sure you want to delete this skill?</p>
+            <button id="confirm-delete" class="btn confirm">Yes, Delete</button>
+            <button id="cancel-delete" class="btn cancel">Cancel</button>
+        </div>
+    </div>
+
     <form action="/skills/<%= skillTree %>/edit/<%= skill.id %>" method="POST">
         <section id="skill-header">
             <article class="skill-title">
@@ -52,10 +60,18 @@
             </textarea>
         </section>
 
+        <section id="upload">
+            <h2>Upload Icon (30x30 png):</h2>
+            <label for="icon-upload">Choose a File</label>
+            <input type="file" name="icon" id="icon-upload" accept="image/png">
+            <p class="file-name" id="file-name">No file selected</p>
+        </section>
+
         <!-- Submit Button -->
-        <button id="save" type="submit">Save</button>
-        <button id="cancel" type="submit">Cancel</button>
-        <button id="delete" type="submit">Delete Skill</button>
+        <button id="save" type="submit" name="action" value="save">Save</button>
+        <button id="cancel" type="submit" name="action" value="cancel">Cancel</button>
+        <button id="delete" type="button" class="btn delete" name="action" value="delete">Delete Skill</button>
+
     </form>
 </div>
 </body>
