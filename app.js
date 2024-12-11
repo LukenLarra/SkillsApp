@@ -9,10 +9,13 @@ import session from 'express-session';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 
+import connectDB from './config/database.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 let app = express();
+
+connectDB();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

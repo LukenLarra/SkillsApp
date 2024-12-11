@@ -1,14 +1,13 @@
 import puppeteer from 'puppeteer';
-import {upload} from './upload.js';
-
-const data = [];
+import Skill from '../models/skill.model.js';
+import mongoose from "mongoose";
 
 export async function obtenerDatos() {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
     try {
-        await page.goto("https://tinkererway.dev/web_skill_trees/electronics_skill_tree", {waitUntil: 'networkidle0'});
+        await page.goto("https://tinkererway.dev/web_skill_trees/electronics_skill_tree", { waitUntil: 'networkidle0' });
 
         const elements = await page.evaluate(() => {
             const wrappers = document.querySelectorAll('.svg-wrapper');
@@ -19,24 +18,24 @@ export async function obtenerDatos() {
                 const id = wrapper.getAttribute("data-id");
 
                 return {
-                    id,
-                    text: tspans,
+                    id: parseInt(id),
+                    text: tspans.join(", "),
                     icon: "https://tinkererway.dev/" + svgImage,
                     description: "Descripción de la habilidad",
-                    points: 1,
+                    score: 1,
                     tasks: ["Task 1", "Task 2", "Task 3"],
                     resources: ["Resource 1", "Resource 2", "Resource 3"],
-                    unverified_evidences: 0,
-                    verified_evidences: 0
+                    set: 'electronics'
                 };
             });
         });
 
-        data.push(...elements);
+        elements.forEach(async element => {
+            const skill = new Skill(element);
+            await skill.save();
+        })
 
-        await upload(data, "api/data");
-
-        console.log("Datos:", data);
+        console.log("Datos guardados en la base de datos: ", elements);
 
     } catch (error) {
         console.error("Error al obtener los datos:", error);
