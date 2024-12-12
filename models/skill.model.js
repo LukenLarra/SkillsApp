@@ -34,7 +34,7 @@ const skillSchema = new mongoose.Schema({
         type: Number,
         default: 1
     }
-});
+},{collection: 'Skill'});
 
 // Middlewares
 skillSchema.pre('save', function(next) {

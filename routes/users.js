@@ -3,6 +3,7 @@ import path from "path";
 import {fileURLToPath} from "url";
 import fs from 'fs';
 import checkPassword from "../scripts/register.js";
+import User from '../models/user.model.js';
 
 let router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -29,82 +30,71 @@ router.get('/register', (req, res) => {
     res.render('register', {errorMessage});
 });
 
-router.post('/register', (req, res) => {
-    let passwords = req.body.password;
-    const username = req.body.username;
-    const password = passwords[0];
-    const passwordConf = passwords[1];
+router.post('/register', async (req, res) => {
+    try {
+        let passwordArray = req.body.password;
+        const username = req.body.username;
+        const password = passwordArray[0];
+        const password_conf = passwordArray[1];
 
-    if (!checkPassword(password, passwordConf)){
-        req.session.errorMessage = 'Las contraseñas no coinciden o no cumplen con los requisitos mínimos';
-        return res.redirect('/users/register');
-    }
+        console.log('Registering user:', username, password, password_conf);
 
-    const filePath = path.join(__dirname, '../users.json');
-
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
-            return res.status(500).send('Error reading users file');
+        if (!checkPassword(password, password_conf)) {
+            req.session.errorMessage = 'Las contraseñas no coinciden o no cumplen con los requisitos mínimos';
+            return res.redirect('/users/register');
         }
 
-        let users = [];
-        if (data) {
-            users = JSON.parse(data);
-        }
-
-        const userExists = users.some(user => user.username === username);
-        if (userExists) {
+        const existingUser = await User.findOne({username});
+        if (existingUser) {
             req.session.errorMessage = 'El nombre de usuario ya está en uso. Por favor, elije otro.';
             return res.redirect('/users/register');
         }
 
-        const role = users.length === 0 ? 'admin' : 'standard';
-        const newUser = {username, password, role};
+        const count = await User.countDocuments().exec();
+        console.log('Number of users:', count);
+        const isAdmin = count === 0;
 
-        users.push(newUser);
-
-        fs.writeFile(filePath, JSON.stringify(users, null, 2), (err) => {
-            if (err) {
-                console.error(err);
-                return res.status(500).send('Error writing to users file');
-            }
-            res.redirect('/users/login');
+        const newUser = new User({
+            username,
+            password,
+            admin: isAdmin
         });
-    });
+
+        await newUser.save();
+
+        // Redirigir al login
+        res.redirect('/users/login');
+    } catch (error) {
+        console.error('Error registering user:', error);
+        res.status(500).send('Error registering user');
+    }
 });
 
-router.post('/login', (req, res) => {
-    const {username, password} = req.body;
-    const filePath = path.join(__dirname, '../users.json');
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
 
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send('Error reading users file');
-        }
-
-        let users = [];
-        if (data) {
-            users = JSON.parse(data);
-        }
-
-        const user = users.find(user => user.username === username && user.password === password);
+    try {
+        const user = await User.findOne({ username });
         if (!user) {
-            if (!req.session) {
-                console.error('Session is not initialized!');
-                return res.status(500).send('Session error');
-            }
+            req.session.errorMessage = 'El nombre de usuario o la contraseña son incorrectos';
+            return res.redirect('/users/login');
+        }
 
+        const isMatch = await user.comparePassword(password);
+
+        if (!isMatch) {
             req.session.errorMessage = 'El nombre de usuario o la contraseña son incorrectos';
             return res.redirect('/users/login');
         }
 
         req.session.username = user.username;
-        req.session.role = user.role;
+        req.session.role = user.admin ? 'admin' : 'standard';
 
         res.redirect('/');
-    });
+    } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).send('Error del servidor');
+    }
 });
 
 router.post('/logout', (req, res) => {

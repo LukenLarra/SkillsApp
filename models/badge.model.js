@@ -23,7 +23,7 @@ const badgeSchema = new mongoose.Schema({
         required: true
     }
 
-});
+},{collection: 'Badge'});
 
 // Middlewares
 badgeSchema.pre('save', function(next) {

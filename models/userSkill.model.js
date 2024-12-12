@@ -43,6 +43,6 @@ const userSkillSchema = new mongoose.Schema({
             }
         }
     ]
-});
+}, {collection: 'UserSkill'});
 
 export default mongoose.model('UserSkill', userSkillSchema);

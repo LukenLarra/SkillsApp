@@ -24,7 +24,8 @@ const userSchema = new mongoose.Schema({
         ref: 'Skill',
         default: []
     }
-});
+}, {collection: 'User'});
+
 // Middlewares
 userSchema.pre('save', async function (next) {
     if (this.isModified('password')) { // Solo encripta si la contraseña se ha modificado
