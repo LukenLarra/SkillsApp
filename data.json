@@ -1,14 +1,10 @@
 [
   {
-    "id": "1",
-    "text": [
-      "Light up an",
-      "LED for the first",
-      "time"
-    ],
+    "id": 1,
+    "text": "Light up an LED for the first  time",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon1.svg",
     "description": "Descripción de la habilidad",
-    "points": "1",
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -19,19 +15,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "2",
-    "text": [
-      "Learn to",
-      "use wire",
-      "strippers "
-    ],
+    "id": 2,
+    "text": "Learn to use wire strippers ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon2.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -42,18 +33,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "3",
-    "text": [
-      "Complete",
-      "an electronics kit  "
-    ],
+    "id": 3,
+    "text": "Complete an electronics kit  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon3.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -64,17 +51,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "4",
-    "text": [
-      "Learn to Solder"
-    ],
+    "id": 4,
+    "text": "Learn to Solder",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon4.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -85,18 +69,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "5",
-    "text": [
-      "Learn to use",
-      "a breadboard"
-    ],
+    "id": 5,
+    "text": "Learn to use a breadboard",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon5.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -107,19 +87,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "6",
-    "text": [
-      "Get a circuit",
-      "wrong and try",
-      "again"
-    ],
+    "id": 6,
+    "text": "Get a circuit wrong and try again",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon6.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -130,18 +105,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "7",
-    "text": [
-      "Learn Ohm’s",
-      "Law"
-    ],
+    "id": 7,
+    "text": "Learn Ohm’s Law",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon7.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -152,19 +123,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "8",
-    "text": [
-      "Fix something",
-      "something",
-      "that’s broken"
-    ],
+    "id": 8,
+    "text": "Fix something something that’s broken",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon8.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -175,19 +141,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "9",
-    "text": [
-      "Measure ",
-      "voltage with ",
-      "a multimeter"
-    ],
+    "id": 9,
+    "text": "Measure  voltage with  a multimeter",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -198,18 +159,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "10",
-    "text": [
-      "Learn to",
-      "read a schematic"
-    ],
+    "id": 10,
+    "text": "Learn to read a schematic",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -220,18 +177,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "11",
-    "text": [
-      "Learn to read",
-      "a datasheet"
-    ],
+    "id": 11,
+    "text": "Learn to read a datasheet",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon11.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -242,20 +195,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "12",
-    "text": [
-      "Learn to",
-      "control the ",
-      "brightness of",
-      " an LED"
-    ],
+    "id": 12,
+    "text": "Learn to control the  brightness of  an LED",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon12.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -266,20 +213,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "13",
-    "text": [
-      "Learn to ",
-      "desolder a   ",
-      "through hole",
-      "component"
-    ],
+    "id": 13,
+    "text": "Learn to  desolder a    through hole component",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon4.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -290,19 +231,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "14",
-    "text": [
-      "Make  ",
-      "something that ",
-      "makes noise "
-    ],
+    "id": 14,
+    "text": "Make   something that  makes noise ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon14.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -313,20 +249,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "15",
-    "text": [
-      "Turn a  ",
-      "breadboard ",
-      "circuit into a  ",
-      "schematic"
-    ],
+    "id": 15,
+    "text": "Turn a   breadboard  circuit into a   schematic",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -337,19 +267,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "16",
-    "text": [
-      "Measure ",
-      "current with a  ",
-      "multimeter  "
-    ],
+    "id": 16,
+    "text": "Measure  current with a   multimeter  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -360,20 +285,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "17",
-    "text": [
-      "Make a voltage ",
-      "divider to lower  ",
-      "the voltage  ",
-      "for a project  "
-    ],
+    "id": 17,
+    "text": "Make a voltage  divider to lower   the voltage   for a project  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon17.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -384,20 +303,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "18",
-    "text": [
-      "Turn ",
-      "something  ",
-      "on using  ",
-      "a sensor  "
-    ],
+    "id": 18,
+    "text": "Turn  something   on using   a sensor  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon18.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -408,20 +321,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "19",
-    "text": [
-      "Use a diode ",
-      "protect your  ",
-      "circuit from  ",
-      "reverse voltages  "
-    ],
+    "id": 19,
+    "text": "Use a diode  protect your   circuit from   reverse voltages  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon19.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -432,19 +339,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "20",
-    "text": [
-      "Make an ",
-      "oscillator that",
-      "makes noise"
-    ],
+    "id": 20,
+    "text": "Make an  oscillator that makes noise",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon14.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -455,20 +357,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "21",
-    "text": [
-      "Use a relay ",
-      "to switch",
-      "something on at",
-      "a higher voltage"
-    ],
+    "id": 21,
+    "text": "Use a relay  to switch something on at a higher voltage",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon21.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -479,19 +375,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "22",
-    "text": [
-      "Make a ",
-      " capacitor rocket",
-      " (too much voltage)"
-    ],
+    "id": 22,
+    "text": "Make a   capacitor rocket  (too much voltage)",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon22.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -502,19 +393,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "23",
-    "text": [
-      "Learn to ",
-      " solder surfcace",
-      " mount parts"
-    ],
+    "id": 23,
+    "text": "Learn to   solder surfcace  mount parts",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon23.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -525,19 +411,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "24",
-    "text": [
-      "Use a ",
-      "  555 timer",
-      " in a circuit"
-    ],
+    "id": 24,
+    "text": "Use a    555 timer  in a circuit",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon24.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -548,19 +429,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "25",
-    "text": [
-      "Make a sound ",
-      " louder with an",
-      "amplifier"
-    ],
+    "id": 25,
+    "text": "Make a sound   louder with an amplifier",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon14.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -571,20 +447,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "26",
-    "text": [
-      "Use  ",
-      "addressable ",
-      " RGB LEDs in a ",
-      "project"
-    ],
+    "id": 26,
+    "text": "Use   addressable   RGB LEDs in a  project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon12.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -595,20 +465,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "27",
-    "text": [
-      "Make a  ",
-      "project ",
-      " with a  ",
-      "Raspberry Pi"
-    ],
+    "id": 27,
+    "text": "Make a   project   with a   Raspberry Pi",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon27.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -619,19 +483,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "28",
-    "text": [
-      "Let the ",
-      "smoke out ",
-      " accidentally  "
-    ],
+    "id": 28,
+    "text": "Let the  smoke out   accidentally  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon28.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -642,20 +501,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "29",
-    "text": [
-      "Use fritzing ",
-      "or TinkerCAD ",
-      " to create a  ",
-      " circuit diagram  "
-    ],
+    "id": 29,
+    "text": "Use fritzing  or TinkerCAD   to create a    circuit diagram  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon29.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -666,19 +519,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "30",
-    "text": [
-      "Make ",
-      "something ",
-      " with Arduino  "
-    ],
+    "id": 30,
+    "text": "Make  something   with Arduino  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon30.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -689,19 +537,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "31",
-    "text": [
-      "Let the smoke ",
-      "out of an Arduino ",
-      " accidentally  "
-    ],
+    "id": 31,
+    "text": "Let the smoke  out of an Arduino   accidentally  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon31.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -712,19 +555,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "32",
-    "text": [
-      "Measure ",
-      "frequency with a ",
-      " multimeter  "
-    ],
+    "id": 32,
+    "text": "Measure  frequency with a   multimeter  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -735,19 +573,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "33",
-    "text": [
-      "Use an ",
-      "Op-Amp  in",
-      "  a circuit  "
-    ],
+    "id": 33,
+    "text": "Use an  Op-Amp  in   a circuit  ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon33.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -758,19 +591,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "34",
-    "text": [
-      "Use a crowbar",
-      "circuit to protect",
-      " against over voltage "
-    ],
+    "id": 34,
+    "text": "Use a crowbar circuit to protect  against over voltage ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon17.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -781,19 +609,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "35",
-    "text": [
-      "Use a surge",
-      "diode to protect",
-      " a circuit "
-    ],
+    "id": 35,
+    "text": "Use a surge diode to protect  a circuit ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon19.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -804,19 +627,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "36",
-    "text": [
-      "Make",
-      "something",
-      " for a friend "
-    ],
+    "id": 36,
+    "text": "Make something  for a friend ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon36.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -827,19 +645,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "37",
-    "text": [
-      "Make a motor",
-      "controller with",
-      " a H Bridge "
-    ],
+    "id": 37,
+    "text": "Make a motor controller with  a H Bridge ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon37.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -850,19 +663,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "38",
-    "text": [
-      "Make a",
-      "counter with",
-      " logic gates "
-    ],
+    "id": 38,
+    "text": "Make a counter with  logic gates ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon38.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -873,19 +681,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "39",
-    "text": [
-      "Apply solder",
-      "paste to a PCB",
-      " with a stencil"
-    ],
+    "id": 39,
+    "text": "Apply solder paste to a PCB  with a stencil",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon39.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -896,19 +699,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "40",
-    "text": [
-      "Teach a",
-      "friend an",
-      " electronics skill "
-    ],
+    "id": 40,
+    "text": "Teach a friend an  electronics skill ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon40.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -919,19 +717,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "41",
-    "text": [
-      "Make something",
-      "with a 7",
-      " segment display "
-    ],
+    "id": 41,
+    "text": "Make something with a 7  segment display ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon41.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -942,19 +735,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "42",
-    "text": [
-      "Measure",
-      "voltage with an",
-      " oscilloscope "
-    ],
+    "id": 42,
+    "text": "Measure voltage with an  oscilloscope ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon42.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -965,19 +753,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "43",
-    "text": [
-      "Measure",
-      "capacitor equivalent",
-      " series resistance "
-    ],
+    "id": 43,
+    "text": "Measure capacitor equivalent  series resistance ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon43.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -988,19 +771,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "44",
-    "text": [
-      "Make an",
-      "Internet of Things",
-      "  (IoT) project "
-    ],
+    "id": 44,
+    "text": "Make an Internet of Things   (IoT) project ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon44.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1011,19 +789,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "45",
-    "text": [
-      "Make ",
-      "something with",
-      " solar panels "
-    ],
+    "id": 45,
+    "text": "Make  something with  solar panels ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon45.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1034,19 +807,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "46",
-    "text": [
-      "Look at an ",
-      " audio input",
-      "on an oscilloscope"
-    ],
+    "id": 46,
+    "text": "Look at an   audio input on an oscilloscope",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon46.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1057,19 +825,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "47",
-    "text": [
-      "Make a ",
-      " regulated",
-      "power supply"
-    ],
+    "id": 47,
+    "text": "Make a   regulated power supply",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon47.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1080,19 +843,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "48",
-    "text": [
-      "Use a MOSFET ",
-      " instead of a relay",
-      "in a project"
-    ],
+    "id": 48,
+    "text": "Use a MOSFET   instead of a relay in a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon48.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1103,19 +861,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "49",
-    "text": [
-      "Make your ",
-      " own",
-      "USB cable"
-    ],
+    "id": 49,
+    "text": "Make your   own USB cable",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon49.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1126,19 +879,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "50",
-    "text": [
-      "Use an LED ",
-      " matrix in",
-      "a project"
-    ],
+    "id": 50,
+    "text": "Use an LED   matrix in a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon50.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1149,19 +897,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "51",
-    "text": [
-      "Filter ",
-      "  unwanted noise",
-      "from a signal"
-    ],
+    "id": 51,
+    "text": "Filter    unwanted noise from a signal",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon46.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1172,19 +915,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "52",
-    "text": [
-      "Use a freqency ",
-      "  analyser",
-      "for a project"
-    ],
+    "id": 52,
+    "text": "Use a freqency    analyser for a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1195,19 +933,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "53",
-    "text": [
-      "Order a ",
-      "PCB with",
-      "your design"
-    ],
+    "id": 53,
+    "text": "Order a  PCB with your design",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon47.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1218,19 +951,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "54",
-    "text": [
-      "Repair a ",
-      "broken trace",
-      "on a PCB"
-    ],
+    "id": 54,
+    "text": "Repair a  broken trace on a PCB",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon54.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1241,19 +969,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "55",
-    "text": [
-      "Use  ",
-      "automatic",
-      "gain control"
-    ],
+    "id": 55,
+    "text": "Use   automatic gain control",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1264,19 +987,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "56",
-    "text": [
-      "Make a  ",
-      "PID circuit",
-      "with Op-Amps"
-    ],
+    "id": 56,
+    "text": "Make a   PID circuit with Op-Amps",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon33.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1287,19 +1005,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "57",
-    "text": [
-      "Teach a   ",
-      " class on",
-      "Electronics"
-    ],
+    "id": 57,
+    "text": "Teach a     class on Electronics",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon40.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1310,19 +1023,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "58",
-    "text": [
-      "Learn  ",
-      " PCB Design",
-      "Software"
-    ],
+    "id": 58,
+    "text": "Learn    PCB Design Software",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon47.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1333,19 +1041,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "59",
-    "text": [
-      "Use an  ",
-      " e-paper display",
-      "in a project"
-    ],
+    "id": 59,
+    "text": "Use an    e-paper display in a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon59.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1356,19 +1059,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "60",
-    "text": [
-      "Build a  ",
-      " Radio Frequency",
-      "(RF)Project"
-    ],
+    "id": 60,
+    "text": "Build a    Radio Frequency (RF)Project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon60.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1379,19 +1077,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "61",
-    "text": [
-      "Make an  ",
-      " open source",
-      "project"
-    ],
+    "id": 61,
+    "text": "Make an    open source project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon61.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1402,19 +1095,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "62",
-    "text": [
-      "Use capacitive  ",
-      " touch in a PCB",
-      "design"
-    ],
+    "id": 62,
+    "text": "Use capacitive    touch in a PCB design",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon62.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1425,19 +1113,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "63",
-    "text": [
-      "Make  ",
-      " something ",
-      "with PCB Art"
-    ],
+    "id": 63,
+    "text": "Make    something  with PCB Art",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon63.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1448,19 +1131,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "64",
-    "text": [
-      "Make an  ",
-      " electronic ",
-      "sculpture"
-    ],
+    "id": 64,
+    "text": "Make an    electronic  sculpture",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon64.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1471,19 +1149,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "65",
-    "text": [
-      "Make a switch  ",
-      " mode power ",
-      "supply"
-    ],
+    "id": 65,
+    "text": "Make a switch    mode power  supply",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon21.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1494,19 +1167,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "66",
-    "text": [
-      "Release a   ",
-      " tutorial on a ",
-      "project you've made"
-    ],
+    "id": 66,
+    "text": "Release a     tutorial on a  project you've made",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon66.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1517,18 +1185,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "67",
-    "text": [
-      "Create an   ",
-      " FPGA Project "
-    ],
+    "id": 67,
+    "text": "Create an     FPGA Project ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon67.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1539,20 +1203,14 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   },
   {
-    "id": "68",
-    "text": [
-      "Write your  ",
-      " own C/C++ library ",
-      " for a sensor ",
-      " from scratch "
-    ],
+    "id": 68,
+    "text": "Write your    own C/C++ library   for a sensor   from scratch ",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/../../web_skill_trees_resources/svg/electronics_icons/icon68.svg",
     "description": "Descripción de la habilidad",
-    "points": 1,
+    "score": 1,
     "tasks": [
       "Task 1",
       "Task 2",
@@ -1563,7 +1221,6 @@
       "Resource 2",
       "Resource 3"
     ],
-    "unverified_evidences": 0,
-    "verified_evidences": 0
+    "set": "electronics"
   }
 ]

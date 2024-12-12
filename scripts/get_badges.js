@@ -4,7 +4,10 @@ import {upload} from "./upload.js";
 let badges = [];
 
 async function getBadges() {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: true,
+        executablePath: 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe',
+    });
     const page = await browser.newPage();
     try {
         await page.goto("https://github.com/Obijuan/digital-electronics-with-open-FPGAs-tutorial/wiki#listado-de-rangos", {waitUntil: 'networkidle0'});
@@ -27,7 +30,11 @@ async function getBadges() {
                     imgSrc = imgSrc + "-min.png";
 
                     badgesList.push({
-                        rango: strongText, bitpoints_min, bitpoints_max, png: imgSrc
+                        range: strongText,
+                        name: strongText,
+                        bitpoints_min,
+                        bitpoints_max,
+                        png: imgSrc
                     });
 
                     bitpoints_min += 10;
