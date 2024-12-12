@@ -2,6 +2,7 @@ import express from 'express';
 import path from "path";
 import {fileURLToPath} from "url";
 import fs from 'fs';
+import checkPassword from "../scripts/register.js";
 
 let router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -29,9 +30,16 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    let password = req.body.password;
+    let passwords = req.body.password;
     const username = req.body.username;
-    password = password[0];
+    const password = passwords[0];
+    const passwordConf = passwords[1];
+
+    if (!checkPassword(password, passwordConf)){
+        req.session.errorMessage = 'Las contraseñas no coinciden o no cumplen con los requisitos mínimos';
+        return res.redirect('/users/register');
+    }
+
     const filePath = path.join(__dirname, '../users.json');
 
     fs.readFile(filePath, 'utf8', (err, data) => {
