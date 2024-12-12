@@ -55,7 +55,7 @@ export async function build_index() {
         text.setAttribute('font-weight', 'bold');
         text.setAttribute('style', 'dominant-baseline: middle;');
 
-        const textArray = Array.isArray(item.text) ? item.text : item.text.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+        const textArray = item.text.split('\r\n').map(t => t.trim()).filter(t => t.length > 0);
         textArray.forEach((tspanText) => {
             const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
             tspan.setAttribute('x', '50%');
@@ -73,14 +73,6 @@ export async function build_index() {
         image.setAttribute('height', '30');
         image.setAttribute('href', item.icon);
         svg.appendChild(image);
-
-        if (item.unverified_evidences > 0) {
-            createEvidenceCanvas(item, 'left', svgWrapper);
-        }
-
-        if (item.verified_evidences > 0) {
-            createEvidenceCanvas(item, 'right', svgWrapper);
-        }
 
         svgWrapper.addEventListener('mouseover', () => {
             svgWrapper.classList.add('expanded');

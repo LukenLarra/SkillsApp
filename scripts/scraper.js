@@ -24,7 +24,7 @@ export async function obtenerDatos() {
 
                 return {
                     id: parseInt(id),
-                    text: tspans.join(" "),
+                    text: tspans.join(" \r\n ").replace(/\s*\r\n\s*/g, '\r\n').trim(),
                     icon: "https://tinkererway.dev/" + svgImage,
                     description: "Descripción de la habilidad",
                     score: 1,

@@ -8,8 +8,11 @@ import createError from 'http-errors';
 import session from 'express-session';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
-
 import connectDB from './config/database.js';
+
+import Skill from './models/skill.model.js';
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -65,16 +68,14 @@ app.post('/api/badges', (req, res) => {
     });
 });
 
-app.get('/api/data', (req, res) => {
-    const filePath = path.join(__dirname, 'data.json');
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
-            res.status(500).send('Error reading file');
-        } else {
-            res.json(JSON.parse(data));
-        }
-    });
+app.get('/api/data', async (req, res) => {
+    try {
+        const skills = await Skill.find();
+        res.json(skills);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error retrieving skills from the database');
+    }
 });
 
 app.get('/api/badges', (req, res) => {
