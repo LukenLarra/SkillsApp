@@ -3,17 +3,22 @@
     "id": 1,
     "text": "Light up an\r\nLED for the first\r\ntime",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon1.svg",
-    "description": "Descripción de la habilidad",
+    "description": "The quintessential first step in electronics! Learn the basics of circuits and components by lighting up an LED",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Gather necessary components (LED, resistor, battery, wires)",
+      "Learn about LED polarity and how to identify anode/cathode",
+      "Calculate appropriate resistor value for your LED and power source",
+      "Build a simple circuit on a breadboard to light the LED",
+      "Test the circuit and troubleshoot if needed",
+      "Experiment with different color LEDs and resistor values",
+      "Document your steps in a Google Drive doc and share its url as an evidence"
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "SparkFun's 'How to Use a Breadboar' tutorial: https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard",
+      "Adafruit's 'LED Circuit' guide: https://learn.adafruit.com/adafruit-arduino-lesson-2-leds/led-circuits",
+      "All About Circuits 'Light-Emitting Diodes (LEDs)' lesson: https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/light-emitting-diodes-leds/",
+      "YouTube video: 'How To Light up a LED' by Paul McWhorter: https://www.youtube.com/watch?v=QzoPxvlM2qE"
     ],
     "set": "electronics"
   },
@@ -21,17 +26,17 @@
     "id": 2,
     "text": "Learn to\r\nuse wire strippers",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon2.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Domina el uso de pelacables para trabajar de manera precisa y segura en proyectos electrónicos. Aprende a ajustar las herramientas según el grosor del cable y a evitar daños en los conductores internos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Familiarízate con los diferentes tipos de pelacables y sus funciones.",
+      "Practica pelar cables de distintos grosores sin dañar los conductores.",
+      "Configura correctamente el pelacables para un cable específico."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Guía básica de pelacables: https://learn-electronics.dev/basics/wire-strippers-guide",
+      "Técnicas de pelado de cables: https://electronics-tutorials.dev/tools/stripping-techniques",
+      "Prácticas recomendadas para usar pelacables: https://mock-link.dev/practice-wire-stripping"
     ],
     "set": "electronics"
   },
@@ -39,17 +44,17 @@
     "id": 3,
     "text": "Complete\r\nan electronics kit",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon3.svg",
-    "description": "Descripción de la habilidad",
+    "description": "En este proyecto, completarás un kit de electrónica, lo que te ayudará a entender conceptos básicos de circuitos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Reúne todas las piezas del kit.",
+      "Sigue el manual para ensamblar el circuito.",
+      "Realiza pruebas para verificar el funcionamiento."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/electronics_kit_guide",
+      "https://example.com/resource/circuit_basics",
+      "https://example.com/resource/troubleshooting_guide"
     ],
     "set": "electronics"
   },
@@ -57,17 +62,17 @@
     "id": 4,
     "text": "Learn to Solder",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon4.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprender a soldar es esencial para trabajar con componentes electrónicos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Practica con una placa de pruebas.",
+      "Sigue tutoriales en video sobre técnicas de soldadura.",
+      "Realiza un proyecto de soldadura simple."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/soldering_techniques",
+      "https://example.com/resource/best_soldering_practices",
+      "https://example.com/resource/soldering_projects"
     ],
     "set": "electronics"
   },
@@ -75,17 +80,17 @@
     "id": 5,
     "text": "Learn to use\r\na breadboard",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon5.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Utilizar una breadboard te permitirá experimentar con circuitos sin soldar.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Familiarízate con la disposición de la breadboard.",
+      "Construye circuitos simples siguiendo esquemas.",
+      "Prueba diferentes configuraciones de circuitos."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/breadboard_guide",
+      "https://example.com/resource/simple_circuits",
+      "https://example.com/resource/advanced_breadboarding"
     ],
     "set": "electronics"
   },
@@ -93,17 +98,17 @@
     "id": 6,
     "text": "Get a circuit\r\nwrong and try\r\nagain",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon6.svg",
-    "description": "Descripción de la habilidad",
+    "description": "El error es parte del proceso de aprendizaje. Este ejercicio te enseñará a diagnosticar problemas.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Construye un circuito con errores intencionados.",
+      "Identifica y corrige los errores.",
+      "Reflecciona sobre lo que aprendiste del error."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/error_diagnosis",
+      "https://example.com/resource/fault_finding_techniques",
+      "https://example.com/resource/learning_from_mistakes"
     ],
     "set": "electronics"
   },
@@ -111,17 +116,17 @@
     "id": 7,
     "text": "Learn Ohm’s\r\nLaw",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon7.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Ohm’s Law es fundamental para entender el comportamiento de los circuitos eléctricos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Estudia la fórmula de Ohm.",
+      "Realiza ejercicios prácticos aplicando la ley.",
+      "Explora sus aplicaciones en circuitos reales."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/ohms_law",
+      "https://example.com/resource/electricity_basics",
+      "https://example.com/resource/ohms_law_exercises"
     ],
     "set": "electronics"
   },
@@ -129,17 +134,17 @@
     "id": 8,
     "text": "Fix something\r\nsomething\r\nthat’s broken",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon8.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Arreglar dispositivos rotos te ayudará a aplicar tus conocimientos de electrónica.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Identifica el problema en el dispositivo.",
+      "Desmonta el dispositivo con cuidado.",
+      "Repara o reemplaza las piezas defectuosas."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/device_repair_tips",
+      "https://example.com/resource/repair_tools",
+      "https://example.com/resource/common_device_problems"
     ],
     "set": "electronics"
   },
@@ -147,17 +152,17 @@
     "id": 9,
     "text": "Measure\r\nvoltage with\r\na multimeter",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Medir voltaje es una habilidad crucial para cualquier proyecto electrónico.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Configura el multímetro correctamente.",
+      "Realiza mediciones en diferentes partes del circuito.",
+      "Documenta tus hallazgos."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/multimeter_guide",
+      "https://example.com/resource/how_to_measure_voltage",
+      "https://example.com/resource/multimeter_troubleshooting"
     ],
     "set": "electronics"
   },
@@ -165,17 +170,17 @@
     "id": 10,
     "text": "Learn to\r\nread a schematic",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Leer esquemas es esencial para entender cómo funcionan los circuitos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Familiarízate con los símbolos en los esquemas.",
+      "Practica leyendo esquemas de circuitos simples.",
+      "Intenta dibujar tus propios esquemas."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/reading_schematics",
+      "https://example.com/resource/circuit_symbols",
+      "https://example.com/resource/schematic_exercises"
     ],
     "set": "electronics"
   },
@@ -183,17 +188,17 @@
     "id": 11,
     "text": "Learn to read\r\na datasheet",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon11.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Las hojas de datos son cruciales para entender las especificaciones de los componentes.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Localiza información clave en una hoja de datos.",
+      "Compara hojas de datos de diferentes componentes.",
+      "Practica buscando hojas de datos en línea."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/datasheet_basics",
+      "https://example.com/resource/how_to_read_datasheets",
+      "https://example.com/resource/datasheet_examples"
     ],
     "set": "electronics"
   },
@@ -201,17 +206,17 @@
     "id": 12,
     "text": "Learn to\r\ncontrol the\r\nbrightness of\r\nan LED",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon12.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Controlar el brillo de un LED te enseñará sobre el manejo de corriente.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Construye un circuito simple con un LED.",
+      "Utiliza un potenciómetro para ajustar el brillo.",
+      "Explora otros métodos de control de LED."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/led_brightness_control",
+      "https://example.com/resource/using_potentiometers",
+      "https://example.com/resource/led_projects"
     ],
     "set": "electronics"
   },
@@ -219,17 +224,17 @@
     "id": 13,
     "text": "Learn to\r\ndesolder a\r\nthrough hole\r\ncomponent",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon4.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Desoldar componentes es una habilidad importante para reparar circuitos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Prepara las herramientas necesarias para desoldar.",
+      "Sigue un tutorial sobre desoldadura.",
+      "Practica en una placa de circuito viejo."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/desoldering_guide",
+      "https://example.com/resource/soldering_tools",
+      "https://example.com/resource/repairing_circuits"
     ],
     "set": "electronics"
   },
@@ -237,17 +242,17 @@
     "id": 14,
     "text": "Make\r\nsomething that\r\nmakes noise",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon14.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Crear un dispositivo que haga ruido te ayudará a aprender sobre circuitos de audio.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Diseña un circuito que incluya un altavoz.",
+      "Construye el circuito y realiza pruebas.",
+      "Explora diferentes sonidos que puedes generar."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/noise_making_circuits",
+      "https://example.com/resource/audio_circuit_projects",
+      "https://example.com/resource/sound_generation_techniques"
     ],
     "set": "electronics"
   },
@@ -255,17 +260,17 @@
     "id": 15,
     "text": "Turn a\r\nbreadboard\r\ncircuit into a\r\nschematic",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprende a convertir un circuito montado en una placa de pruebas en un esquema eléctrico, identificando cada componente y su conexión.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Dibuja el circuito en la placa de pruebas.",
+      "Identifica y nombra todos los componentes.",
+      "Crea un esquema usando software de diseño o a mano."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/turn_circuit_into_schematic",
+      "https://example.com/resource/electronic_schematics_guide",
+      "https://example.com/resource/breadboard_to_schematic"
     ],
     "set": "electronics"
   },
@@ -273,17 +278,17 @@
     "id": 16,
     "text": "Measure\r\ncurrent with a\r\nmultimeter",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Domina el uso de un multímetro para medir la corriente en un circuito eléctrico, entendiendo su configuración y técnicas de medición.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Configura el multímetro en la función de medición de corriente.",
+      "Conecta el multímetro en serie con el circuito.",
+      "Registra y analiza los valores de corriente medidos."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/measuring_current_multimeter",
+      "https://example.com/resource/multimeter_tutorial",
+      "https://example.com/resource/current_measurement_techniques"
     ],
     "set": "electronics"
   },
@@ -291,17 +296,17 @@
     "id": 17,
     "text": "Make a voltage\r\ndivider to lower\r\nthe voltage\r\nfor a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon17.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Construye un divisor de voltaje para reducir el voltaje en un circuito y aprende sobre las relaciones entre resistencias y voltaje.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Selecciona los valores de resistencias adecuadas para el divisor.",
+      "Monta el divisor en una placa de pruebas.",
+      "Mide la salida del voltaje con un multímetro."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/voltage_divider_circuit",
+      "https://example.com/resource/how_voltage_dividers_work",
+      "https://example.com/resource/voltage_divider_calculator"
     ],
     "set": "electronics"
   },
@@ -309,17 +314,17 @@
     "id": 18,
     "text": "Turn\r\nsomething\r\non using\r\na sensor",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon18.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Utiliza un sensor para activar un dispositivo o circuito, explorando cómo funcionan los sensores y sus aplicaciones.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Selecciona un sensor adecuado para tu proyecto.",
+      "Conéctalo a un microcontrolador o circuito.",
+      "Prueba la activación del dispositivo en respuesta a la señal del sensor."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/sensor_activation_projects",
+      "https://example.com/resource/how_sensors_work",
+      "https://example.com/resource/sensor_application_guide"
     ],
     "set": "electronics"
   },
@@ -327,17 +332,17 @@
     "id": 19,
     "text": "Use a diode\r\nprotect your\r\ncircuit from\r\nreverse voltages",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon19.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprende a usar un diodo para proteger tu circuito de voltajes inversos y comprender su funcionamiento en diferentes configuraciones.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Selecciona un diodo adecuado para tu circuito.",
+      "Conéctalo en la dirección correcta para la protección.",
+      "Verifica la operación del circuito en diferentes condiciones de voltaje."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/diode_protection_circuits",
+      "https://example.com/resource/how_diodes_work",
+      "https://example.com/resource/using_diodes_in_circuits"
     ],
     "set": "electronics"
   },
@@ -345,17 +350,17 @@
     "id": 20,
     "text": "Make an\r\noscillator that\r\nmakes noise",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon14.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Crea un oscilador simple que produzca sonidos y experimenta con diferentes componentes para alterar la frecuencia.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Selecciona los componentes necesarios para el oscilador.",
+      "Monta el circuito en una placa de pruebas.",
+      "Ajusta valores para modificar la frecuencia del sonido."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/making_sound_oscillator",
+      "https://example.com/resource/oscillator_circuit_diagrams",
+      "https://example.com/resource/audio_oscillator_projects"
     ],
     "set": "electronics"
   },
@@ -363,17 +368,17 @@
     "id": 21,
     "text": "Use a relay\r\nto switch\r\nsomething on at\r\na higher voltage",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon21.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprende a usar un relé para controlar dispositivos que funcionan a voltajes más altos, entendiendo su configuración y funcionamiento.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Conecta el relé a un circuito de bajo voltaje.",
+      "Configura el relé para activar un dispositivo de alto voltaje.",
+      "Prueba el circuito y verifica la activación."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/relay_switching_projects",
+      "https://example.com/resource/how_relays_work",
+      "https://example.com/resource/using_relays_in_circuits"
     ],
     "set": "electronics"
   },
@@ -381,17 +386,17 @@
     "id": 22,
     "text": "Make a\r\ncapacitor rocket\r\n(too much voltage)",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon22.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Construye un cohete de capacitor utilizando una descarga rápida de energía, y aprende sobre los principios detrás de este experimento.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Selecciona capacitores adecuados y resiste la energía.",
+      "Monta el cohete y asegúrate de que sea seguro.",
+      "Realiza pruebas y ajusta el diseño según sea necesario."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/capacitor_rocket_experiment",
+      "https://example.com/resource/safety_with_capacitors",
+      "https://example.com/resource/capacitor_energy_storing"
     ],
     "set": "electronics"
   },
@@ -399,17 +404,17 @@
     "id": 23,
     "text": "Learn to\r\nsolder surfcace\r\nmount parts",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon23.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Desarrolla habilidades de soldadura para componentes de montaje en superficie, y comprende la diferencia con la soldadura convencional.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Practica con componentes de montaje en superficie y placas de circuito.",
+      "Aprende las técnicas de soldadura adecuadas.",
+      "Realiza un proyecto utilizando componentes de montaje en superficie."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/surface_mount_soldering_guide",
+      "https://example.com/resource/soldering_techniques",
+      "https://example.com/resource/surface_mount_projects"
     ],
     "set": "electronics"
   },
@@ -417,35 +422,35 @@
     "id": 24,
     "text": "Use a\r\n555 timer\r\nin a circuit",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon24.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Incorpora un temporizador 555 en un circuito y experimenta con sus diferentes modos de operación.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Estudia el funcionamiento del temporizador 555.",
+      "Configura el temporizador en modo astable o monostable.",
+      "Realiza un proyecto práctico usando el temporizador."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/555_timer_projects",
+      "https://example.com/resource/how_555_timer_works",
+      "https://example.com/resource/555_timer_circuit_diagrams"
     ],
     "set": "electronics"
   },
   {
     "id": 25,
-    "text": "Make a sound\r\nlouder with an\r\namplifier",
+    "text": "Make a sound\r\nlouder with a\r\nspeaker",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon14.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprende a amplificar el sonido utilizando un altavoz, explorando diferentes configuraciones y componentes.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Selecciona un altavoz adecuado para tu proyecto.",
+      "Conéctalo a un amplificador o circuito adecuado.",
+      "Realiza pruebas y ajusta para mejorar el sonido."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/sound_amplification_projects",
+      "https://example.com/resource/how_speakers_work",
+      "https://example.com/resource/designing_audio_circuits"
     ],
     "set": "electronics"
   },
@@ -453,17 +458,17 @@
     "id": 26,
     "text": "Use\r\naddressable\r\nRGB LEDs in a\r\nproject",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon12.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprende a utilizar LEDs RGB direccionables en tus proyectos, controlando su color y brillo individualmente.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Investiga cómo funcionan los LEDs RGB direccionables.",
+      "Configura un circuito básico con un microcontrolador.",
+      "Escribe un programa para controlar los LEDs."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/addressable_leds_intro",
+      "https://example.com/resource/arduino_led_control",
+      "https://example.com/resource/led_project_ideas"
     ],
     "set": "electronics"
   },
@@ -471,17 +476,17 @@
     "id": 27,
     "text": "Make a\r\nproject\r\nwith a\r\nRaspberry Pi",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon27.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Desarrolla un proyecto utilizando Raspberry Pi, explorando su capacidad para ejecutar aplicaciones y controlar dispositivos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Selecciona un proyecto adecuado para Raspberry Pi.",
+      "Instala el sistema operativo y las librerías necesarias.",
+      "Implementa y prueba tu proyecto."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/raspberry_pi_projects",
+      "https://example.com/resource/setting_up_raspberry_pi",
+      "https://example.com/resource/raspberry_pi_tutorials"
     ],
     "set": "electronics"
   },
@@ -489,17 +494,17 @@
     "id": 28,
     "text": "Let the\r\nsmoke out\r\naccidentally",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon28.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Comprende los riesgos y errores comunes en proyectos electrónicos que pueden resultar en fallos catastróficos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Identifica componentes propensos a fallar.",
+      "Realiza pruebas controladas para observar el comportamiento de circuitos.",
+      "Toma nota de lo que sale mal y aprende de la experiencia."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/electronics_fails",
+      "https://example.com/resource/circuit_testing_safety",
+      "https://example.com/resource/learning_from_mistakes"
     ],
     "set": "electronics"
   },
@@ -507,17 +512,17 @@
     "id": 29,
     "text": "Use fritzing\r\nor TinkerCAD\r\nto create a\r\ncircuit diagram",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon29.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprende a crear diagramas de circuitos utilizando herramientas de software como Fritzing o TinkerCAD.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Elige una herramienta de diseño de circuitos.",
+      "Crea un diagrama básico de un circuito sencillo.",
+      "Exporta y comparte tu diseño."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/fritzing_tutorial",
+      "https://example.com/resource/tinkercad_circuit_design",
+      "https://example.com/resource/circuit_diagram_basics"
     ],
     "set": "electronics"
   },
@@ -525,17 +530,17 @@
     "id": 30,
     "text": "Make\r\nsomething\r\nwith Arduino",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon30.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Crea un proyecto práctico utilizando Arduino, explorando sus capacidades de programación y hardware.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Selecciona un proyecto interesante para desarrollar con Arduino.",
+      "Escribe el código necesario para tu proyecto.",
+      "Conecta y prueba los componentes de hardware."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/arduino_project_ideas",
+      "https://example.com/resource/arduino_code_basics",
+      "https://example.com/resource/arduino_hardware_setup"
     ],
     "set": "electronics"
   },
@@ -543,17 +548,17 @@
     "id": 31,
     "text": "Let the smoke\r\nout of an Arduino\r\naccidentally",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon31.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Explora los errores comunes al trabajar con Arduino y aprende a evitar desastres en tus proyectos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Investiga los errores más comunes al programar Arduino.",
+      "Realiza experimentos controlados para observar efectos.",
+      "Documenta tus hallazgos para futuras referencias."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/common_arduino_errors",
+      "https://example.com/resource/arduino_debugging",
+      "https://example.com/resource/safe_practice_with_arduino"
     ],
     "set": "electronics"
   },
@@ -561,17 +566,17 @@
     "id": 32,
     "text": "Measure\r\nfrequency with a\r\nmultimeter",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprende a medir la frecuencia de señales utilizando un multímetro.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Familiarízate con el multímetro y sus funciones.",
+      "Conéctalo a un circuito de prueba.",
+      "Realiza la medición y registra los resultados."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/multimeter_guide",
+      "https://example.com/resource/how_to_measure_frequency",
+      "https://example.com/resource/circuit_testing_tips"
     ],
     "set": "electronics"
   },
@@ -579,17 +584,17 @@
     "id": 33,
     "text": "Use an\r\nOp-Amp  in\r\na circuit",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon33.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Comprende cómo usar amplificadores operacionales (Op-Amps) en circuitos electrónicos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Estudia el funcionamiento de los Op-Amps.",
+      "Diseña un circuito básico que incluya un Op-Amp.",
+      "Prueba y ajusta el circuito para verificar su funcionamiento."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/op_amp_basics",
+      "https://example.com/resource/op_amp_circuit_design",
+      "https://example.com/resource/advanced_op_amp_applications"
     ],
     "set": "electronics"
   },
@@ -597,17 +602,17 @@
     "id": 34,
     "text": "Use a crowbar\r\ncircuit to protect\r\nagainst over voltage",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon17.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprende a implementar un circuito de protección contra sobretensiones utilizando un crowbar.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Investiga cómo funciona un circuito crowbar.",
+      "Diseña un circuito de protección adecuado.",
+      "Prueba el circuito en condiciones controladas."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/crowbar_circuit_explained",
+      "https://example.com/resource/over_voltage_protection",
+      "https://example.com/resource/circuit_protection_techniques"
     ],
     "set": "electronics"
   },
@@ -615,17 +620,17 @@
     "id": 35,
     "text": "Use a surge\r\ndiode to protect\r\na circuit",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon19.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Descubre cómo utilizar diodos de protección contra sobretensiones en tus circuitos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Aprende sobre la función de un diodo de protección.",
+      "Integra un diodo de protección en un circuito.",
+      "Realiza pruebas para asegurar su efectividad."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/surge_diode_guide",
+      "https://example.com/resource/circuit_design_with_diodes",
+      "https://example.com/resource/electronics_protection_methods"
     ],
     "set": "electronics"
   },
@@ -633,17 +638,17 @@
     "id": 36,
     "text": "Make\r\nsomething\r\nfor a friend",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon36.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Crea un proyecto personalizado como regalo para un amigo, aplicando lo aprendido en electrónica.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Selecciona un proyecto que le gustaría a tu amigo.",
+      "Diseña y construye el proyecto.",
+      "Regístralo y compártelo con otros."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "https://example.com/resource/personal_gifts_with_electronics",
+      "https://example.com/resource/creative_electronics_projects",
+      "https://example.com/resource/unique_gift_ideas"
     ],
     "set": "electronics"
   },
@@ -651,17 +656,17 @@
     "id": 37,
     "text": "Make a motor\r\ncontroller with\r\na H Bridge",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon37.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Build a motor controller using an H Bridge to control the speed and direction of a DC motor.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Research H Bridge configurations.",
+      "Design the circuit for the motor controller.",
+      "Assemble and test the circuit on a breadboard."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "H Bridge Design Guide - https://example.com/hbridge-design",
+      "DC Motor Control Basics - https://example.com/dc-motor-control",
+      "Microcontroller Programming Tutorial - https://example.com/microcontroller-programming"
     ],
     "set": "electronics"
   },
@@ -669,17 +674,17 @@
     "id": 38,
     "text": "Make a\r\ncounter with\r\nlogic gates",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon38.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Create a digital counter using logic gates to demonstrate binary counting.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Design a circuit for the binary counter using logic gates.",
+      "Build the circuit on a breadboard.",
+      "Test the counting functionality of the circuit."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Logic Gates Overview - https://example.com/logic-gates",
+      "Digital Circuit Building Guide - https://example.com/digital-circuits",
+      "Counter Circuit Tutorial - https://example.com/counter-tutorial"
     ],
     "set": "electronics"
   },
@@ -687,17 +692,17 @@
     "id": 39,
     "text": "Apply solder\r\npaste to a PCB\r\nwith a stencil",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon39.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Learn to apply solder paste to a PCB using a stencil for surface mount components.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Prepare the PCB and stencil for solder paste application.",
+      "Apply solder paste evenly using the stencil.",
+      "Inspect the applied solder paste for consistency."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Solder Paste Application Techniques - https://example.com/solder-paste-techniques",
+      "PCB Assembly Guide - https://example.com/pcb-assembly",
+      "Stencil Design Resources - https://example.com/stencil-design"
     ],
     "set": "electronics"
   },
@@ -705,17 +710,17 @@
     "id": 40,
     "text": "Teach a\r\nfriend an\r\nelectronics skill",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon40.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Share your knowledge of electronics by teaching a friend a specific skill or project.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Select an electronics skill to teach.",
+      "Prepare a lesson plan or project outline.",
+      "Guide your friend through the learning process."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Teaching Electronics - https://example.com/teaching-electronics",
+      "Project Ideas for Teaching - https://example.com/project-ideas",
+      "Effective Teaching Techniques - https://example.com/teaching-techniques"
     ],
     "set": "electronics"
   },
@@ -723,17 +728,17 @@
     "id": 41,
     "text": "Make something\r\nwith a 7\r\nsegment display",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon41.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Create a project that uses a 7-segment display to show numbers or characters.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Design a circuit that includes a 7-segment display.",
+      "Write a program to control the display.",
+      "Assemble the project and test the display functionality."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "7-Segment Display Guide - https://example.com/7-segment-guide",
+      "Controlling 7-Segment Displays - https://example.com/control-7-segment",
+      "Project Examples with 7-Segment Displays - https://example.com/7-segment-projects"
     ],
     "set": "electronics"
   },
@@ -741,17 +746,17 @@
     "id": 42,
     "text": "Measure\r\nvoltage with an\r\noscilloscope",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon42.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Use an oscilloscope to measure and visualize voltage signals in electronic circuits.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Set up the oscilloscope for measurement.",
+      "Connect the probes to the circuit.",
+      "Analyze the voltage waveforms displayed."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Oscilloscope Basics - https://example.com/oscilloscope-basics",
+      "How to Measure Voltage - https://example.com/measure-voltage",
+      "Interpreting Waveforms - https://example.com/interpreting-waveforms"
     ],
     "set": "electronics"
   },
@@ -759,17 +764,17 @@
     "id": 43,
     "text": "Measure\r\ncapacitor equivalent\r\nseries resistance",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon43.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Learn to measure the equivalent series resistance (ESR) of a capacitor using appropriate tools.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Select the capacitor to be measured.",
+      "Use a multimeter or LCR meter for the measurement.",
+      "Record and analyze the results."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Measuring ESR of Capacitors - https://example.com/measuring-esr",
+      "Capacitor Testing Guide - https://example.com/capacitor-testing",
+      "Understanding Capacitor Specifications - https://example.com/capacitor-specifications"
     ],
     "set": "electronics"
   },
@@ -777,17 +782,17 @@
     "id": 44,
     "text": "Make an\r\nInternet of Things\r\n(IoT) project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon44.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Create a project that integrates IoT concepts, connecting devices and systems to the internet.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Choose an IoT platform or framework.",
+      "Design the system architecture.",
+      "Implement and test the IoT solution."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Getting Started with IoT - https://example.com/getting-started-iot",
+      "IoT Project Ideas - https://example.com/iot-projects",
+      "Connecting Devices to the Internet - https://example.com/connect-devices"
     ],
     "set": "electronics"
   },
@@ -795,17 +800,17 @@
     "id": 45,
     "text": "Make\r\nsomething with\r\nsolar panels",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon45.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Design and build a project that utilizes solar panels for energy generation.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Determine the solar panel specifications needed.",
+      "Design the solar energy system.",
+      "Assemble and test the solar-powered project."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Solar Panel Basics - https://example.com/solar-basics",
+      "Designing Solar Energy Systems - https://example.com/design-solar-systems",
+      "Solar Project Examples - https://example.com/solar-projects"
     ],
     "set": "electronics"
   },
@@ -813,17 +818,17 @@
     "id": 46,
     "text": "Look at an\r\naudio input\r\non an oscilloscope",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon46.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Use an oscilloscope to analyze audio input signals and understand their characteristics.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Connect the audio source to the oscilloscope.",
+      "Set the oscilloscope to the appropriate settings for audio signals.",
+      "Observe and interpret the waveforms displayed."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Analyzing Audio Signals - https://example.com/analyzing-audio",
+      "Oscilloscope Setup for Audio - https://example.com/oscilloscope-audio-setup",
+      "Understanding Audio Waveforms - https://example.com/audio-waveforms"
     ],
     "set": "electronics"
   },
@@ -831,17 +836,17 @@
     "id": 47,
     "text": "Make a\r\nregulated\r\npower supply",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon47.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Design and build a regulated power supply to provide a stable voltage output.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Select components for the power supply circuit.",
+      "Assemble the circuit on a PCB or breadboard.",
+      "Test the output voltage and make adjustments as necessary."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Regulated Power Supply Design - https://example.com/regulator-design",
+      "Building Power Supplies - https://example.com/building-power-supplies",
+      "Troubleshooting Power Supply Issues - https://example.com/troubleshooting-power-supplies"
     ],
     "set": "electronics"
   },
@@ -849,17 +854,17 @@
     "id": 48,
     "text": "Use a MOSFET\r\ninstead of a relay\r\nin a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon48.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprender a utilizar un MOSFET en lugar de un relé en un proyecto puede mejorar la eficiencia y la velocidad de conmutación del circuito.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Investigar las diferencias entre un MOSFET y un relé.",
+      "Seleccionar un MOSFET adecuado para el proyecto.",
+      "Implementar el MOSFET en el circuito y probar su funcionamiento."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Guía sobre MOSFETs - https://example.com/guia-mosfets",
+      "Comparativa entre MOSFETs y relés - https://example.com/comparativa-mosfets-reles",
+      "Tutorial de implementación de MOSFETs - https://example.com/tutorial-mosfets"
     ],
     "set": "electronics"
   },
@@ -867,17 +872,17 @@
     "id": 49,
     "text": "Make your\r\nown\r\nUSB cable",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon49.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Hacer tu propio cable USB te permitirá personalizar la longitud y el tipo de conector, adaptándolo a tus necesidades.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Seleccionar los materiales necesarios para el cable USB.",
+      "Cortar y pelar los cables adecuadamente.",
+      "Conectar los pines del conector y soldar si es necesario."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Materiales para cables USB - https://example.com/materiales-usb",
+      "Instrucciones para hacer un cable USB - https://example.com/instrucciones-usb",
+      "Consejos de soldadura para conectores - https://example.com/soldadura-conectores"
     ],
     "set": "electronics"
   },
@@ -885,17 +890,17 @@
     "id": 50,
     "text": "Use an LED\r\nmatrix in\r\na project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon50.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Usar una matriz de LEDs puede añadir efectos visuales interesantes y es útil para mostrar información de forma dinámica.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Planificar el diseño de la matriz de LEDs en el proyecto.",
+      "Conectar la matriz de LEDs a un microcontrolador.",
+      "Programar patrones de iluminación para la matriz."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Guía para usar matrices de LEDs - https://example.com/guia-matriz-leds",
+      "Ejemplos de proyectos con matrices de LEDs - https://example.com/proyectos-matriz-leds",
+      "Programación de matrices de LEDs - https://example.com/programacion-matriz-leds"
     ],
     "set": "electronics"
   },
@@ -903,17 +908,17 @@
     "id": 51,
     "text": "Filter\r\nunwanted noise\r\nfrom a signal",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon46.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Filtrar el ruido no deseado de una señal es fundamental para obtener datos precisos y mejorar la calidad de las comunicaciones.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Identificar las fuentes de ruido en la señal.",
+      "Seleccionar el tipo de filtro adecuado para la aplicación.",
+      "Implementar el filtro en el circuito y verificar su efectividad."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Introducción a los filtros electrónicos - https://example.com/introduccion-filtros",
+      "Tipos de filtros y sus aplicaciones - https://example.com/tipos-filtros",
+      "Diseño de filtros para señales - https://example.com/diseño-filtros"
     ],
     "set": "electronics"
   },
@@ -921,17 +926,17 @@
     "id": 52,
     "text": "Use a freqency\r\nanalyser\r\nfor a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Un analizador de frecuencias es una herramienta esencial para medir y visualizar las componentes de frecuencia de una señal.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Familiarizarse con el funcionamiento del analizador de frecuencias.",
+      "Configurar el analizador para medir la señal deseada.",
+      "Analizar los resultados y realizar ajustes en el circuito si es necesario."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Guía para el uso de analizadores de frecuencia - https://example.com/guia-analizador-frecuencia",
+      "Calibración de analizadores de frecuencia - https://example.com/calibracion-analizador",
+      "Aplicaciones de los analizadores de frecuencia - https://example.com/aplicaciones-analizadores"
     ],
     "set": "electronics"
   },
@@ -939,17 +944,17 @@
     "id": 53,
     "text": "Order a\r\nPCB with\r\nyour design",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon47.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Ordenar una placa de circuito impreso (PCB) con tu diseño es un paso clave en el desarrollo de proyectos electrónicos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Crear el diseño de la PCB utilizando software especializado.",
+      "Exportar los archivos necesarios para la fabricación.",
+      "Seleccionar un proveedor de PCB y realizar el pedido."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Tutorial de diseño de PCBs - https://example.com/tutorial-disenar-pcb",
+      "Mejores prácticas para ordenar PCBs - https://example.com/mejores-practicas-pcb",
+      "Proveedores de PCBs recomendados - https://example.com/proveedores-pcb"
     ],
     "set": "electronics"
   },
@@ -957,17 +962,17 @@
     "id": 54,
     "text": "Repair a\r\nbroken trace\r\non a PCB",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon54.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Reparar una traza rota en una PCB es fundamental para restaurar el funcionamiento del circuito.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Identificar la traza rota utilizando un multímetro.",
+      "Preparar el área de la reparación limpiando la superficie.",
+      "Utilizar un cable o soldadura para reparar la traza."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Cómo reparar trazas en PCBs - https://example.com/reparar-trazas-pcb",
+      "Herramientas necesarias para reparar PCBs - https://example.com/herramientas-reparacion",
+      "Consejos para reparaciones efectivas - https://example.com/consejos-reparacion"
     ],
     "set": "electronics"
   },
@@ -975,17 +980,17 @@
     "id": 55,
     "text": "Use\r\nautomatic\r\ngain control",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
-    "description": "Descripción de la habilidad",
+    "description": "El control automático de ganancia (AGC) ayuda a mantener la calidad de la señal al ajustar la ganancia según la amplitud de la señal recibida.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Estudiar el principio de funcionamiento del AGC.",
+      "Implementar un circuito de AGC en un sistema de audio.",
+      "Probar la efectividad del AGC en condiciones de señal variable."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Fundamentos del control automático de ganancia - https://example.com/fundamentos-agc",
+      "Implementación de AGC en audio - https://example.com/implementacion-agc",
+      "Ejemplos prácticos de AGC - https://example.com/ejemplos-agc"
     ],
     "set": "electronics"
   },
@@ -993,17 +998,17 @@
     "id": 56,
     "text": "Make a\r\nPID circuit\r\nwith Op-Amps",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon33.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Hacer un circuito PID con amplificadores operacionales permite controlar procesos de manera eficiente mediante ajustes automáticos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Diseñar el circuito PID utilizando amplificadores operacionales.",
+      "Simular el circuito para verificar su funcionamiento.",
+      "Implementar el circuito en una aplicación real."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Diseño de circuitos PID - https://example.com/diseno-pid",
+      "Simulación de circuitos con amplificadores - https://example.com/simulacion-amplificadores",
+      "Aplicaciones de circuitos PID - https://example.com/aplicaciones-pid"
     ],
     "set": "electronics"
   },
@@ -1011,17 +1016,17 @@
     "id": 57,
     "text": "Teach a\r\nclass on\r\nElectronics",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon40.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Enseñar una clase sobre electrónica permite compartir conocimientos y fomentar el interés en el campo.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Preparar un plan de estudios sobre temas clave de electrónica.",
+      "Crear materiales didácticos para los estudiantes.",
+      "Organizar actividades prácticas para la clase."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Guía para preparar clases de electrónica - https://example.com/guia-clases-electronica",
+      "Materiales didácticos para electrónica - https://example.com/materiales-didacticos",
+      "Ideas para actividades prácticas - https://example.com/actividades-practicas"
     ],
     "set": "electronics"
   },
@@ -1029,17 +1034,17 @@
     "id": 58,
     "text": "Learn\r\nPCB Design\r\nSoftware",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon47.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Aprender a utilizar software de diseño de PCB es esencial para la creación de circuitos electrónicos.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Investigar diferentes programas de diseño de PCB.",
+      "Realizar un tutorial sobre cómo usar un software específico.",
+      "Crear un diseño básico de PCB como proyecto práctico."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Guía de software de diseño de PCB - https://example.com/guia-pcb-software",
+      "Comparativa de programas de diseño - https://example.com/comparativa-pcb",
+      "Tutorial de diseño de PCB para principiantes - https://example.com/tutorial-pcb"
     ],
     "set": "electronics"
   },
@@ -1047,17 +1052,17 @@
     "id": 59,
     "text": "Use an\r\ne-paper display\r\nin a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon59.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Usar una pantalla e-paper en un proyecto permite crear dispositivos de bajo consumo y buena legibilidad.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Seleccionar un modelo de pantalla e-paper adecuado.",
+      "Desarrollar un prototipo que integre la pantalla e-paper.",
+      "Documentar el proceso de implementación y pruebas."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Introducción a pantallas e-paper - https://example.com/introduccion-e-paper",
+      "Proyecto de ejemplo con pantalla e-paper - https://example.com/proyecto-e-paper",
+      "Guía de programación para pantallas e-paper - https://example.com/guia-programacion-e-paper"
     ],
     "set": "electronics"
   },
@@ -1065,17 +1070,17 @@
     "id": 60,
     "text": "Build a\r\nRadio Frequency\r\n(RF)Project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon60.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Construir un proyecto de radiofrecuencia (RF) es fundamental para la comunicación inalámbrica.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Investigar los componentes necesarios para un proyecto RF.",
+      "Diseñar el circuito y realizar las pruebas de alcance.",
+      "Presentar los resultados y el funcionamiento del proyecto."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Fundamentos de radiofrecuencia - https://example.com/fundamentos-rf",
+      "Guía de proyectos RF - https://example.com/guia-proyectos-rf",
+      "Componentes y herramientas para RF - https://example.com/componentes-rf"
     ],
     "set": "electronics"
   },
@@ -1083,17 +1088,17 @@
     "id": 61,
     "text": "Make an\r\nopen source\r\nproject",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon61.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Crear un proyecto de código abierto fomenta la colaboración y el aprendizaje comunitario.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Definir el objetivo y alcance del proyecto.",
+      "Documentar el proceso y compartir el código en una plataforma pública.",
+      "Involucrar a otros colaboradores en el desarrollo del proyecto."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Cómo crear un proyecto de código abierto - https://example.com/crear-proyecto-open-source",
+      "Plataformas para proyectos open source - https://example.com/plataformas-open-source",
+      "Consejos para documentar tu proyecto - https://example.com/documentar-proyecto"
     ],
     "set": "electronics"
   },
@@ -1101,17 +1106,17 @@
     "id": 62,
     "text": "Use capacitive\r\ntouch in a PCB\r\ndesign",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon62.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Incorporar tecnología de toque capacitivo en un diseño de PCB permite interfaces más intuitivas.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Investigar los principios del diseño de sensores táctiles capacitivos.",
+      "Desarrollar un prototipo de PCB con touch capacitivo.",
+      "Evaluar la efectividad del diseño en diferentes condiciones."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Introducción a tecnología capacitiva - https://example.com/tecnologia-capacitiva",
+      "Ejemplos de diseños de PCB con touch - https://example.com/diseños-touch-pcb",
+      "Guía para implementar touch capacitivo - https://example.com/implementacion-touch"
     ],
     "set": "electronics"
   },
@@ -1119,17 +1124,17 @@
     "id": 63,
     "text": "Make\r\nsomething\r\nwith PCB Art",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon63.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Crear arte utilizando PCBs combina creatividad y habilidades técnicas en electrónica.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Reunir materiales y herramientas para el proyecto de arte.",
+      "Diseñar una pieza artística que utilice PCBs.",
+      "Compartir el proceso creativo y el resultado final."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Ideas para proyectos de arte con PCBs - https://example.com/proyectos-arte-pcb",
+      "Técnicas para trabajar con PCBs en arte - https://example.com/tecnicas-arte-pcb",
+      "Galería de arte con PCBs - https://example.com/galeria-arte-pcb"
     ],
     "set": "electronics"
   },
@@ -1137,17 +1142,17 @@
     "id": 64,
     "text": "Make an\r\nelectronic\r\nsculpture",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon64.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Hacer una escultura electrónica fusiona arte y tecnología, creando obras interactivas.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Diseñar la escultura y planificar los circuitos necesarios.",
+      "Construir la escultura utilizando componentes electrónicos.",
+      "Presentar la escultura y su funcionamiento al público."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Guía para hacer esculturas electrónicas - https://example.com/esculturas-electronicas",
+      "Técnicas de integración de electrónica y arte - https://example.com/tecnicas-electronica-arte",
+      "Ejemplos de esculturas electrónicas - https://example.com/ejemplos-esculturas"
     ],
     "set": "electronics"
   },
@@ -1155,17 +1160,17 @@
     "id": 65,
     "text": "Make a switch\r\nmode power\r\nsupply",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon21.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Construir una fuente de alimentación conmutada es clave para proyectos que requieren eficiencia energética.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Investigar los componentes y topologías de fuentes de alimentación conmutadas.",
+      "Diseñar el circuito de la fuente de alimentación.",
+      "Probar y ajustar la fuente de alimentación para su correcto funcionamiento."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Fundamentos de fuentes de alimentación conmutadas - https://example.com/fundamentos-scm",
+      "Diseño de fuentes de alimentación - https://example.com/diseno-scm",
+      "Ejemplos de aplicaciones de SCM - https://example.com/aplicaciones-scm"
     ],
     "set": "electronics"
   },
@@ -1173,17 +1178,17 @@
     "id": 66,
     "text": "Release a\r\ntutorial on a\r\nproject you've made",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon66.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Publicar un tutorial sobre un proyecto realizado ayuda a compartir conocimientos y experiencias.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Documentar todos los pasos del proyecto de manera clara.",
+      "Crear contenido visual para complementar el tutorial.",
+      "Compartir el tutorial en plataformas adecuadas para alcanzar más audiencia."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Cómo crear un tutorial efectivo - https://example.com/tutorial-efectivo",
+      "Plataformas para publicar tutoriales - https://example.com/plataformas-tutoriales",
+      "Ejemplos de tutoriales destacados - https://example.com/tutoriales-destacados"
     ],
     "set": "electronics"
   },
@@ -1191,17 +1196,17 @@
     "id": 67,
     "text": "Create an\r\nFPGA Project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon67.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Crear un proyecto con FPGA permite aprender sobre diseño digital y programación de hardware.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Seleccionar una FPGA adecuada para el proyecto.",
+      "Desarrollar el diseño y la programación necesarios.",
+      "Probar y validar el funcionamiento del proyecto con FPGA."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Guía para trabajar con FPGAs - https://example.com/guia-fpga",
+      "Ejemplos de proyectos con FPGA - https://example.com/proyectos-fpga",
+      "Recursos de aprendizaje sobre diseño digital - https://example.com/diseño-digital"
     ],
     "set": "electronics"
   },
@@ -1209,17 +1214,17 @@
     "id": 68,
     "text": "Write your\r\nown C/C++ library\r\nfor a sensor\r\nfrom scratch",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/../../web_skill_trees_resources/svg/electronics_icons/icon68.svg",
-    "description": "Descripción de la habilidad",
+    "description": "Crear tu propia biblioteca en C/C++ para un sensor desde cero te permitirá entender mejor la interacción entre el hardware y el software, además de mejorar tus habilidades en programación de bajo nivel.",
     "score": 1,
     "tasks": [
-      "Task 1",
-      "Task 2",
-      "Task 3"
+      "Investigar los diferentes tipos de sensores y sus protocolos de comunicación.",
+      "Diseñar la arquitectura de la biblioteca teniendo en cuenta la modularidad y la reutilización de código.",
+      "Implementar la biblioteca y realizar pruebas para asegurar su correcto funcionamiento."
     ],
     "resources": [
-      "Resource 1",
-      "Resource 2",
-      "Resource 3"
+      "Guía sobre diseño de bibliotecas en C/C++ - https://example.com/guia-bibliotecas-c-cpp",
+      "Ejemplos de bibliotecas para sensores - https://example.com/ejemplos-sensores",
+      "Documentación sobre sensores y sus interfaces - https://example.com/documentacion-sensores"
     ],
     "set": "electronics"
   }

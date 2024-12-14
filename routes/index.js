@@ -4,36 +4,48 @@ const router = express.Router();
 import path from "path";
 import fs from "fs";
 import {fileURLToPath} from 'url';
+import Skill from "../models/skill.model.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const skillDataPath = path.join(__dirname, "./../data.json");
-const skills = JSON.parse(fs.readFileSync(skillDataPath, "utf-8"));
 
 /* GET home page. */
 router.get('/', function (req, res) {
     res.render('index', {title: 'ELECTRONICS', session: req.session});
 });
 
-router.get("/skill_details/:id", function (req, res) {
+const skillDataPath = path.join(__dirname, "./../data.json");
+const skills = JSON.parse(fs.readFileSync(skillDataPath, "utf-8"));
+
+router.get("/skill_details/:id", async (req, res) => {
     const id = req.params.id;
-    const skill = skills.find(skill => skill.id === id);
-    if (skill) {
-        res.render("skill_details", {skill});
-    } else {
-        res.status(404).send('Skill {id} not found');
+    try {
+        const skill = await Skill.findById(id);
+        if (skill) {
+            res.render("skill_details", { skill });
+        } else {
+            res.status(404).send(`Skill ${id} not found`);
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error retrieving skill from database');
     }
 });
 
 router.get('/skills/:skillTree/edit/:id', async (req, res) => {
     const {skillTree, id} = req.params;
-    const skill = skills.find(skill => skill.id === id);
-    if (!skill) {
-        return res.status(404).send('Skill not found');
+    try {
+        const skill = await Skill.findById(id);
+        if (skill) {
+            res.render('edit_skill', {skill, skillTree});
+        } else {
+            res.status(404).send(`Skill ${id} not found`);
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error retrieving skill from database');
     }
-
-    res.render('edit_skill', {skill, skillTree});
 });
 
 router.post('/skills/:skillTree/edit/:id', async (req, res) => {

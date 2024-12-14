@@ -20,13 +20,13 @@ router.get('/leaderboard', function (req, res) {
 
 router.get('/login', (req, res) => {
     const errorMessage = req.session.errorMessage;
-    req.session.errorMessage = null; // Limpia el mensaje después de leerlo
+    req.session.errorMessage = null;
     res.render('login', {errorMessage});
 });
 
 router.get('/register', (req, res) => {
     const errorMessage = req.session.errorMessage || null;
-    req.session.errorMessage = null; // Eliminar el mensaje para evitar que persista
+    req.session.errorMessage = null;
     res.render('register', {errorMessage});
 });
 
@@ -62,7 +62,6 @@ router.post('/register', async (req, res) => {
 
         await newUser.save();
 
-        // Redirigir al login
         res.redirect('/users/login');
     } catch (error) {
         console.error('Error registering user:', error);

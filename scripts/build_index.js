@@ -111,6 +111,11 @@ export async function build_index() {
             window.location.href = `/skills/${skillTree}/edit/${item.id}`;
         });
     });
+
+    if (role.trim().replace(/['"]/g, '').toLowerCase() === 'admin') {
+        const addSkillContainer = document.querySelector('#addSkillContainer');
+        addSkillContainer.style.display = 'block';
+    }
 }
 
 function createEvidenceCanvas(item, type, svgWrapper) {
