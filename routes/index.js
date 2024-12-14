@@ -73,8 +73,12 @@ router.post('/skills/:skillTree/edit/:id', async (req, res) => {
 });
 
 router.get('/skills/:skillTree/add', async (req, res) => {
-    res.send('Not implemented');
-
-
+    const {skillTree} = req.params;
+    res.render('add_skill', {skillTree});
 });
+
+router.post('/skills/:skillTree/add', async (req, res) => {
+    res.send('Not implemented');
+});
+
 export default router;

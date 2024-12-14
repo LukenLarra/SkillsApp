@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Skill</title>
+    <link rel="stylesheet" href="/css/skills.css">
+    <script src="/scripts/edit_skills.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <form action="/skills/<%= skillTree %>/add" method="POST">
+        <section id="skill-header">
+            <article class="skill-title">
+                <label for="skill-name">Skill Name:</label>
+                <textarea id="skill-name" name="text" spellcheck="false" required></textarea>
+            </article>
+            <article class="skill-score">
+                <label for="skill-score">Skill Score:</label>
+                <input type="number" min="1" id="skill-score" name="points" value="" required>
+            </article>
+        </section>
+
+        <!-- Visualization Section -->
+        <section id="skill-visualization">
+            <div class="details-svg"></div>
+        </section>
+
+        <!-- Description Section -->
+        <section id="skill-description">
+            <h2>Description</h2>
+            <label for="edit-skill-description"></label>
+            <textarea id="edit-skill-description" name="description" spellcheck="false" required></textarea>
+        </section>
+
+        <!-- Tasks Section -->
+        <section id="tasks-to-complete">
+            <h2>Tasks to Complete</h2>
+            <label for="task-list"></label>
+            <textarea id="task-list" name="tasks" spellcheck="false" required>
+
+            </textarea>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources">
+            <h2>Resources</h2>
+            <label for="resource-list"></label>
+            <textarea id="resource-list" name="resources" spellcheck="false" required>
+
+            </textarea>
+        </section>
+
+        <section id="upload">
+            <h2>Upload Icon (30x30 png):</h2>
+            <label for="icon-upload">Choose a File</label>
+            <input type="file" name="icon" id="icon-upload" accept="image/png">
+            <p class="file-name" id="file-name">No file selected</p>
+        </section>
+
+        <!-- Submit Button -->
+        <button id="create" type="submit" name="action" value="Create">Create</button>
+        <button id="cancel" type="submit" name="action" value="cancel">Cancel</button>
+    </form>
+</div>
+</body>
+</html>

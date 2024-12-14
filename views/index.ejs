@@ -14,9 +14,13 @@
 
 <div class="description-index"></div>
 <div class="button-container">
-    <div class="logout-container">
-        <button class="logout-button">
-            <i class="fas fa-sign-out-alt"></i> Logout
+    <div class="<% if (session.role !== "admin" && session.role !== "standard") { %> login-container <% } else { %> logout-container <% } %>">
+        <button class="<% if (session.role !== "admin" && session.role !== "standard") { %> login-button <% } else { %> logout-button <% } %>">
+            <% if (session.role !== "admin" && session.role !== "standard") { %>
+                <i class="fa-solid fa-right-to-bracket"></i> Login
+            <% } else { %>
+                <i class="fas fa-sign-out-alt"></i> Logout
+            <% } %>
         </button>
     </div>
 

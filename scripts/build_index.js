@@ -2,9 +2,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     await build_index();
 
     const logoutButton = document.querySelector('.logout-button');
+    const loginButton = document.querySelector('.login-button');
     const newSkillButton = document.querySelector('.newSkill-button');
     if (logoutButton) {
         logoutButton.addEventListener('click', logout);
+    }
+
+    if (loginButton) {
+        loginButton.addEventListener('click', login);
     }
 
     if (newSkillButton) {
@@ -167,6 +172,10 @@ async function logout() {
     } catch (error) {
         console.error('Error during logout:', error);
     }
+}
+
+async function login() {
+    window.location.href = '/users/login';
 }
 
 async function addNewSkill() {

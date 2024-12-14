@@ -102,7 +102,7 @@ router.post('/logout', (req, res) => {
             console.log(err);
             return res.status(500).send('Error logging out');
         }
-        res.redirect('/users/login'); // Redirigir a la página de login o donde quieras
+        res.redirect('/users/login');
     });
 });
 
