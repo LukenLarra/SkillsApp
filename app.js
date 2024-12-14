@@ -11,6 +11,7 @@ import usersRouter from './routes/users.js';
 import connectDB from './config/database.js';
 
 import Skill from './models/skill.model.js';
+import Badge from './models/badge.model.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -78,16 +79,14 @@ app.get('/api/data', async (req, res) => {
     }
 });
 
-app.get('/api/badges', (req, res) => {
-    const filePath = path.join(__dirname, 'badges.json');
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.log(err);
-            res.status(500).send('Error reading file');
-        } else {
-            res.json(JSON.parse(data));
-        }
-    });
+app.get('/api/badges', async (req, res) => {
+    try {
+        const badges = await Badge.find();
+        res.json(badges);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error retrieving badges from the database');
+    }
 });
 
 app.listen(3000, function () {

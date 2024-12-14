@@ -13,7 +13,7 @@ async function build_leaderboard(){
         table.appendChild(tr);
 
         const td = document.createElement('td');
-        td.textContent = item.rango;
+        td.textContent = item.range;
         tr.appendChild(td);
 
         const td2 = document.createElement('td');

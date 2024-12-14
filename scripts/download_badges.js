@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const dirPath = path.join(__dirname, "../public", "electronics", "badges");
 
-async function downloadBadgesSVG() {
+    async function downloadBadgesSVG() {
     const response = await fetch('http://localhost:3000/api/badges');
     const data = await response.json();
 
@@ -22,7 +22,7 @@ async function downloadBadgesSVG() {
             try {
                 const response = await fetch(badgeUrl);
                 if (!response.ok) {
-                    throw new Error(`Error al descargar el PNG desde ${badgeUrl}: ${response.statusText}`);
+                    console.error(`Error al descargar el PNG desde ${badgeUrl}: ${response.statusText}`);
                 }
                 const svgContent = await response.text();
                 fs.writeFileSync(filePath, svgContent);

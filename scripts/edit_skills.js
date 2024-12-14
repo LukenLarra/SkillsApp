@@ -51,53 +51,42 @@ async function createSVGSkills(){
 }
 
 
-function createEvidenceTable() {
-    const section = document.querySelector(".evidence-submission");
-
-    const heading = document.createElement('h2');
-    heading.textContent = 'Unverified Evidence Submissions';
-
-    const table = document.createElement('table');
-    table.border = '1';
-
-    const headerRow = document.createElement('tr');
-    const headers = ['User', 'Evidence', 'Actions'];
-    headers.forEach(text => {
-        const th = document.createElement('th');
-        th.textContent = text;
-        headerRow.appendChild(th);
+function changeIcon(){
+    document.getElementById('icon-upload').addEventListener('change', function () {
+        document.getElementById('file-name').textContent = this.files[0]?.name || 'No file selected';
     });
-    table.appendChild(headerRow);
-
-    const dataRow = document.createElement('tr');
-    const data = ['Dato 1', 'Dato 2'];
-    data.forEach(item => {
-        const td = document.createElement('td');
-        td.textContent = item;
-        dataRow.appendChild(td);
-    });
-    const actionTd = document.createElement('td');
-
-    const approveButton = document.createElement('button');
-    approveButton.textContent = 'Approve';
-    approveButton.classList.add('approve-button');
-
-    const rejectButton = document.createElement('button');
-    rejectButton.textContent = 'Reject';
-    rejectButton.classList.add('reject-button');
-
-    actionTd.appendChild(approveButton);
-    actionTd.appendChild(rejectButton);
-    dataRow.appendChild(actionTd);
-    table.appendChild(dataRow);
-
-    section.appendChild(heading);
-    section.appendChild(table);
 }
 
+function confirmDelete(){
+    const deleteButton = document.getElementById('delete');
+    const modal = document.getElementById('confirmation-modal');
+    const confirmDelete = document.getElementById('confirm-delete');
+    const cancelDelete = document.getElementById('cancel-delete');
+
+    deleteButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        modal.classList.remove('hidden');
+    });
+
+    confirmDelete.addEventListener('click', () => {
+        const form = deleteButton.closest('form');
+        const inputAction = document.createElement('input');
+        inputAction.type = 'hidden';
+        inputAction.name = 'action';
+        inputAction.value = 'delete';
+        form.appendChild(inputAction);
+        form.submit();
+    });
+
+    cancelDelete.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
     await createSVGSkills();
+    confirmDelete();
+    changeIcon();
 
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();

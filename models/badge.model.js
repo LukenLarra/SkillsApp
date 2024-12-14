@@ -30,4 +30,4 @@ badgeSchema.pre('save', function(next) {
     next();
 });
 
-export default mongoose.model('Skill', badgeSchema);
+export default mongoose.model('Badge', badgeSchema);

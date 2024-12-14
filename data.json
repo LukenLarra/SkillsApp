@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "text": "Light up an\r\nLED for the first\r\ntime",
+    "text": "Light up an\r\nLED for the first\r\ntime1",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon1.svg",
     "description": "The quintessential first step in electronics! Learn the basics of circuits and components by lighting up an LED",
     "score": 1,
@@ -20,7 +20,8 @@
       "All About Circuits 'Light-Emitting Diodes (LEDs)' lesson: https://www.allaboutcircuits.com/textbook/semiconductors/chpt-3/light-emitting-diodes-leds/",
       "YouTube video: 'How To Light up a LED' by Paul McWhorter: https://www.youtube.com/watch?v=QzoPxvlM2qE"
     ],
-    "set": "electronics"
+    "set": "electronics",
+    "points": "1"
   },
   {
     "id": 2,

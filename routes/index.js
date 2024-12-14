@@ -1,29 +1,19 @@
 import express from 'express';
 
 const router = express.Router();
-import path from "path";
-import fs from "fs";
-import {fileURLToPath} from 'url';
 import Skill from "../models/skill.model.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 
 /* GET home page. */
 router.get('/', function (req, res) {
     res.render('index', {title: 'ELECTRONICS', session: req.session});
 });
 
-const skillDataPath = path.join(__dirname, "./../data.json");
-const skills = JSON.parse(fs.readFileSync(skillDataPath, "utf-8"));
-
 router.get("/skill_details/:id", async (req, res) => {
     const id = req.params.id;
     try {
-        const skill = await Skill.findById(id);
+        const skill = await Skill.findOne({id: Number(id)});
         if (skill) {
-            res.render("skill_details", { skill });
+            res.render("skill_details", {skill});
         } else {
             res.status(404).send(`Skill ${id} not found`);
         }
@@ -36,7 +26,7 @@ router.get("/skill_details/:id", async (req, res) => {
 router.get('/skills/:skillTree/edit/:id', async (req, res) => {
     const {skillTree, id} = req.params;
     try {
-        const skill = await Skill.findById(id);
+        const skill = await Skill.findOne({id: Number(id)});
         if (skill) {
             res.render('edit_skill', {skill, skillTree});
         } else {
@@ -49,32 +39,29 @@ router.get('/skills/:skillTree/edit/:id', async (req, res) => {
 });
 
 router.post('/skills/:skillTree/edit/:id', async (req, res) => {
-    const { skillTree, id } = req.params;
-    const { action, text, points, description, tasks, resources } = req.body;
+    const {skillTree, id} = req.params;
+    const {action, text, points, description, tasks, resources} = req.body;
 
     try {
-        const data = await fs.promises.readFile(skillDataPath, 'utf8');
-        let skills = JSON.parse(data);
-
-        const skillIndex = skills.findIndex(skill => skill.id === id);
-        if (skillIndex === -1) {
+        const skill = await Skill.findOne({id: Number(id)});
+        if (!skill) {
             return res.status(404).send('Skill not found');
         }
 
         if (action === 'save') {
-            skills[skillIndex].text = text.split(',').map(t => t.trim()).filter(t => t.length > 0);
-            skills[skillIndex].points = points;
-            skills[skillIndex].description = description;
-            skills[skillIndex].tasks = tasks.split('\n').map(t => t.trim()).filter(t => t.length > 0);
-            skills[skillIndex].resources = resources.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+            skill.text = text.trim();
+            skill.points = points;
+            skill.description = description;
+            skill.tasks = tasks.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+            skill.resources = resources.split('\n').map(t => t.trim()).filter(t => t.length > 0);
+            skill.set = skillTree;
 
-            await fs.promises.writeFile(skillDataPath, JSON.stringify(skills, null, 2));
+            await skill.save();
             res.redirect(`/`);
-        }else if (action === 'cancel') {
+        } else if (action === 'cancel') {
             res.redirect(`/`);
         } else if (action === 'delete') {
-            skills.splice(skillIndex, 1);
-            await fs.promises.writeFile(skillDataPath, JSON.stringify(skills, null, 2));
+            await Skill.findOneAndRemove({ id: Number(id) });
             res.redirect(`/`);
         } else {
             res.status(400).send('Invalid action');

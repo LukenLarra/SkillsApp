@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Skill</title>
     <link rel="stylesheet" href="/css/skills.css">
-    <script src="/scripts/build_skills.js"></script>
+    <script src="/scripts/edit_skills.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
@@ -26,7 +26,7 @@
             </article>
             <article class="skill-score">
                 <label for="skill-score">Skill Score:</label>
-                <input type="number" min="1" id="skill-score" name="points" value="<%= skill.points %>" required>
+                <input type="number" min="1" id="skill-score" name="points" value="<%= skill.score %>" required>
             </article>
         </section>
 
@@ -38,8 +38,8 @@
         <!-- Description Section -->
         <section id="skill-description">
             <h2>Description</h2>
-            <label for="skill-description"></label>
-            <textarea id="skill-description" name="description" spellcheck="false" required><%= skill.description %></textarea>
+            <label for="edit-skill-description"></label>
+            <textarea id="edit-skill-description" name="description" spellcheck="false" required><%= skill.description %></textarea>
         </section>
 
         <!-- Tasks Section -->
