@@ -1,7 +1,44 @@
 import express from 'express';
+import Skill from "../models/skill.model.js";
+import multer from 'multer';
+import path from 'path';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 const router = express.Router();
-import Skill from "../models/skill.model.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const iconPath = path.join(__dirname, '../public/uploads/icons');
+
+if (!fs.existsSync(iconPath)) {
+    fs.mkdirSync(iconPath, { recursive: true });
+}
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null,iconPath);
+    },
+    filename: (req, file, cb) => {
+        const ext = path.extname(file.originalname);
+        cb(null, file.fieldname + '-' + Date.now() + ext);
+    }
+});
+
+const fileFilter = (req, file, cb) => {
+    if (file.mimetype === 'image/png') {
+        cb(null, true);
+    } else {
+        cb(new Error('Solo se permiten archivos PNG'), false);
+    }
+};
+
+const upload = multer({
+    storage: storage,
+    fileFilter: fileFilter,
+    limits: { fileSize: 1024 * 1024 }
+});
 
 /* GET home page. */
 router.get('/', function (req, res) {
@@ -38,7 +75,7 @@ router.get('/skills/:skillTree/edit/:id', async (req, res) => {
     }
 });
 
-router.post('/skills/:skillTree/edit/:id', async (req, res) => {
+router.post('/skills/:skillTree/edit/:id',  upload.single('icon'), async (req, res) => {
     const {skillTree, id} = req.params;
     const {action, text, points, description, tasks, resources} = req.body;
 
@@ -55,6 +92,10 @@ router.post('/skills/:skillTree/edit/:id', async (req, res) => {
             skill.tasks = tasks.split('\n').map(t => t.trim()).filter(t => t.length > 0);
             skill.resources = resources.split('\n').map(t => t.trim()).filter(t => t.length > 0);
             skill.set = skillTree;
+
+            if (req.file) {
+                skill.icon =  `/uploads/icons/${req.file.filename}`;
+            }
 
             await skill.save();
             res.redirect(`/`);

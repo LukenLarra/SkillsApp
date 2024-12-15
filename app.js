@@ -31,6 +31,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/scripts', express.static(path.join(__dirname, 'scripts')));
+app.use('/uploads/icons', express.static(path.join(__dirname, 'public/uploads/icons')));
 
 app.use(session({
     secret: 'my-simple-secret',

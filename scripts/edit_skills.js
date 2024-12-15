@@ -1,4 +1,4 @@
-async function createSVGSkills(){
+async function createSVGSkills() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
     const container = document.querySelector(".details-svg");
@@ -28,7 +28,7 @@ async function createSVGSkills(){
     text.setAttribute('text-anchor', 'middle');
     text.setAttribute('fill', 'black');
     text.setAttribute('font-size', '10');
-    text.setAttribute('font-weight','bold');
+    text.setAttribute('font-weight', 'bold');
     text.setAttribute('style', 'dominant-baseline: middle;');
 
     const textArray = item.text.split('\r\n').map(t => t.trim()).filter(t => t.length > 0);
@@ -51,13 +51,36 @@ async function createSVGSkills(){
 }
 
 
-function changeIcon(){
-    document.getElementById('icon-upload').addEventListener('change', function () {
-        document.getElementById('file-name').textContent = this.files[0]?.name || 'No file selected';
+function changeIcon() {
+    const fileInput = document.getElementById('icon-upload');
+    const fileNameDisplay = document.getElementById('file-name');
+    const MAX_SIZE = 1024 * 1024; // 1 MB
+
+    fileInput.addEventListener('change', function () {
+        const file = this.files[0];
+
+        if (!file) {
+            fileNameDisplay.textContent = 'No file selected';
+            return;
+        }
+
+        if (file.type !== 'image/png') {
+            fileNameDisplay.textContent = 'Only PNG files are allowed';
+            this.value = ''; // Reset input
+            return;
+        }
+
+        if (file.size > MAX_SIZE) {
+            fileNameDisplay.textContent = 'File size must be less than 1 MB';
+            this.value = ''; // Reset input
+            return;
+        }
+
+        fileNameDisplay.textContent = file.name;
     });
 }
 
-function confirmDelete(){
+function confirmDelete() {
     const deleteButton = document.getElementById('delete');
     const modal = document.getElementById('confirmation-modal');
     const confirmDelete = document.getElementById('confirm-delete');
