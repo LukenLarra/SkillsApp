@@ -9,13 +9,8 @@ let router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-/* GET users listing. */
 router.get('/', function (req, res) {
     res.send('respond with a resource');
-});
-
-router.get('/leaderboard', function (req, res) {
-    res.render('leaderboard', {title: 'Range Explanations'});
 });
 
 router.get('/login', (req, res) => {
@@ -70,10 +65,10 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    const { username, password } = req.body;
+    const {username, password} = req.body;
 
     try {
-        const user = await User.findOne({ username });
+        const user = await User.findOne({username});
         if (!user) {
             req.session.errorMessage = 'El nombre de usuario o la contraseña son incorrectos';
             return res.redirect('/users/login');

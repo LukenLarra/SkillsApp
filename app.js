@@ -8,6 +8,7 @@ import createError from 'http-errors';
 import session from 'express-session';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
+import adminRouter from './routes/admin.js';
 import connectDB from './config/database.js';
 
 import Skill from './models/skill.model.js';
@@ -41,8 +42,7 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-
+app.use('/admin', adminRouter);
 
 app.post('/api/data', (req, res) => {
     const data = req.body;

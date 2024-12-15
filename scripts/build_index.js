@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const logoutButton = document.querySelector('.logout-button');
     const loginButton = document.querySelector('.login-button');
     const newSkillButton = document.querySelector('.newSkill-button');
+    const dashboardButton = document.querySelector('.dashboard-button');
     if (logoutButton) {
         logoutButton.addEventListener('click', logout);
     }
@@ -14,6 +15,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (newSkillButton) {
         newSkillButton.addEventListener('click', addNewSkill);
+    }
+
+    if (dashboardButton) {
+        dashboardButton.addEventListener('click', dashboard);
     }
 });
 
@@ -119,7 +124,9 @@ export async function build_index() {
 
     if (role.trim().replace(/['"]/g, '').toLowerCase() === 'admin') {
         const addSkillContainer = document.querySelector('#addSkillContainer');
+        const dashboardContainer = document.querySelector('#dashboardContainer');
         addSkillContainer.style.display = 'block';
+        dashboardContainer.style.display = 'block';
     }
 }
 
@@ -181,4 +188,8 @@ async function login() {
 async function addNewSkill() {
     const skillTree = 'electronics';
     window.location.href = `/skills/${skillTree}/add`;
+}
+
+async function dashboard() {
+    window.location.href = `admin/dashboard`;
 }
