@@ -11,11 +11,11 @@
 <body>
 <div class="wrapper">
     <h1>Edit Badge</h1>
-    <form action="/badges/edit/<%= badge.name %>" method="POST" enctype="multipart/form-data">
+    <form action="/admin/badges/edit/<%= badge.name %>" method="POST">
         <section id="badge-name">
             <article class="badge-name">
                 <label for="edit-badge-name">Badge Name:</label>
-                <input type="text" id="edit-badge-name" name="edit-badge-name" value="<%= badge.name %>" required>
+                <input type="text" id="edit-badge-name" name="name" value="<%= badge.name %>" required>
             </article>
 
         </section>
@@ -23,24 +23,24 @@
         <section id="badge-range">
             <article class="badge-range">
                 <label for="edit-badge-range">Range:</label>
-                <input type="text" id="edit-badge-range" name="edit-badge-range" value="<%= badge.range %>" required>
+                <input type="text" id="edit-badge-range" name="range" value="<%= badge.range %>" required>
             </article>
         </section>
 
         <section id="badge-minbitpoints">
             <label for="edit-badge-minbitpoints">Minimum Bitpoints:</label>
-            <input type="number" id="edit-badge-minbitpoints" name="edit-badge-minbitpoints" value="<%= badge.bitpoints_min %>" required>
+            <input type="number" id="edit-badge-minbitpoints" name="minbitpoints" value="<%= badge.bitpoints_min %>" required>
         </section>
 
         <section id="badge-maxbitpoints">
             <label for="edit-badge-maxbitpoints">Minimum Bitpoints:</label>
-            <input type="number" id="edit-badge-maxbitpoints" name="edit-badge-maxbitpoints" value="<%= badge.bitpoints_max %>" required>
+            <input type="number" id="edit-badge-maxbitpoints" name="maxbitpoints" value="<%= badge.bitpoints_max %>" required>
         </section>
 
         <section id="badge-image">
             <article class="badge-image">
                 <label for="edit-badge-image">Image URL:</label>
-                <input type="text" id="edit-badge-image" name="edit-badge-image" value="<%= badge.image_url %>" required>
+                <input type="text" id="edit-badge-image" name="image" value="<%= badge.image_url %>" required>
                 <img src="<%= badge.image_url %>" alt="Badge Image" id="badge-image">
             </article>
         </section>

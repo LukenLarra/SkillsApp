@@ -1,7 +1,6 @@
 import express from 'express';
 import Badge from "../models/badge.model.js";
 
-
 let router = express.Router();
 
 router.get('/', function (req, res) {
@@ -40,7 +39,26 @@ router.get('/badges/edit/:id', async (req, res) => {
 });
 
 router.post('/badges/edit/:id', async (req, res) => {
-    res.send(`Editing badge ${id}`);
+    const name = req.params.id;
+    const {range, bitpoints_min, bitpoints_max, image_url} = req.body;
+    try {
+        const badge = await Badge.findOne({name: name});
+        if (!badge) {
+            return res.status(404).send('Badge not found');
+        }
+
+        badge.name = name;
+        badge.range = range;
+        badge.bitpoints_min = Number(bitpoints_min);
+        badge.bitpoints_max = Number(bitpoints_max);
+        badge.image_url = image_url;
+
+        await badge.save();
+        res.redirect(`/`);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error processing request');
+    }
 });
 
 router.get('/badges/delete/:id', async (req, res) => {
@@ -53,8 +71,6 @@ router.get('/badges/delete/:id', async (req, res) => {
         res.status(500).send('Error retrieving badge from database');
     }
 });
-
-
 
 
 export default router;

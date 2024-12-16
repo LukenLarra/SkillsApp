@@ -18,7 +18,7 @@ async function build_badges(){
 
         const badge = document.createElement('td');
         const img = document.createElement('img');
-        img.src = item.png;
+        img.src = item.image_url;
         badge.appendChild(img);
         tr.appendChild(badge);
 
