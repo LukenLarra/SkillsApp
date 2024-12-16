@@ -112,7 +112,8 @@ export async function build_index() {
 
         notebookIcon.addEventListener('click', async (event) => {
             event.stopPropagation();
-            window.location.href = `/skill_details/${item.id}`;
+            const skillTree = 'electronics';
+            window.location.href = `/skills/${skillTree}/view/${item.id}`;
         });
 
         editIcon.addEventListener('click', async (event) => {

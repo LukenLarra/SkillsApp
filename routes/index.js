@@ -45,8 +45,8 @@ router.get('/', function (req, res) {
     res.render('index', {title: 'ELECTRONICS', session: req.session});
 });
 
-router.get("/skill_details/:id", async (req, res) => {
-    const id = req.params.id;
+router.get("/skills/:skillTree/view/:id", async (req, res) => {
+    const {skillTree, id} = req.params;
     try {
         const skill = await Skill.findOne({id: Number(id)});
         if (skill) {
