@@ -1,3 +1,17 @@
+import changeIcon from "./changeIcon.js";
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await createSVGSkills();
+    confirmDelete();
+    changeIcon();
+
+    const response = await fetch('http://localhost:3000/api/data');
+    const data = await response.json();
+    const container = document.querySelector(".details-svg");
+    const svgId = container.getAttribute("svgId");
+    const item = data.find(item => item.id === svgId);
+});
+
 async function createSVGSkills() {
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
@@ -50,49 +64,6 @@ async function createSVGSkills() {
     svg.appendChild(image);
 }
 
-
-function changeIcon() {
-    const fileInput = document.getElementById('icon-upload');
-    const fileNameDisplay = document.getElementById('file-name');
-    const iconPreview = document.getElementById('icon-preview');
-    const MAX_SIZE = 1024 * 1024; // 1 MB
-
-    fileInput.addEventListener('change', function () {
-        const file = this.files[0];
-
-        if (!file) {
-            fileNameDisplay.textContent = 'No file selected';
-            iconPreview.src = '#';
-            iconPreview.classList.add('hidden');
-            return;
-        }
-
-        if (file.type !== 'image/png') {
-            fileNameDisplay.textContent = 'Only PNG files are allowed';
-            this.value = '';
-            iconPreview.src = '#';
-            iconPreview.classList.add('hidden');
-            return;
-        }
-
-        if (file.size > MAX_SIZE) {
-            fileNameDisplay.textContent = 'File size must be less than 1 MB';
-            this.value = '';
-            iconPreview.src = '#';
-            iconPreview.classList.add('hidden');
-            return;
-        }
-
-        fileNameDisplay.textContent = file.name;
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            iconPreview.src = e.target.result;
-            iconPreview.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-    });
-}
-
 function confirmDelete() {
     const deleteButton = document.getElementById('delete');
     const modal = document.getElementById('confirmation-modal');
@@ -119,14 +90,3 @@ function confirmDelete() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-    await createSVGSkills();
-    confirmDelete();
-    changeIcon();
-
-    const response = await fetch('http://localhost:3000/api/data');
-    const data = await response.json();
-    const container = document.querySelector(".details-svg");
-    const svgId = container.getAttribute("svgId");
-    const item = data.find(item => item.id === svgId);
-});

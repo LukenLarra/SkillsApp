@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Skill</title>
     <link rel="stylesheet" href="/css/skills.css">
-    <script src="/scripts/edit_skills.js"></script>
+    <script type="module" src="/scripts/add_skill.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
-    <form action="/skills/<%= skillTree %>/add" method="POST">
+    <div id="confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+            <p>Are you sure you want to cancel? Changes will not be saved.</p>
+            <button id="confirm-exit" class="btn confirm">Yes, Leave page</button>
+            <button id="cancel-exit" class="btn cancel">No, Stay</button>
+        </div>
+    </div>
+
+    <form action="/skills/<%= skillTree %>/add" method="POST" enctype="multipart/form-data">
         <section id="skill-header">
             <article class="skill-title">
                 <label for="skill-name">Skill Name:</label>
@@ -57,6 +65,7 @@
             <label for="icon-upload">Choose a File</label>
             <input type="file" name="icon" id="icon-upload" accept="image/png">
             <p class="file-name" id="file-name">No file selected</p>
+            <img id="icon-preview" src="#" alt="Icon Preview" style="display: none">
         </section>
 
         <!-- Submit Button -->

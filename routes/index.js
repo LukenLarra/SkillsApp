@@ -122,12 +122,9 @@ router.post('/skills/:skillTree/add', upload.single('icon'), async (req, res) =>
     try {
         const skillTree = req.params.skillTree;
         const { text, score, description, tasks, resources } = req.body;
-        const iconPath = req.file ? `/uploads/${req.file.filename}` : null; // Guarda la ruta del icono
+        const iconPath = req.file ? `/uploads/${req.file.filename}` : null;
 
-        const taskArray = tasks.split('\n').map(task => task.trim()).filter(task => task !== '');
-        const resourceArray = resources.split('\n').map(resource => resource.trim()).filter(resource => resource !== '');
-
-        const lastSkill = await Skill.findOne().sort({ id: -1 }); // Ordena por ID descendente
+        const lastSkill = await Skill.findOne().sort({ id: -1 });
         const newId = lastSkill ? lastSkill.id + 1 : 1;
 
         const newSkill = new Skill({
@@ -135,14 +132,14 @@ router.post('/skills/:skillTree/add', upload.single('icon'), async (req, res) =>
             text,
             score: Number(score),
             description,
-            tasks: taskArray,
-            resources: resourceArray,
+            tasks: JSON.parse(tasks),
+            resources: JSON.parse(resources),
             icon: iconPath,
-            set: skillTree, // Cambia según el árbol de skills al que pertenezca
+            set: skillTree,
         });
 
         await newSkill.save();
-        res.status(201).json({ message: 'Skill created successfully', skill: newSkill });
+        res.render('index', {title: 'ELECTRONICS', session: req.session});
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Failed to create skill', error: error.message });
