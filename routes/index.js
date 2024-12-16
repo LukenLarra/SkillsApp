@@ -94,7 +94,7 @@ router.post('/skills/:skillTree/edit/:id',  upload.single('icon'), async (req, r
             skill.set = skillTree;
 
             if (req.file) {
-                skill.icon =  `/uploads/icons/${req.file.filename}`;
+                skill.icon = `/uploads/icons/${req.file.filename}`;
             }
 
             await skill.save();
@@ -122,7 +122,7 @@ router.post('/skills/:skillTree/add', upload.single('icon'), async (req, res) =>
     try {
         const skillTree = req.params.skillTree;
         const { text, score, description, tasks, resources } = req.body;
-        const iconPath = req.file ? `/uploads/${req.file.filename}` : null;
+        const iconPath = req.file ? `/uploads/icons/${req.file.filename}` : null;
 
         const lastSkill = await Skill.findOne().sort({ id: -1 });
         const newId = lastSkill ? lastSkill.id + 1 : 1;

@@ -44,7 +44,14 @@ async function addSkill(event){
         });
 
         if (response.ok) {
-            window.location.href = '/';
+            const successModal = document.getElementById('success-modal');
+            const closeModal = document.getElementById('close-modal');
+
+            successModal.classList.remove('hidden');
+            closeModal.addEventListener('click', () => {
+                successModal.classList.add('hidden');
+                window.location.href = '/';
+            });
         } else {
             const error = await response.json();
             alert(`Failed to add skill: ${error.message}`);

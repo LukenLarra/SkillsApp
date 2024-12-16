@@ -4,12 +4,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     await createSVGSkills();
     confirmDelete();
     changeIcon();
-
-    const response = await fetch('http://localhost:3000/api/data');
-    const data = await response.json();
-    const container = document.querySelector(".details-svg");
-    const svgId = container.getAttribute("svgId");
-    const item = data.find(item => item.id === svgId);
 });
 
 async function createSVGSkills() {
