@@ -29,7 +29,7 @@ router.get('/badges/edit/:id', async (req, res) => {
     try {
         const badge = await Badge.findOne({name: name});
         if (badge) {
-            res.send(badge);
+            res.render('edit_badge', {badge: badge});
         } else {
             res.status(404).send(`Badge ${id} not found`);
         }

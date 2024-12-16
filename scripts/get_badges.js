@@ -34,7 +34,7 @@ async function getBadges() {
                         name: strongText,
                         bitpoints_min,
                         bitpoints_max,
-                        png: imgSrc
+                        image_url: imgSrc
                     });
 
                     bitpoints_min += 10;

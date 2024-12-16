@@ -80,3 +80,74 @@ button {
 .deleteBtn:hover {
     background-color: #cc0000;
 }
+
+form label {
+    font-weight: bold;
+    margin: 2px 0;
+    display: block;
+    color: #555555;
+}
+
+form img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin: 12px auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input {
+    margin: 10px 0;
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus {
+    border-color: #5ba2f1;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+    background-color: #ffffff;
+}
+
+.wrapper {
+    border-radius: 8px;
+    border: #333333;
+    padding: 40px 100px;
+    background-color: #f0f0f0;
+}
+
+form button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+form #update{
+    background-color: #158505;
+    color: #ffffff;
+}
+
+form #update:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #26a60c;
+}
+
+form #cancel {
+    background-color: #5b5d5a;
+    color: #ffffff;
+}
+
+form #cancel:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #777a77;
+}
