@@ -118,8 +118,35 @@ router.get('/skills/:skillTree/add', async (req, res) => {
     res.render('add_skill', {skillTree});
 });
 
-router.post('/skills/:skillTree/add', async (req, res) => {
-    res.send('Not implemented');
+router.post('/skills/:skillTree/add', upload.single('icon'), async (req, res) => {
+    try {
+        const skillTree = req.params.skillTree;
+        const { text, score, description, tasks, resources } = req.body;
+        const iconPath = req.file ? `/uploads/${req.file.filename}` : null; // Guarda la ruta del icono
+
+        const taskArray = tasks.split('\n').map(task => task.trim()).filter(task => task !== '');
+        const resourceArray = resources.split('\n').map(resource => resource.trim()).filter(resource => resource !== '');
+
+        const lastSkill = await Skill.findOne().sort({ id: -1 }); // Ordena por ID descendente
+        const newId = lastSkill ? lastSkill.id + 1 : 1;
+
+        const newSkill = new Skill({
+            id: newId,
+            text,
+            score: Number(score),
+            description,
+            tasks: taskArray,
+            resources: resourceArray,
+            icon: iconPath,
+            set: skillTree, // Cambia según el árbol de skills al que pertenezca
+        });
+
+        await newSkill.save();
+        res.status(201).json({ message: 'Skill created successfully', skill: newSkill });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Failed to create skill', error: error.message });
+    }
 });
 
 export default router;
