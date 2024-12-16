@@ -111,47 +111,6 @@ h1 {
     }
 }
 
-/* Estilo general de la tabla */
-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin: 0 auto;
-    font-size: 16px;
-    text-align: left;
-    justify-content: center;
-    align-items: center;
-    border: #dddddd 1px solid;
-}
-
-thead th {
-    padding: 10px;
-}
-
-td {
-    padding: 10px;
-    vertical-align: middle;
-}
-
-td:nth-child(2) img {
-    max-width: 45px;
-    display: block;
-    margin: 0 auto;
-}
-
-th, td:not(:first-child) {
-    text-align: center;
-}
-
-.range-row:nth-child(even) {
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #ddd;
-}
-
-.range-row:nth-child(odd) {
-    background-color: #ffffff;
-    border-bottom: 1px solid #ddd;
-}
-
 .logout-button {
     background-color: #ff4d4d;
     color: white;
@@ -171,8 +130,8 @@ th, td:not(:first-child) {
 
 .logout-container {
     position: absolute;
-    top: 25px; /* Espacio desde la parte superior */
-    right: 35px; /* Espacio desde la derecha */
+    top: 25px;
+    right: 35px;
 }
 
 .login-button {
@@ -195,8 +154,8 @@ th, td:not(:first-child) {
 
 .login-container {
     position: absolute;
-    top: 25px; /* Espacio desde la parte superior */
-    right: 35px; /* Espacio desde la derecha */
+    top: 25px;
+    right: 35px;
 }
 
 .newSkill-button {
@@ -218,13 +177,13 @@ th, td:not(:first-child) {
 
 .newSkill-container {
     position: absolute;
-    top: 25px; /* Espacio desde la parte superior */
-    right: 135px; /* Espacio desde la derecha */
+    top: 25px;
+    right: 135px;
 }
 
 .dashboard-container {
     position: absolute;
-    top: 25px; /* Espacio desde la parte superior */
+    top: 25px;
     right: 275px;
 }
 
@@ -245,32 +204,29 @@ th, td:not(:first-child) {
     background-color: #177ee0;
 }
 
-/* Footer styles */
 footer {
-
-    bottom: 0; /* Stick to the bottom of the viewport */
+    bottom: 0;
     width: 100%;
-
     text-align: center;
-    background-color: #f0f0f0; /* Light background color */
-    border-top: 1px solid #ccc; /* Border on top */
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
 }
 
 .svg-wrapper.expanded {
-    transform: scale(1.2); /* Aumenta el tamaño en 1.2x */
+    transform: scale(1.2);
 }
 
 .svg-wrapper.expanded .hexagon {
-    transform-origin: center; /* Establece el centro como origen de transformación */
+    transform-origin: center;
 }
 
 .edit-icon {
     position: absolute;
-    bottom: 10px; /* Colocado en la parte inferior */
-    left: 10px; /* Alineado a la izquierda */
+    bottom: 10px;
+    left: 10px;
     font-size: 1.2em;
     color: #000;
-    display: none; /* Inicialmente oculto */
+    display: none;
     z-index: 2;
     cursor: pointer;
 }

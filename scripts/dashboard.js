@@ -3,14 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const usersButton = document.querySelector(".mng-users");
 
     badgesButton.addEventListener("click", () => {
-        fetch("/admin/badges").catch(error => {
-            console.error("Error fetching badges:", error);
-        });
+        window.location.href = "/admin/badges";
     });
 
     usersButton.addEventListener("click", () => {
-        fetch("/admin/users").catch(error => {
-            console.error("Error fetching users:", error);
-        });
+        window.location.href = "/admin/users";
     });
 });

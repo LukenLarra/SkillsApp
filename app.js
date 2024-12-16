@@ -9,6 +9,7 @@ import session from 'express-session';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import adminRouter from './routes/admin.js';
+import skillsRouter from './routes/skills.js';
 import connectDB from './config/database.js';
 
 import Skill from './models/skill.model.js';
@@ -43,6 +44,8 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin', adminRouter);
+app.use('/skills', skillsRouter);
+
 
 app.post('/api/data', (req, res) => {
     const data = req.body;
