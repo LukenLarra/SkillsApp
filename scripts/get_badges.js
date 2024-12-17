@@ -30,7 +30,6 @@ async function getBadges() {
                     imgSrc = imgSrc + "-min.png";
 
                     badgesList.push({
-                        range: strongText,
                         name: strongText,
                         bitpoints_min,
                         bitpoints_max,

@@ -14,9 +14,9 @@ async function build_badges() {
         tr.classList.add('range-row');
         table.appendChild(tr);
 
-        const range = document.createElement('td');
-        range.textContent = item.range;
-        tr.appendChild(range);
+        const name = document.createElement('td');
+        name.textContent = item.name;
+        tr.appendChild(name);
 
         const badge = document.createElement('td');
         const img = document.createElement('img');

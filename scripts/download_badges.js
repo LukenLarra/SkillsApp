@@ -12,7 +12,7 @@ const dirPath = path.join(__dirname, "../public", "electronics", "badges");
     const data = await response.json();
 
     await Promise.all(data.map(async (item) => {
-        const badgeUrl = item.png;
+        const badgeUrl = item.image_url;
         const fileName = path.basename(badgeUrl);
         const filePath = path.join(dirPath, fileName);
 

@@ -41,7 +41,7 @@ router.get('/badges/edit/:id', async (req, res) => {
 
 router.post('/badges/edit/:id', async (req, res) => {
     const name = req.params.id;
-    const {action, range, bitpoints_min, bitpoints_max, image_url} = req.body;
+    const {action, bitpoints_min, bitpoints_max, image_url} = req.body;
     try {
         const badge = await Badge.findOne({name: name});
         if (!badge) {
@@ -49,7 +49,6 @@ router.post('/badges/edit/:id', async (req, res) => {
         }
         if (action === 'update') {
             badge.name = name;
-            badge.range = range;
             badge.bitpoints_min = Number(bitpoints_min);
             badge.bitpoints_max = Number(bitpoints_max);
             badge.image_url = image_url;
@@ -57,7 +56,7 @@ router.post('/badges/edit/:id', async (req, res) => {
             await badge.save();
             res.redirect(`/admin/badges`);
         } else if (action === 'cancel') {
-            res.redirect(`/`);
+            res.redirect(`/admin/badges`);
         }
     } catch (err) {
         console.error(err);

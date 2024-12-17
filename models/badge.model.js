@@ -6,10 +6,6 @@ const badgeSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    range: {
-        type: String,
-        required: true
-    },
     bitpoints_min: {
         type: Number,
         required: true
@@ -23,10 +19,10 @@ const badgeSchema = new mongoose.Schema({
         required: true
     }
 
-},{collection: 'Badge'});
+}, {collection: 'Badge'});
 
 // Middlewares
-badgeSchema.pre('save', function(next) {
+badgeSchema.pre('save', function (next) {
     next();
 });
 
