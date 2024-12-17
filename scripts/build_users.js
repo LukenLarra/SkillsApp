@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     await build_users();
+    sendNewPassword();
 });
-
 
 async function build_users() {
     const response = await fetch('http://localhost:3000/api/users');
@@ -43,7 +43,7 @@ async function build_users() {
         passwordBtn.textContent = 'Change Password';
         passwordBtn.classList.add('editBtn');
         passwordBtn.onclick = () => {
-
+            showChangePasswordForm(item.username);
         };
 
         actions.appendChild(passwordBtn);
@@ -53,4 +53,42 @@ async function build_users() {
     });
 
     table.appendChild(tbody);
+}
+
+function showChangePasswordForm(username) {
+    const container = document.querySelector('.formContainer');
+    const usernameInput = document.getElementById('username');
+    usernameInput.value = username;
+    if (container.style.display === 'none') {
+        container.style.display = 'block';
+    }
+}
+
+function sendNewPassword() {
+    const changeBtn = document.querySelector('.changeBtn');
+    changeBtn.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            const response = await fetch(`http://localhost:3000/admin/change-password`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userId: username, newPassword: password }),
+            });
+
+            if (response.ok) {
+                document.querySelector('.formContainer').style.display = 'none';
+                document.getElementById('password').value = '';
+            }else {
+                const errorMessage = await response.text();
+                alert(errorMessage);
+            }
+        } catch (error) {
+            console.error('Error changing password:', error);
+        }
+    });
 }

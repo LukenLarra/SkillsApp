@@ -1,5 +1,6 @@
 import express from 'express';
 import Badge from "../models/badge.model.js";
+import User from "../models/user.model.js";
 
 let router = express.Router();
 
@@ -72,6 +73,27 @@ router.post('/badges/delete/:id', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).send('Error retrieving badge from database');
+    }
+});
+
+router.post('/change-password', async (req, res) => {
+    const { userId, newPassword } = req.body;
+
+    try {
+        const user = await User.findOne({ username: userId });
+        if (!user) {
+            res.status(404).send('User not found');
+        }
+
+        if (newPassword.length < 6) {
+            res.status(400).send('Password must be at least 6 characters long');
+        }
+
+        user.password = newPassword;
+        await user.save();
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error changing password');
     }
 });
 
