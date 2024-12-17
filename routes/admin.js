@@ -16,7 +16,7 @@ router.get('/dashboard', function (req, res) {
 });
 
 router.get('/users', function (req, res) {
-    res.send('Not implemented');
+    res.render('manage_users');
 });
 
 router.get('/badges', function (req, res) {

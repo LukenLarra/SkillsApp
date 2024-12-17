@@ -13,6 +13,7 @@ import skillsRouter from './routes/skills.js';
 import connectDB from './config/database.js';
 
 import Skill from './models/skill.model.js';
+import User from './models/user.model.js';
 import Badge from './models/badge.model.js';
 
 
@@ -60,6 +61,26 @@ app.post('/api/data', (req, res) => {
     });
 });
 
+app.get('/api/data', async (req, res) => {
+    try {
+        const skills = await Skill.find();
+        res.json(skills);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error retrieving skills from the database');
+    }
+});
+
+app.get('/api/users', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json(users);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error retrieving skills from the database');
+    }
+});
+
 app.post('/api/badges', (req, res) => {
     const data = req.body;
     fs.writeFile('badges.json', JSON.stringify(data, null, 2), (err) => {
@@ -71,16 +92,6 @@ app.post('/api/badges', (req, res) => {
             res.status(200).send('Data uploaded successfully');
         }
     });
-});
-
-app.get('/api/data', async (req, res) => {
-    try {
-        const skills = await Skill.find();
-        res.json(skills);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Error retrieving skills from the database');
-    }
 });
 
 app.get('/api/badges', async (req, res) => {
