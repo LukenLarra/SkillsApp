@@ -64,7 +64,7 @@ router.post('/badges/edit/:id', async (req, res) => {
     }
 });
 
-router.get('/badges/delete/:id', async (req, res) => {
+router.post('/badges/delete/:id', async (req, res) => {
     const name = req.params.id;
     try {
         await Badge.findOneAndDelete({name: name});

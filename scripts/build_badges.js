@@ -59,16 +59,30 @@ function setupModalHandlers() {
     const confirmDeleteButton = document.getElementById('confirm-delete');
     const cancelDeleteButton = document.getElementById('cancel-delete');
 
-    // Handle "Yes, Delete" button
-    confirmDeleteButton.addEventListener('click', () => {
+    confirmDeleteButton.addEventListener('click', async () => {
         const badgeName = modal.getAttribute('data-id');
         if (badgeName) {
-            window.location.href = `/admin/badges/delete/${badgeName}`;
+            try {
+                const response = await fetch(`/admin/badges/delete/${badgeName}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name: badgeName })
+                });
+
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    const error = await response.json();
+                    alert(`Error: ${error.message}`);
+                }
+            } catch (err) {
+                console.error(err);
+            }
         }
-        hideModal();
     });
 
-    // Handle "Cancel" button
     cancelDeleteButton.addEventListener('click', () => {
         hideModal();
     });
