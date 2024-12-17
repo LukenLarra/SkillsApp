@@ -45,7 +45,7 @@ router.get('/', function (req, res) {
     res.send('respond with a resource');
 });
 
-router.get("/skills/:skillTree/view/:id", async (req, res) => {
+router.get("/:skillTree/view/:id", async (req, res) => {
     const {skillTree, id} = req.params;
     try {
         const skill = await Skill.findOne({id: Number(id)});
@@ -60,7 +60,7 @@ router.get("/skills/:skillTree/view/:id", async (req, res) => {
     }
 });
 
-router.get('/skills/:skillTree/edit/:id', async (req, res) => {
+router.get('/:skillTree/edit/:id', async (req, res) => {
     const {skillTree, id} = req.params;
     try {
         const skill = await Skill.findOne({id: Number(id)});
@@ -75,7 +75,7 @@ router.get('/skills/:skillTree/edit/:id', async (req, res) => {
     }
 });
 
-router.post('/skills/:skillTree/edit/:id',  upload.single('icon'), async (req, res) => {
+router.post('/:skillTree/edit/:id',  upload.single('icon'), async (req, res) => {
     const {skillTree, id} = req.params;
     const {action, text, points, description, tasks, resources} = req.body;
 
@@ -102,7 +102,7 @@ router.post('/skills/:skillTree/edit/:id',  upload.single('icon'), async (req, r
         } else if (action === 'cancel') {
             res.redirect(`/`);
         } else if (action === 'delete') {
-            await Skill.findOneAndRemove({ id: Number(id) });
+            await Skill.findOneAndDelete({ id: Number(id) });
             res.redirect(`/`);
         } else {
             res.status(400).send('Invalid action');
@@ -113,12 +113,12 @@ router.post('/skills/:skillTree/edit/:id',  upload.single('icon'), async (req, r
     }
 });
 
-router.get('/skills/:skillTree/add', async (req, res) => {
+router.get('/:skillTree/add', async (req, res) => {
     const {skillTree} = req.params;
     res.render('add_skill', {skillTree});
 });
 
-router.post('/skills/:skillTree/add', upload.single('icon'), async (req, res) => {
+router.post('/:skillTree/add', upload.single('icon'), async (req, res) => {
     try {
         const skillTree = req.params.skillTree;
         const { text, score, description, tasks, resources } = req.body;

@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', async () => {
     await build_badges();
+    setupModalHandlers();
 });
 
-async function build_badges(){
+async function build_badges() {
     const response = await fetch('http://localhost:3000/api/badges');
     const data = await response.json();
     const table = document.querySelector(".range-table");
     const tbody = document.createElement('tbody');
+
     data.forEach(item => {
         const tr = document.createElement('tr');
         tr.classList.add('range-row');
@@ -31,9 +33,10 @@ async function build_badges(){
         editBtn.onclick = () => {
             window.location.href = `/admin/badges/edit/${item.name}`;
         };
+
         const deleteBtn = document.createElement('button');
         deleteBtn.onclick = () => {
-            window.location.href = `/admin/badges/delete/${item.name}`;
+            showDeleteModal(item.name);
         };
 
         editBtn.textContent = 'Edit';
@@ -47,5 +50,38 @@ async function build_badges(){
 
         tbody.appendChild(tr);
     });
+
     table.appendChild(tbody);
+}
+
+function setupModalHandlers() {
+    const modal = document.getElementById('confirmation-modal');
+    const confirmDeleteButton = document.getElementById('confirm-delete');
+    const cancelDeleteButton = document.getElementById('cancel-delete');
+
+    // Handle "Yes, Delete" button
+    confirmDeleteButton.addEventListener('click', () => {
+        const badgeName = modal.getAttribute('data-id');
+        if (badgeName) {
+            window.location.href = `/admin/badges/delete/${badgeName}`;
+        }
+        hideModal();
+    });
+
+    // Handle "Cancel" button
+    cancelDeleteButton.addEventListener('click', () => {
+        hideModal();
+    });
+}
+
+function showDeleteModal(badgeName) {
+    const modal = document.getElementById('confirmation-modal');
+    modal.setAttribute('data-id', badgeName);
+    modal.classList.remove('hidden');
+}
+
+function hideModal() {
+    const modal = document.getElementById('confirmation-modal');
+    modal.setAttribute('data-id', '');
+    modal.classList.add('hidden');
 }
