@@ -111,53 +111,16 @@ h1 {
     }
 }
 
-.logout-button {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 7px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
+.button-container {
+    display: flex; /* Usa flexbox para alinear los elementos en fila */
+    position: fixed; /* O usa 'absolute' si prefieres */
+    top: 20px; /* Ajusta la distancia desde la parte superior */
+    left: 20px; /* Cambia a 'left' para alinear a la izquierda */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    gap: 10px; /* Espacio entre los botones */
 }
 
-.logout-button:hover {
-    background-color: #ff1a1a;
-}
-
-.logout-container {
-    position: absolute;
-    top: 25px;
-    right: 35px;
-}
-
-.login-button {
-    background-color: #35d51c;
-    color: white;
-    border: none;
-    padding: 7px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.login-button:hover {
-    background-color: #2ead17;
-    transition: ease 0.3s;
-}
-
-.login-container {
-    position: absolute;
-    top: 25px;
-    right: 35px;
-}
-
+/* Agrupando estilos comunes para todos los botones */
 button {
     background-color: dodgerblue;
     color: white;
@@ -165,40 +128,35 @@ button {
     padding: 7px 12px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
 }
 
-.newSkill-button:hover {
+button:hover {
     background-color: #177ee0;
 }
 
-.newSkill-container {
-    position: absolute;
-    top: 25px;
-    right: 135px;
+button i {
+    margin-right: 5px;
 }
 
-.dashboard-container {
-    position: absolute;
-    top: 25px;
-    right: 275px;
+.logout-button {
+    background-color: #ff4d4d;
 }
 
-.dashboard-button:hover {
-    background-color: #177ee0;
+.logout-button:hover {
+    background-color: #ff1a1a;
 }
 
-.leaderboard-container {
-    position: absolute;
-    top: 25px;
-    right: 400px;
+.login-button {
+    background-color: #35d51c;
 }
 
-.leaderboard-button:hover {
-    background-color: #177ee0;
+.login-button:hover {
+    background-color: #2ead17;
 }
 
 footer {
