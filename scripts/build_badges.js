@@ -11,7 +11,6 @@ async function build_badges() {
 
     data.forEach(item => {
         const tr = document.createElement('tr');
-        tr.classList.add('range-row');
         table.appendChild(tr);
 
         const name = document.createElement('td');
