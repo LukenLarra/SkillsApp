@@ -84,12 +84,14 @@ router.post('/change-password', async (req, res) => {
             res.status(404).send('User not found');
         }
 
-        if (newPassword.length < 6) {
-            res.status(400).send('Password must be at least 6 characters long');
+        const isSamePassword = await user.comparePassword(newPassword);
+        if (isSamePassword) {
+            return res.status(400).send('New password cannot be the same as the current password!');
         }
 
         user.password = newPassword;
         await user.save();
+        res.status(200).send('Password changed successfully');
     } catch (err) {
         console.error(err);
         res.status(500).send('Error changing password');

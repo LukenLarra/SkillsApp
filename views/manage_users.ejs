@@ -19,9 +19,16 @@
         <label for="username">Selected User: </label>
         <input type="text" name="username" id="username" readonly>
         <label for="password">New Password: </label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" required>
         <button type="submit" class="changeBtn">Confirm</button>
     </form>
+</div>
+
+<div id="info-modal" class="modal hidden">
+    <div class="modal-content">
+        <p> </p>
+        <button id="close-modal" class="btn confirm">Close</button>
+    </div>
 </div>
 </body>
 </html>
