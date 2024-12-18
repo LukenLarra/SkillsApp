@@ -101,4 +101,8 @@ router.post('/logout', (req, res) => {
     });
 });
 
+router.get('/leaderboard', (req, res) => {
+    res.render('leaderboard');
+});
+
 export default router;

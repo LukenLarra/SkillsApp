@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const loginButton = document.querySelector('.login-button');
     const newSkillButton = document.querySelector('.newSkill-button');
     const dashboardButton = document.querySelector('.dashboard-button');
+    const leaderboardButton = document.querySelector('.leaderboard-button');
     if (logoutButton) {
         logoutButton.addEventListener('click', logout);
     }
@@ -20,6 +21,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (dashboardButton) {
         dashboardButton.addEventListener('click', dashboard);
     }
+
+    if (leaderboardButton) {
+        leaderboardButton.addEventListener('click', leaderboard);
+    }
+
 });
 
 export async function build_index() {
@@ -126,8 +132,10 @@ export async function build_index() {
     if (role.trim().replace(/['"]/g, '').toLowerCase() === 'admin') {
         const addSkillContainer = document.querySelector('#addSkillContainer');
         const dashboardContainer = document.querySelector('#dashboardContainer');
+        const leaderboardContainer = document.querySelector('#leaderboardContainer');
         addSkillContainer.style.display = 'block';
         dashboardContainer.style.display = 'block';
+        leaderboardContainer.style.display = 'block';
     }
 }
 
@@ -193,4 +201,8 @@ async function addNewSkill() {
 
 async function dashboard() {
     window.location.href = `admin/dashboard`;
+}
+
+async function leaderboard() {
+    window.location.href = `users/leaderboard`;
 }

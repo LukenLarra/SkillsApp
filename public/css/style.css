@@ -158,7 +158,7 @@ h1 {
     right: 35px;
 }
 
-.newSkill-button {
+button {
     background-color: dodgerblue;
     color: white;
     border: none;
@@ -187,20 +187,17 @@ h1 {
     right: 275px;
 }
 
-.dashboard-button {
-    background-color: dodgerblue;
-    color: white;
-    border: none;
-    padding: 7px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 5px;
+.dashboard-button:hover {
+    background-color: #177ee0;
 }
 
-.dashboard-button:hover {
+.leaderboard-container {
+    position: absolute;
+    top: 25px;
+    right: 400px;
+}
+
+.leaderboard-button:hover {
     background-color: #177ee0;
 }
 
