@@ -30,27 +30,34 @@ async function build_badges() {
 
         const action = document.createElement('td');
         const editBtn = document.createElement('button');
+        const editIcon = document.createElement('i');
+        editIcon.classList.add('fa-solid', 'fa-pencil');
+        editBtn.classList.add('editBtn');
+
+        editBtn.appendChild(editIcon);
+        editBtn.appendChild(document.createTextNode(' Edit'));
+
         editBtn.onclick = () => {
             window.location.href = `/admin/badges/edit/${item.name}`;
         };
 
         const deleteBtn = document.createElement('button');
+        const deleteIcon = document.createElement('i');
+        deleteIcon.classList.add('fa-solid', 'fa-trash');
+        deleteBtn.classList.add('deleteBtn');
+
+        deleteBtn.appendChild(deleteIcon);
+        deleteBtn.appendChild(document.createTextNode(' Delete'));
+
         deleteBtn.onclick = () => {
             showDeleteModal(item.name);
         };
 
-        editBtn.textContent = 'Edit';
-        deleteBtn.textContent = 'Delete';
-        editBtn.classList.add('editBtn');
-        deleteBtn.classList.add('deleteBtn');
-
         action.appendChild(editBtn);
         action.appendChild(deleteBtn);
         tr.appendChild(action);
-
         tbody.appendChild(tr);
     });
-
     table.appendChild(tbody);
 }
 

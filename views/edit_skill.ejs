@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/skills.css">
     <script type="module" src="/scripts/edit_skills.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 <div class="wrapper">
@@ -62,15 +63,15 @@
 
         <section id="upload">
             <h2>Upload Icon (30x30 png):</h2>
-            <label for="icon-upload">Choose a File</label>
+            <label for="icon-upload"><i class="fa-solid fa-file"></i> Choose a File</label>
             <input type="file" name="icon" id="icon-upload" accept="image/png">
             <p class="file-name" id="file-name">No file selected</p>
             <img id="icon-preview" src="#" alt="Icon Preview" style="display: none">
         </section>
 
-        <button id="save" type="submit" name="action" value="save">Save</button>
-        <button id="cancel" type="submit" name="action" value="cancel">Cancel</button>
-        <button id="delete" type="button" class="btn delete" name="action" value="delete">Delete Skill</button>
+        <button id="save" type="submit" name="action" value="save"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+        <button id="cancel" type="submit" name="action" value="cancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
+        <button id="delete" type="button" class="btn delete" name="action" value="delete"><i class="fa-solid fa-trash"></i> Delete</button>
 
     </form>
 </div>

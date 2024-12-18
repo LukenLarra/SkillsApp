@@ -40,15 +40,18 @@ async function build_users() {
 
         const actions = document.createElement('td');
         const passwordBtn = document.createElement('button');
-        passwordBtn.textContent = 'Change Password';
+        const lockIcon = document.createElement('i');
+
         passwordBtn.classList.add('editBtn');
+        lockIcon.classList.add('fa-solid', 'fa-lock');
         passwordBtn.onclick = () => {
             showChangePasswordForm(item.username);
         };
 
+        passwordBtn.appendChild(lockIcon);
+        passwordBtn.appendChild(document.createTextNode(' Change Password'));
         actions.appendChild(passwordBtn);
         tr.appendChild(actions);
-
         tbody.appendChild(tr);
     });
 

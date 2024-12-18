@@ -6,7 +6,7 @@
     <title>Edit Skill</title>
     <link rel="stylesheet" href="/css/skills.css">
     <script type="module" src="/scripts/add_skill.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 <div class="wrapper">
@@ -62,15 +62,15 @@
 
         <section id="upload">
             <h2>Upload Icon (30x30 png):</h2>
-            <label for="icon-upload">Choose a File</label>
+            <label for="icon-upload"><i class="fa-solid fa-file"></i> Choose a File</label>
             <input type="file" name="icon" id="icon-upload" accept="image/png">
             <p class="file-name" id="file-name">No file selected</p>
             <img id="icon-preview" src="#" alt="Icon Preview" style="display: none">
         </section>
 
         <!-- Submit Button -->
-        <button id="create" type="submit" name="action" value="Create">Create</button>
-        <button id="cancel" type="submit" name="action" value="cancel">Cancel</button>
+        <button id="create" type="submit" name="action" value="Create"><i class="fa-solid fa-plus"></i> Create</button>
+        <button id="cancel" type="submit" name="action" value="cancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
     </form>
 
     <div id="success-modal" class="modal hidden">
