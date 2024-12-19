@@ -36,6 +36,10 @@ export async function build_index() {
     const unverifiedData = await unverifiedResponse.json();
     const unverifiedMap = new Map(unverifiedData.map(item => [item.skillId, item.count]));
 
+    const verifiedResponse = await fetch('http://localhost:3000/api/skills/verifiedSkills');
+    const verifiedData = await verifiedResponse.json();
+    const verifiedMap = new Map(verifiedData.map(item => [item.skillId, item.count]));
+
     const container = document.querySelector(".svg-container");
     const role = document.querySelector('.role').textContent;
 
@@ -94,6 +98,32 @@ export async function build_index() {
         image.setAttribute('height', '30');
         image.setAttribute('href', item.icon);
         svg.appendChild(image);
+
+        if (verifiedMap.has(item.id)) {
+            const count = verifiedMap.get(item.id);
+
+            const canvas = document.createElement('canvas');
+            canvas.classList.add('verified-canvas');
+            canvas.width = 20;
+            canvas.height = 20;
+            canvas.style.position = 'absolute';
+            canvas.style.top = '5px';
+            canvas.style.right = '5px';
+
+            const ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.arc(10, 10, 9, 0, 2 * Math.PI);
+            ctx.fillStyle = 'green';
+            ctx.fill();
+
+            ctx.font = '12px Arial';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(count, 10, 12);
+
+            svgWrapper.appendChild(canvas);
+        }
 
         if (unverifiedMap.has(item.id)) {
             const count = unverifiedMap.get(item.id);

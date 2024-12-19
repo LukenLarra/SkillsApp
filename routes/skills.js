@@ -230,6 +230,45 @@ router.get('/unverifiedSkills', async (req, res) => {
     }
 });
 
+router.get('/verifiedSkills', async (req, res) => {
+    try {
+        const verifiedUserSkills = await UserSkill.aggregate([
+            {
+                $match: { verified: true }
+            },
+            {
+                $group: {
+                    _id: '$skill',
+                    count: { $sum: 1 }
+                }
+            },
+            {
+                $lookup: {
+                    from: 'Skill',
+                    localField: '_id',
+                    foreignField: '_id',
+                    as: 'skillDetails'
+                }
+            },
+            {
+                $unwind: '$skillDetails'
+            },
+            {
+                $project: {
+                    skillId: '$skillDetails.id',
+                    count: 1
+                }
+            }
+        ]);
+
+        res.status(200).json(verifiedUserSkills);
+    } catch (error) {
+        console.error('Error al obtener las habilidades verificadas:', error);
+        res.status(500).json({ message: 'Error al obtener los datos.' });
+    }
+});
+
+
 router.get('/:skillId/unverified', async (req, res) => {
     const { skillId } = req.params;
 
