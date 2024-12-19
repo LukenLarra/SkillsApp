@@ -2,54 +2,80 @@ body {
     font-family: Arial, sans-serif;
     padding: 0;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #f7f7f7;
+    text-align: center;
+    color: #333;
 }
 
 h1 {
-    text-align: center;
     font-size: 2em;
-    margin-bottom: 20px;
+    margin: 40px 0 20px;
+    color: #222;
 }
 
 h2 {
-    text-align: left;
     font-size: 1.5em;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    color: #444;
 }
 
 table {
-    width: 50%;
+    width: 100%;
     border-collapse: collapse;
-    margin: 0 25px;
+    margin: 20px auto;
     font-size: 16px;
-    text-align: left;
-    border: #dddddd 1px solid;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
 }
 
 thead th {
-    padding: 10px;
+    padding: 15px;
+    text-transform: uppercase;
 }
 
-td {
-    padding: 10px;
-    vertical-align: middle;
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
 }
 
-td:nth-child(4) img {
-    max-width: 45px;
+tbody tr:hover, .range-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+td, th {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+td img {
+    max-width: 50px;
+    max-height: 50px;
     display: block;
     margin: 0 auto;
 }
 
-th, td {
-    text-align: center;
-    border: #dddddd 1px solid;
-}
-
-.leaderboard-row:nth-child(odd) {
-    background-color: #f9f9f9;
-}
-
 .leaderboard-div {
-    margin: 50px;
+    margin: 50px 400px;
+    padding: 15px 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.range-table {
+    width: 50%;
+    margin: 30px auto;
+    font-size: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.range-table th {
+    padding: 15px;
+    text-transform: uppercase;
+}
+
+.range-table td {
+    text-align: center;
 }
