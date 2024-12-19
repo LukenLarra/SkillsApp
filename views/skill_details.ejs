@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles de la Competencia</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-    <script src="/scripts/confeti.js"></script>
-    <script src="/scripts/build_skills.js"></script>
+    <script type="module" src="/scripts/confeti.js"></script>
+    <script type="module" src="/scripts/build_skills.js"></script>
     <link rel="stylesheet" href="/css/skills.css">
 </head>
 <body>
@@ -66,6 +66,13 @@
 <section class="evidence-submission">
 
 </section>
+</div>
+
+<div id="info-modal" class="modal hidden">
+    <div class="modal-content">
+        <p> </p>
+        <button id="close-modal" class="btn confirm">Close</button>
+    </div>
 </div>
 </body>
 </html>

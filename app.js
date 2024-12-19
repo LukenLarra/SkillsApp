@@ -39,7 +39,10 @@ app.use('/uploads/icons', express.static(path.join(__dirname, 'public/uploads/ic
 app.use(session({
     secret: 'my-simple-secret',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 30 * 60 * 1000
+    }
 }));
 
 app.use('/', indexRouter);

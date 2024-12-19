@@ -1,10 +1,13 @@
 import express from 'express';
 import Skill from "../models/skill.model.js";
+import User from "../models/user.model.js";
+import UserSkill from "../models/userSkill.model.js";
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import {fileURLToPath} from 'url';
+import {dirname} from 'path';
+import mongoose from 'mongoose';
 
 const router = express.Router();
 
@@ -13,12 +16,12 @@ const __dirname = dirname(__filename);
 const iconPath = path.join(__dirname, '../public/uploads/icons');
 
 if (!fs.existsSync(iconPath)) {
-    fs.mkdirSync(iconPath, { recursive: true });
+    fs.mkdirSync(iconPath, {recursive: true});
 }
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null,iconPath);
+        cb(null, iconPath);
     },
     filename: (req, file, cb) => {
         const ext = path.extname(file.originalname);
@@ -37,7 +40,7 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({
     storage: storage,
     fileFilter: fileFilter,
-    limits: { fileSize: 1024 * 1024 }
+    limits: {fileSize: 1024 * 1024}
 });
 
 /* GET home page. */
@@ -75,7 +78,7 @@ router.get('/:skillTree/edit/:id', async (req, res) => {
     }
 });
 
-router.post('/:skillTree/edit/:id',  upload.single('icon'), async (req, res) => {
+router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
     const {skillTree, id} = req.params;
     const {action, text, points, description, tasks, resources} = req.body;
 
@@ -102,7 +105,7 @@ router.post('/:skillTree/edit/:id',  upload.single('icon'), async (req, res) => 
         } else if (action === 'cancel') {
             res.redirect(`/`);
         } else if (action === 'delete') {
-            await Skill.findOneAndDelete({ id: Number(id) });
+            await Skill.findOneAndDelete({id: Number(id)});
             res.redirect(`/`);
         } else {
             res.status(400).send('Invalid action');
@@ -121,10 +124,10 @@ router.get('/:skillTree/add', async (req, res) => {
 router.post('/:skillTree/add', upload.single('icon'), async (req, res) => {
     try {
         const skillTree = req.params.skillTree;
-        const { text, score, description, tasks, resources } = req.body;
+        const {text, score, description, tasks, resources} = req.body;
         const iconPath = req.file ? `/uploads/icons/${req.file.filename}` : null;
 
-        const lastSkill = await Skill.findOne().sort({ id: -1 });
+        const lastSkill = await Skill.findOne().sort({id: -1});
         const newId = lastSkill ? lastSkill.id + 1 : 1;
 
         const newSkill = new Skill({
@@ -142,8 +145,43 @@ router.post('/:skillTree/add', upload.single('icon'), async (req, res) => {
         res.render('index', {title: 'ELECTRONICS', session: req.session});
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Failed to create skill', error: error.message });
+        res.status(500).json({message: 'Failed to create skill', error: error.message});
     }
 });
+
+router.post('/:skillTreeName/submit-evidence', async (req, res) => {
+    const {skillTreeName} = req.params;
+    const {id, evidence} = req.body;
+
+    try {
+        if (!req.session || !req.session.username) {
+            return res.status(401).json({error: 'Usuario no autenticado'});
+        }
+
+        const username = req.session.username;
+        const user = await User.findOne({username: username});
+        if (!user) {
+            return res.status(404).json({error: 'Usuario no encontrado'});
+        }
+
+        const skill = await Skill.findOne({id: Number(id)});
+        if (!skill) {
+            return res.status(404).json({error: 'Skill no encontrado'});
+        }
+
+        const newUserSkill = new UserSkill({
+            user: user._id,
+            skill: skill._id,
+            evidence: evidence,
+        });
+
+        await newUserSkill.save();
+        res.status(201).json({message: 'Evidencia enviada correctamente', userSkill: newUserSkill});
+    } catch (error) {
+        console.error('Error al enviar la evidencia:', error);
+        res.status(500).json({error: 'Error interno del servidor'});
+    }
+});
+
 
 export default router;
