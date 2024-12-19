@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 export async function build_index() {
     const response = await fetch('http://localhost:3000/api/skills');
     const data = await response.json();
+
+    const unverifiedResponse = await fetch('http://localhost:3000/skills/unverifiedSkills');
+    const unverifiedData = await unverifiedResponse.json();
+    const unverifiedMap = new Map(unverifiedData.map(item => [item.skillId, item.count]));
+
     const container = document.querySelector(".svg-container");
     const role = document.querySelector('.role').textContent;
 
@@ -90,6 +95,32 @@ export async function build_index() {
         image.setAttribute('href', item.icon);
         svg.appendChild(image);
 
+        if (unverifiedMap.has(item.id)) {
+            const count = unverifiedMap.get(item.id);
+
+            const canvas = document.createElement('canvas');
+            canvas.classList.add('unverified-canvas');
+            canvas.width = 20;
+            canvas.height = 20;
+            canvas.style.position = 'absolute';
+            canvas.style.top = '0px';
+            canvas.style.left = '5px';
+
+            const ctx = canvas.getContext('2d');
+            ctx.beginPath();
+            ctx.arc(10, 10, 9, 0, 2 * Math.PI);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+
+            ctx.font = '12px Arial';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(count, 9, 11);
+
+            svgWrapper.appendChild(canvas);
+        }
+
         svgWrapper.addEventListener('mouseover', () => {
             svgWrapper.classList.add('expanded');
             editIcon.style.display = role.trim().replace(/['"]/g, '').toLowerCase() === 'admin' ? 'block' : 'none';
@@ -107,13 +138,11 @@ export async function build_index() {
             editIcon.style.display = 'none';
             notebookIcon.style.display = 'none';
 
-
             const descriptionDiv = document.querySelector('.description-index');
             descriptionDiv.textContent = '';
             descriptionDiv.style.backgroundColor = '';
             descriptionDiv.style.color = '';
             descriptionDiv.style.borderTop = 'none';
-
         });
 
         notebookIcon.addEventListener('click', async (event) => {
@@ -138,6 +167,7 @@ export async function build_index() {
         leaderboardContainer.style.display = 'block';
     }
 }
+
 
 async function logout() {
     try {
