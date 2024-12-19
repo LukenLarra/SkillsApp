@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const skill = allSkills.find(item => item.id === Number(svgId));
     const userSkill = userSkills.find(item => item.skill === skill._id);
     if (userSkill) {
-        createEvidencesTable();
+        const role = document.querySelector('.role').textContent;
+        if (role.trim().replace(/['"]/g, '').toLowerCase() === 'admin') {
+            createEvidencesTable();
+        }
     }
 });
 

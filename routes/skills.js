@@ -52,7 +52,7 @@ router.get("/:skillTree/view/:id", async (req, res) => {
     try {
         const skill = await Skill.findOne({id: Number(id)});
         if (skill) {
-            res.render("skill_details", {skill});
+            res.render("skill_details", {skill, session: req.session});
         } else {
             res.status(404).send(`Skill ${id} not found`);
         }
@@ -178,6 +178,7 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
         userSkill.verifications.push({
             user: user._id,
             approved: false,
+            verifiedAt: null
         });
 
         await userSkill.save();
