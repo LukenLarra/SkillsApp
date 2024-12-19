@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', async () => {
+    await createSVGSkills();
+
+    const response = await fetch('http://localhost:3000/api/data');
+    const data = await response.json();
+    const container = document.querySelector(".details-svg");
+    const svgId = container.getAttribute("svgId");
+    const item = data.find(item => item.id === svgId);
+});
+
 async function createSVGSkills(){
     const response = await fetch('http://localhost:3000/api/data');
     const data = await response.json();
@@ -50,8 +60,7 @@ async function createSVGSkills(){
     svg.appendChild(image);
 }
 
-
-function createEvidenceTable() {
+function createEvidencesTable() {
     const section = document.querySelector(".evidence-submission");
 
     const heading = document.createElement('h2');
@@ -95,13 +104,30 @@ function createEvidenceTable() {
     section.appendChild(table);
 }
 
+export function showSendEvidence(){
+    const section = document.querySelector('.evidence');
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Provide Evidence';
+    h2.classList.add('evidence-title');
 
-document.addEventListener('DOMContentLoaded', async () => {
-    await createSVGSkills();
+    const textarea = document.createElement('textarea');
+    textarea.placeholder = "Enter a URL or explanation as evidence for completing this skill";
+    textarea.classList.add('evidence-textarea');
 
-    const response = await fetch('http://localhost:3000/api/data');
-    const data = await response.json();
-    const container = document.querySelector(".details-svg");
-    const svgId = container.getAttribute("svgId");
-    const item = data.find(item => item.id === svgId);
-});
+    const button = document.createElement('button');
+    button.textContent = 'Submit Evidence';
+    button.type = 'submit';
+    button.classList.add('evidence-submit');
+
+    section.appendChild(h2);
+    section.appendChild(textarea);
+    section.appendChild(button);
+}
+
+export function hideSendEvidence(){
+    const section = document.querySelector('.evidence');
+    section.innerHTML = '';
+}
+
+
+

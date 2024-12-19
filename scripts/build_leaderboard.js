@@ -12,6 +12,8 @@ async function build_leaderboard() {
         users_response.json()
     ]);
 
+    document.body.appendChild(createElement('h1', 'Leaderboard'));
+
     const tableRange = createTable(['Range', 'Badge', 'Required Bitpoints'], 'range-table');
     const tbodyRange = document.createElement('tbody');
 
