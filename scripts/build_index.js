@@ -139,37 +139,6 @@ export async function build_index() {
     }
 }
 
-function createEvidenceCanvas(item, type, svgWrapper) {
-    const canvas = document.createElement('canvas');
-    canvas.classList.add(type === 'left' ? 'ue-canvas' : 've-canvas');
-    canvas.width = 30;
-    canvas.height = 30;
-    canvas.style.position = 'absolute';
-    canvas.style.top = '-8px';
-    canvas.style[type === 'left' ? 'left' : 'right'] = '0';
-    svgWrapper.appendChild(canvas);
-
-    const ctx = canvas.getContext('2d');
-    const gradient = ctx.createRadialGradient(15, 15, 5, 15, 15, 15);
-    gradient.addColorStop(0, type === 'left' ? '#e53939' : '#0d9f0f');
-    ctx.beginPath();
-    ctx.arc(15, 15, 9, 0, 2 * Math.PI);
-    ctx.fillStyle = gradient;
-    ctx.fill();
-    ctx.closePath();
-
-    ctx.fillStyle = 'white';
-    ctx.font = 'bold 11px Arial';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(type === 'left' ? item.unverified_evidences : item.verified_evidences, 15, 15);
-
-    if (type === 'right') {
-        const hexagon = svgWrapper.querySelector('.hexagon');
-        hexagon.style.fill = '#0d9f0f';
-    }
-}
-
 async function logout() {
     try {
         const response = await fetch('/users/logout', {

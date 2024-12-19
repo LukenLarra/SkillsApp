@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', async () => {
     await createSVGSkills();
 
@@ -189,7 +188,7 @@ export function showSendEvidence() {
                     infoModal.classList.add('hidden');
                 }, {once: true});
             } else {
-                modalContent.textContent = 'User password changed successfully!';
+                modalContent.textContent = 'Skill evidences sent successfully!';
                 infoModal.classList.remove('hidden');
                 closeModal.addEventListener('click', () => {
                     infoModal.classList.add('hidden');

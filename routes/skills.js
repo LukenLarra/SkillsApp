@@ -7,7 +7,6 @@ import path from 'path';
 import fs from 'fs';
 import {fileURLToPath} from 'url';
 import {dirname} from 'path';
-import mongoose from 'mongoose';
 
 const router = express.Router();
 
@@ -169,14 +168,20 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
             return res.status(404).json({error: 'Skill no encontrado'});
         }
 
-        const newUserSkill = new UserSkill({
+        const userSkill = new UserSkill({
             user: user._id,
             skill: skill._id,
             evidence: evidence,
+            verifications: []
         });
 
-        await newUserSkill.save();
-        res.status(201).json({message: 'Evidencia enviada correctamente', userSkill: newUserSkill});
+        userSkill.verifications.push({
+            user: user._id,
+            approved: false,
+        });
+
+        await userSkill.save();
+        res.status(201).json({message: 'Evidencia enviada correctamente', userSkill: userSkill});
     } catch (error) {
         console.error('Error al enviar la evidencia:', error);
         res.status(500).json({error: 'Error interno del servidor'});
