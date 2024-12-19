@@ -80,7 +80,7 @@ router.get('/:skillTree/edit/:id', async (req, res) => {
 
 router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
     const {skillTree, id} = req.params;
-    const {action, text, points, description, tasks, resources} = req.body;
+    const {action, text, score, description, tasks, resources} = req.body;
 
     try {
         const skill = await Skill.findOne({id: Number(id)});
@@ -90,7 +90,7 @@ router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
 
         if (action === 'save') {
             skill.text = text.trim();
-            skill.points = points;
+            skill.score = score;
             skill.description = description;
             skill.tasks = tasks.split('\n').map(t => t.trim()).filter(t => t.length > 0);
             skill.resources = resources.split('\n').map(t => t.trim()).filter(t => t.length > 0);

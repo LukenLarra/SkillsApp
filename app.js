@@ -15,6 +15,7 @@ import connectDB from './config/database.js';
 import Skill from './models/skill.model.js';
 import User from './models/user.model.js';
 import Badge from './models/badge.model.js';
+import UserSkill from "./models/userSkill.model.js";
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -39,10 +40,7 @@ app.use('/uploads/icons', express.static(path.join(__dirname, 'public/uploads/ic
 app.use(session({
     secret: 'my-simple-secret',
     resave: false,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 30 * 60 * 1000
-    }
+    saveUninitialized: true
 }));
 
 app.use('/', indexRouter);
@@ -51,7 +49,7 @@ app.use('/admin', adminRouter);
 app.use('/skills', skillsRouter);
 
 
-app.post('/api/data', (req, res) => {
+app.post('/api/skills', (req, res) => {
     const data = req.body;
     fs.writeFile('data.json', JSON.stringify(data, null, 2), (err) => {
         if (err) {
@@ -64,7 +62,7 @@ app.post('/api/data', (req, res) => {
     });
 });
 
-app.get('/api/data', async (req, res) => {
+app.get('/api/skills', async (req, res) => {
     try {
         const skills = await Skill.find();
         res.json(skills);
@@ -80,6 +78,16 @@ app.get('/api/users', async (req, res) => {
         res.json(users);
     } catch (err) {
         console.error(err);
+        res.status(500).send('Error retrieving skills from the database');
+    }
+});
+
+app.get('/api/userSkills', async (req, res) => {
+    try {
+        const userSkills = await UserSkill.find().populate('user', 'username');
+        res.json(userSkills);
+    } catch (err) {
+        console.error('Error retrieving user skills:', err);
         res.status(500).send('Error retrieving skills from the database');
     }
 });

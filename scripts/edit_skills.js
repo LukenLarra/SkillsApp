@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function createSVGSkills() {
-    const response = await fetch('http://localhost:3000/api/data');
+    const response = await fetch('http://localhost:3000/api/skills');
     const data = await response.json();
     const container = document.querySelector(".details-svg");
     const svgId = container.getAttribute("svgId");

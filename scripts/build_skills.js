@@ -1,15 +1,25 @@
+
 document.addEventListener('DOMContentLoaded', async () => {
     await createSVGSkills();
 
-    const response = await fetch('http://localhost:3000/api/data');
-    const data = await response.json();
+    const response = await fetch('http://localhost:3000/api/skills');
+    const allSkills = await response.json();
+
+    const userskill_response = await fetch('http://localhost:3000/api/userSkills');
+    const userSkills = await userskill_response.json();
+
     const container = document.querySelector(".details-svg");
     const svgId = container.getAttribute("svgId");
-    const item = data.find(item => item.id === svgId);
+
+    const skill = allSkills.find(item => item.id === Number(svgId));
+    const userSkill = userSkills.find(item => item.skill === skill._id);
+    if (userSkill) {
+        createEvidencesTable();
+    }
 });
 
 async function createSVGSkills() {
-    const response = await fetch('http://localhost:3000/api/data');
+    const response = await fetch('http://localhost:3000/api/skills');
     const data = await response.json();
     const container = document.querySelector(".details-svg");
     const svgId = container.getAttribute("svgId");
@@ -60,7 +70,7 @@ async function createSVGSkills() {
     svg.appendChild(image);
 }
 
-function createEvidencesTable() {
+async function createEvidencesTable() {
     const section = document.querySelector(".evidence-submission");
 
     const heading = document.createElement('h2');
@@ -78,25 +88,39 @@ function createEvidencesTable() {
     });
     table.appendChild(headerRow);
 
-    const dataRow = document.createElement('tr');
-    const data = ['Dato 1', 'Dato 2'];
-    data.forEach(item => {
-        const td = document.createElement('td');
-        td.textContent = item;
-        dataRow.appendChild(td);
+    const userskill_response = await fetch('http://localhost:3000/api/userSkills');
+    const userSkills = await userskill_response.json();
+
+    userSkills.forEach(item => {
+        const dataRow = document.createElement('tr');
+
+        const userTd = document.createElement('td');
+        userTd.textContent = item.user?.username || 'Unknown User';
+        dataRow.appendChild(userTd);
+
+        const evidenceTd = document.createElement('td');
+        evidenceTd.textContent = item.evidence || 'No evidence provided';
+        dataRow.appendChild(evidenceTd);
 
         const actionTd = document.createElement('td');
         const approveButton = document.createElement('button');
         approveButton.textContent = 'Approve';
         approveButton.classList.add('approve-button');
+        approveButton.onclick = async () => {
+
+        }
 
         const rejectButton = document.createElement('button');
         rejectButton.textContent = 'Reject';
         rejectButton.classList.add('reject-button');
+        rejectButton.onclick = async () => {
+
+        }
 
         actionTd.appendChild(approveButton);
         actionTd.appendChild(rejectButton);
         dataRow.appendChild(actionTd);
+
         table.appendChild(dataRow);
     });
 
@@ -174,7 +198,7 @@ export function showSendEvidence() {
         } catch (error) {
             console.error('Error submitting evidence:', error);
 
-            if (error.message && error.message.includes('Usuario no autenticado')) {
+            if (error.message && error.response.status === 401) {
                 modalContent.textContent = 'You must be logged in to submit evidence. Please log in first.';
             } else {
                 modalContent.textContent = 'An unexpected error occurred';

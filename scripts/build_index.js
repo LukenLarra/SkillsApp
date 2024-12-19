@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 export async function build_index() {
-    const response = await fetch('http://localhost:3000/api/data');
+    const response = await fetch('http://localhost:3000/api/skills');
     const data = await response.json();
     const container = document.querySelector(".svg-container");
     const role = document.querySelector('.role').textContent;
