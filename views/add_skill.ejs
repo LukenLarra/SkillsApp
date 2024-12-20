@@ -10,13 +10,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <div id="confirmation-modal" class="modal hidden">
-        <div class="modal-content">
-            <p>Are you sure you want to cancel? Changes will not be saved.</p>
-            <button id="confirm-exit" class="btn confirm">Yes, Leave page</button>
-            <button id="cancel-exit" class="btn cancel">No, Stay</button>
-        </div>
-    </div>
+    <%- include('partials/messages') %>
 
     <form action="/skills/<%= skillTree %>/add" method="POST" enctype="multipart/form-data">
         <section id="skill-header">
@@ -72,14 +66,6 @@
         <button id="create" type="submit" name="action" value="Create"><i class="fa-solid fa-plus"></i> Create</button>
         <button id="cancel" type="submit" name="action" value="cancel"><i class="fa-solid fa-xmark"></i> Cancel</button>
     </form>
-
-    <div id="success-modal" class="modal hidden">
-        <div class="modal-content">
-            <p>Skill created successfully!</p>
-            <button id="close-modal" class="btn confirm">Close</button>
-        </div>
-    </div>
-
 </div>
 </body>
 </html>

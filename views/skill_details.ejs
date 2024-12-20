@@ -12,67 +12,62 @@
 </head>
 <body>
 <div class="wrapper">
-<section id="skill-header">
-    <article class="skill-title">
-        <h1>Skill: <%= skill.text %></h1>
-    </article>
-    <article class="skill-score">
-        <h2>Skill Score: <%= skill.score %> points</h2>
-    </article>
-</section>
+    <%- include('partials/messages') %>
 
-<section id="skill-visualization">
-    <div class="details-svg" svgId=<%= skill.id %>></div>
-</section>
+    <section id="skill-header">
+        <article class="skill-title">
+            <h1>Skill: <%= skill.text %></h1>
+        </article>
+        <article class="skill-score">
+            <h2>Skill Score: <%= skill.score %> points</h2>
+        </article>
+    </section>
 
-<section id="skill-description">
-    <h2>Description</h2>
-    <article class="description-content">
-        <p class="description-skill"><%= skill.description %></p>
-    </article>
-</section>
+    <section id="skill-visualization">
+        <div class="details-svg" svgId=<%= skill.id %>></div>
+    </section>
 
-<section id="tasks-to-complete">
-    <h2>Task To Complete</h2>
-    <article class="task-list">
-        <ul class="tasks">
-            <% skill.tasks.forEach(function(task) { %>
-                <li>
-                    <label>
-                        <input type="checkbox" class="task-checkbox">
-                    </label> <%= task %>
-                </li>
+    <section id="skill-description">
+        <h2>Description</h2>
+        <article class="description-content">
+            <p class="description-skill"><%= skill.description %></p>
+        </article>
+    </section>
 
-            <% }); %>
-        </ul>
-    </article>
-</section>
+    <section id="tasks-to-complete">
+        <h2>Task To Complete</h2>
+        <article class="task-list">
+            <ul class="tasks">
+                <% skill.tasks.forEach(function(task) { %>
+                    <li>
+                        <label>
+                            <input type="checkbox" class="task-checkbox">
+                        </label> <%= task %>
+                    </li>
 
-<section class="evidence">
+                <% }); %>
+            </ul>
+        </article>
+    </section>
 
-</section>
+    <section class="evidence">
 
-<section id="resources">
-    <h2>Resources</h2>
-    <article class="resource-list">
-        <ul class="resources">
-            <% skill.resources.forEach(function(resource) { %>
-                <li><a href="<%= resource %>" target="_blank"><%= resource %></a></li>
-            <% }); %>
-        </ul>
-    </article>
-</section>
+    </section>
 
-<section class="evidence-submission">
+    <section id="resources">
+        <h2>Resources</h2>
+        <article class="resource-list">
+            <ul class="resources">
+                <% skill.resources.forEach(function(resource) { %>
+                    <li><a href="<%= resource %>" target="_blank"><%= resource %></a></li>
+                <% }); %>
+            </ul>
+        </article>
+    </section>
 
-</section>
-</div>
+    <section class="evidence-submission">
 
-<div id="info-modal" class="modal hidden">
-    <div class="modal-content">
-        <p> </p>
-        <button id="close-modal" class="btn confirm">Close</button>
-    </div>
+    </section>
 </div>
 
 <p class="role" style="display: none"> '<%= session.role %>'</p>

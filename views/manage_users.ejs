@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+<%- include('partials/messages') %>
+
 <h1>Manage Users</h1>
 <table class="users-table">
 
@@ -22,13 +24,6 @@
         <input type="password" name="password" id="password" required>
         <button type="submit" class="changeBtn"><i class="fa-solid fa-check"></i> Confirm</button>
     </form>
-</div>
-
-<div id="info-modal" class="modal hidden">
-    <div class="modal-content">
-        <p> </p>
-        <button id="close-modal" class="btn confirm">Close</button>
-    </div>
 </div>
 </body>
 </html>

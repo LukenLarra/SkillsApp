@@ -44,10 +44,6 @@ const upload = multer({
 });
 
 /* GET home page. */
-router.get('/', function (req, res) {
-    res.send('respond with a resource');
-});
-
 router.get("/:skillTree/view/:id", async (req, res) => {
     const {skillTree, id} = req.params;
     try {
@@ -85,7 +81,7 @@ router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
     try {
         const skill = await Skill.findOne({id: Number(id)});
         if (!skill) {
-            return res.status(404).send('Skill not found');
+            return res.redirect(`/?error_msg=Skill not found.`);
         }
 
         if (action === 'save') {
@@ -101,18 +97,18 @@ router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
             }
 
             await skill.save();
-            res.redirect(`/`);
+            return res.redirect(`/?success_msg=Skill updated successfully!`);
         } else if (action === 'cancel') {
             res.redirect(`/`);
         } else if (action === 'delete') {
             await Skill.findOneAndDelete({id: Number(id)});
-            res.redirect(`/`);
+            return res.redirect(`/?success_msg=Skill deleted successfully!`);
         } else {
-            res.status(400).send('Invalid action');
+            return res.redirect(`/?error_msg=Invalid action.`);
         }
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error processing request');
+        return res.redirect(`/?error_msg=An error occurred while processing the request.`);
     }
 });
 
@@ -142,10 +138,18 @@ router.post('/:skillTree/add', upload.single('icon'), async (req, res) => {
         });
 
         await newSkill.save();
-        res.render('index', {title: 'ELECTRONICS', session: req.session});
+        res.render('index', {
+            title: 'ELECTRONICS',
+            session: req.session,
+            success_msg: 'Skill created successfully!',
+        });
     } catch (error) {
         console.error(error);
-        res.status(500).json({message: 'Failed to create skill', error: error.message});
+        res.status(500).render('index', {
+            title: 'ELECTRONICS',
+            session: req.session,
+            error_msg: 'Failed to create skill. Please try again later.',
+        });
     }
 });
 
