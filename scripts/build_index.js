@@ -120,7 +120,7 @@ export async function build_index() {
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText(count, 10, 12);
+            ctx.fillText(count, 9, 11);
 
             svgWrapper.appendChild(canvas);
         }

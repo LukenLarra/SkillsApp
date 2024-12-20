@@ -84,10 +84,32 @@ app.get('/api/users', async (req, res) => {
 
 app.get('/api/userSkills', async (req, res) => {
     try {
-        const userSkills = await UserSkill.find().populate('user', 'username');
+        const userSkills = await UserSkill.find()
+            .populate('skill', 'id text')
+            .populate('user', 'username');
         res.json(userSkills);
     } catch (err) {
         console.error('Error retrieving user skills:', err);
+        res.status(500).send('Error retrieving skills from the database');
+    }
+});
+
+app.get('/api/userSkills/:id', async (req, res) => {
+    const id = Number(req.params.id);
+    try {
+        const userSkills = await UserSkill.find()
+            .populate('skill', 'id text')
+            .populate('user', 'username');
+
+        const matchingSkill = userSkills.find(userSkill => userSkill.skill && userSkill.skill.id === id);
+
+        if (matchingSkill) {
+            res.json(matchingSkill);
+        } else {
+            res.status(404).send('Skill not found');
+        }
+    } catch (err) {
+        console.error('Error retrieving skills:', err);
         res.status(500).send('Error retrieving skills from the database');
     }
 });

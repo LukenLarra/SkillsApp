@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const svgId = container.getAttribute("svgId");
 
     const skill = allSkills.find(item => item.id === Number(svgId));
-    const userSkill = userSkills.find(item => item.skill === skill._id);
+    const userSkill = userSkills.find(item => item.skill &&  item.skill.id === skill.id);
     if (userSkill) {
         const role = document.querySelector('.role').textContent;
-        if (role.trim().replace(/['"]/g, '').toLowerCase() === 'admin') {
+        if (role.trim().replace(/['"]/g, '').toLowerCase() !== 'standard') {
             createEvidencesTable();
         }
     }
@@ -25,7 +25,6 @@ async function createSVGSkills() {
     const data = await response.json();
     const container = document.querySelector(".details-svg");
     const svgId = container.getAttribute("svgId");
-
     const item = data.find(item => item.id === Number(svgId));
 
     if (!item) {
@@ -82,7 +81,7 @@ async function createEvidencesTable() {
     table.border = '1';
 
     const headerRow = document.createElement('tr');
-    const headers = ['User', 'Evidence', 'Actions'];
+    const headers = ['Users', 'Evidences', 'Actions'];
     headers.forEach(text => {
         const th = document.createElement('th');
         th.textContent = text;
@@ -90,42 +89,41 @@ async function createEvidencesTable() {
     });
     table.appendChild(headerRow);
 
-    const userskill_response = await fetch('http://localhost:3000/api/userSkills');
+    const container = document.querySelector(".details-svg");
+    const svgId = container.getAttribute("svgId");
+
+    const userskill_response = await fetch(`http://localhost:3000/api/userSkills/${svgId}`);
     const userSkills = await userskill_response.json();
 
-    userSkills.forEach(item => {
-        const dataRow = document.createElement('tr');
+    const dataRow = document.createElement('tr');
 
-        const userTd = document.createElement('td');
-        userTd.textContent = item.user?.username || 'Unknown User';
-        dataRow.appendChild(userTd);
+    const userTd = document.createElement('td');
+    userTd.textContent = userSkills.user?.username || 'Unknown User';
+    dataRow.appendChild(userTd);
 
-        const evidenceTd = document.createElement('td');
-        evidenceTd.textContent = item.evidence || 'No evidence provided';
-        dataRow.appendChild(evidenceTd);
+    const evidenceTd = document.createElement('td');
+    evidenceTd.textContent = userSkills.evidence.split('\n') || 'No evidence provided';
+    dataRow.appendChild(evidenceTd);
 
-        const actionTd = document.createElement('td');
-        const approveButton = document.createElement('button');
-        approveButton.textContent = 'Approve';
-        approveButton.classList.add('approve-button');
-        approveButton.onclick = async () => {
+    const actionTd = document.createElement('td');
+    const approveButton = document.createElement('button');
+    approveButton.textContent = 'Approve';
+    approveButton.classList.add('approve-button');
+    approveButton.onclick = async () => {
+        await handleVerification(userSkills.skill.id, true, userSkills._id);
+    }
 
-        }
+    const rejectButton = document.createElement('button');
+    rejectButton.textContent = 'Reject';
+    rejectButton.classList.add('reject-button');
+    rejectButton.onclick = async () => {
+        await handleVerification(userSkills.skill.id, false, userSkills._id);
+    }
 
-        const rejectButton = document.createElement('button');
-        rejectButton.textContent = 'Reject';
-        rejectButton.classList.add('reject-button');
-        rejectButton.onclick = async () => {
-
-        }
-
-        actionTd.appendChild(approveButton);
-        actionTd.appendChild(rejectButton);
-        dataRow.appendChild(actionTd);
-
-        table.appendChild(dataRow);
-    });
-
+    actionTd.appendChild(approveButton);
+    actionTd.appendChild(rejectButton);
+    dataRow.appendChild(actionTd);
+    table.appendChild(dataRow);
     section.appendChild(heading);
     section.appendChild(table);
 }
@@ -133,10 +131,6 @@ async function createEvidencesTable() {
 export function showSendEvidence() {
     const section = document.querySelector('.evidence');
     section.innerHTML = '';
-
-    const infoModal = document.getElementById('info-modal');
-    const modalContent = document.querySelector('.modal-content p');
-    const closeModal = document.getElementById('close-modal');
 
     const h2 = document.createElement('h2');
     h2.textContent = 'Provide Evidence';
@@ -150,76 +144,60 @@ export function showSendEvidence() {
     button.textContent = 'Submit Evidence';
     button.type = 'submit';
     button.classList.add('evidence-submit');
-    button.onclick = async () => {
-        const evidence = textarea.value.trim();
-        if (!evidence) {
-            modalContent.textContent = 'Please provide valid evidence before submitting';
-            infoModal.classList.remove('hidden');
-            closeModal.style.backgroundColor = 'red';
-            closeModal.addEventListener('click', () => {
-                infoModal.classList.add('hidden');
-            }, {once: true});
-            return;
-        }
-
-        const skillTreeName = 'electronics';
-        const id = document.querySelector('.details-svg').getAttribute('svgId');
-
-        if (!id) {
-            modalContent.textContent = 'Id not found for the current skill';
-            infoModal.classList.remove('hidden');
-            closeModal.style.backgroundColor = 'red';
-            closeModal.addEventListener('click', () => {
-                infoModal.classList.add('hidden');
-            }, {once: true});
-            return;
-        }
-
-        try {
-            const response = await fetch(`http://localhost:3000/skills/${skillTreeName}/submit-evidence`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({id, evidence}),
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                console.error('Failed to submit evidence:', errorData.error);
-                modalContent.textContent = 'Failed to submit evidence';
-                infoModal.classList.remove('hidden');
-                closeModal.style.backgroundColor = 'red';
-                closeModal.addEventListener('click', () => {
-                    infoModal.classList.add('hidden');
-                }, {once: true});
-            } else {
-                modalContent.textContent = 'Skill evidences sent successfully!';
-                closeModal.style.backgroundColor = 'green';
-                infoModal.classList.remove('hidden');
-                closeModal.addEventListener('click', () => {
-                    infoModal.classList.add('hidden');
-                }, {once: true});
-            }
-        } catch (error) {
-            console.error('Error submitting evidence:', error);
-
-            if (error.message && error.response.status === 401) {
-                modalContent.textContent = 'You must be logged in to submit evidences. Please log in first.';
-            } else {
-                modalContent.textContent = 'An unexpected error occurred';
-            }
-
-            infoModal.classList.remove('hidden');
-            closeModal.addEventListener('click', () => {
-                infoModal.classList.add('hidden');
-            }, {once: true});
-        }
-    };
+    button.onclick = submitEvidence;
 
     section.appendChild(h2);
     section.appendChild(textarea);
     section.appendChild(button);
+}
+
+async function submitEvidence() {
+    const textarea = document.querySelector('.evidence-textarea');
+    const evidence = textarea.value.trim();
+    if (!evidence) {
+        showModal('Please provide valid evidence before submitting', 'red');
+        return;
+    }
+
+    const skillTreeName = 'electronics';
+    const id = document.querySelector('.details-svg').getAttribute('svgId');
+
+    if (!id) {
+        showModal('Id not found for the current skill', 'red');
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:3000/skills/${skillTreeName}/submit-evidence`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id, evidence}),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Failed to submit evidence:', errorData.error);
+            showModal('Failed to submit evidence', 'red');
+        } else {
+            showModal('Skill evidences sent successfully!', 'green');
+        }
+    } catch (error) {
+        console.error('Error submitting evidence:', error);
+        showModal(error.message && error.response.status === 401 ? 'You must be logged in to submit evidences. Please log in first.' : 'An unexpected error occurred', 'red');
+    }
+}
+
+function showModal(message, color) {
+    const infoModal = document.getElementById('info-modal');
+    const modalContent = document.querySelector('.modal-content p');
+    const closeModal = document.getElementById('close-modal');
+
+    modalContent.textContent = message;
+    infoModal.classList.remove('hidden');
+    closeModal.style.backgroundColor = color;
+    closeModal.addEventListener('click', () => {
+        infoModal.classList.add('hidden');
+    }, {once: true});
 }
 
 export function hideSendEvidence() {
@@ -227,5 +205,33 @@ export function hideSendEvidence() {
     section.innerHTML = '';
 }
 
+async function handleVerification(skillId, approved, userSkillId) {
+    const skillTreeName = "electronics";
+
+    try {
+        const response = await fetch(`http://localhost:3000/skills/${skillTreeName}/${skillId}/verify`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userSkillId: userSkillId,
+                approved: approved
+            })
+        });
+
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            console.error(errorResponse.error || 'Error al verificar la evidencia');
+        }
+
+        const result = await response.json();
+        console.log(result);
+        window.location.reload();
+    } catch (error) {
+        console.error('Error al verificar la evidencia:', error);
+        alert(error.message);
+    }
+}
 
 

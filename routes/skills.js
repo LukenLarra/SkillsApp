@@ -151,7 +151,7 @@ router.post('/:skillTree/add', upload.single('icon'), async (req, res) => {
 
 router.post('/:skillTreeName/submit-evidence', async (req, res) => {
     const {skillTreeName} = req.params;
-    const {id, evidence} = req.body;
+    const {skillId, evidence, userSkillId} = req.body;
 
     try {
         if (!req.session || !req.session.username) {
@@ -164,23 +164,38 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
             return res.status(404).json({error: 'Usuario no encontrado'});
         }
 
-        const skill = await Skill.findOne({id: Number(id)});
+        const skill = await Skill.findOne({id: Number(skillId)});
         if (!skill) {
             return res.status(404).json({error: 'Skill no encontrado'});
         }
 
-        const userSkill = new UserSkill({
-            user: user._id,
-            skill: skill._id,
-            evidence: evidence,
-            completed: true,
-            completedAt: new Date(),
-            verified: false,
-            verifications: []
-        });
+        let userSkill;
+        if (userSkillId) {
+            userSkill = await UserSkill.findOne({_id: userSkillId, user: user._id});
+            if (!userSkill) {
+                return res.status(404).json({error: 'UserSkill no encontrado o no pertenece al usuario'});
+            }
 
-        await userSkill.save();
-        res.status(201).json({message: 'Evidencia enviada correctamente', userSkill: userSkill});
+            userSkill.evidence = evidence;
+            userSkill.completed = true;
+            userSkill.completedAt = new Date();
+            userSkill.verified = false;
+
+            await userSkill.save();
+            return res.status(200).json({message: 'Evidencia actualizada correctamente', userSkill});
+        } else {
+            userSkill = new UserSkill({
+                user: user._id,
+                skill: skill._id,
+                evidence: evidence,
+                completed: true,
+                completedAt: new Date(),
+                verified: false,
+                verifications: [],
+            });
+            await userSkill.save();
+            return res.status(201).json({message: 'Evidencia enviada correctamente', userSkill});
+        }
     } catch (error) {
         console.error('Error al enviar la evidencia:', error);
         res.status(500).json({error: 'Error interno del servidor'});
@@ -191,12 +206,12 @@ router.get('/unverifiedSkills', async (req, res) => {
     try {
         const pendingUserSkills = await UserSkill.aggregate([
             {
-                $match: { verified: false }
+                $match: {verified: false}
             },
             {
                 $group: {
                     _id: '$skill',
-                    count: { $sum: 1 }
+                    count: {$sum: 1}
                 }
             },
             {
@@ -221,7 +236,7 @@ router.get('/unverifiedSkills', async (req, res) => {
         res.status(200).json(pendingUserSkills);
     } catch (error) {
         console.error('Error al obtener userSkills pendientes:', error);
-        res.status(500).json({ message: 'Error al obtener los datos.' });
+        res.status(500).json({message: 'Error al obtener los datos.'});
     }
 });
 
@@ -229,12 +244,12 @@ router.get('/verifiedSkills', async (req, res) => {
     try {
         const verifiedUserSkills = await UserSkill.aggregate([
             {
-                $match: { verified: true }
+                $match: {verified: true}
             },
             {
                 $group: {
                     _id: '$skill',
-                    count: { $sum: 1 }
+                    count: {$sum: 1}
                 }
             },
             {
@@ -259,81 +274,75 @@ router.get('/verifiedSkills', async (req, res) => {
         res.status(200).json(verifiedUserSkills);
     } catch (error) {
         console.error('Error al obtener las habilidades verificadas:', error);
-        res.status(500).json({ message: 'Error al obtener los datos.' });
+        res.status(500).json({message: 'Error al obtener los datos.'});
     }
 });
 
 
-router.get('/:skillId/unverified', async (req, res) => {
-    const { skillId } = req.params;
+router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
+    const {skillTreeName, skillID} = req.params;
+    const {userSkillId, approved} = req.body;
 
     try {
-        const skill = await Skill.findOne({ id: skillId });
-        if (!skill) {
-            return res.status(404).json({ message: 'Skill no encontrado.' });
+        if (!req.session || !req.session.username) {
+            return res.status(401).json({error: 'Usuario no autenticado'});
         }
 
-        const userSkills = await UserSkill.find({ skill: skill._id, verified: false }).populate('user', 'username admin'); // Populate con detalles del usuario
-
-        const response = userSkills.map((userSkill) => ({
-            userId: userSkill.user._id,
-            username: userSkill.user.username,
-            isAdmin: userSkill.user.admin,
-            evidence: userSkill.evidence,
-            completed: userSkill.completed,
-        }));
-
-        res.status(200).json({
-            skillId: skillId,
-            skillName: skill.text,
-            unverifiedUsers: response,
-        });
-    } catch (error) {
-        console.error('Error al obtener usuarios no verificados:', error);
-        res.status(500).json({ message: 'Error al obtener los datos.' });
-    }
-});
-
-router.post('/:skillId/verify', async (req, res) => {
-    try {
-        const { skillId } = req.params;
-        const { userId } = req.body;
-
-        const user = await User.findById(userId);
-        if (!user) return res.status(404).json({ message: 'Usuario no encontrado' });
-
-        const userSkill = await UserSkill.findOne({ user: userId, skill: skillId });
-        if (!userSkill) return res.status(404).json({ message: 'Evidencia no encontrada' });
-
-        if (userSkill.verified) {
-            return res.status(400).json({ message: 'Evidencia ya verificada por este usuario' });
+        const username = req.session.username;
+        const user = await User.findOne({username: username});
+        if (!user) {
+            return res.status(404).json({error: 'Usuario no encontrado'});
         }
 
-        const weight = user.admin ? 3 : 1;
-        userSkill.verified = true;
-        await userSkill.save();
+        const userSkill = await UserSkill.findById(userSkillId).populate('skill', 'id text').populate('user', 'username');
+        if (!userSkill) {
+            return res.status(404).json({ error: 'UserSkill no encontrado' });
+        }
 
-        const verifiedUserSkills = await UserSkill.find({ skill: skillId, verified: true });
-        const totalPoints = verifiedUserSkills.reduce(async (sum, us) => {
-            const verifier = await User.findById(us.user); // Cargar usuario que verificó
-            return sum + (verifier.admin ? 3 : 1);
-        }, 0);
+        if (userSkill.skill.id !== Number(skillID)) {
+            return res.status(400).json({ error: 'El skillID no coincide con el UserSkill' });
+        }
 
-        if (totalPoints >= 3) {
-            const completedUsers = verifiedUserSkills.map(us => us.user.toString());
-            for (const userId of completedUsers) {
-                const user = await User.findById(userId);
-                if (!user.completedSkills.includes(skillId)) {
-                    user.completedSkills.push(skillId);
-                    await user.save();
+        userSkill.verifications.push({
+                user: user._id,
+                approved: approved,
+                verifiedAt: new Date()
+            }
+        );
+
+        let normalApprovalCount = 0;
+        let adminApprovalCount = 0;
+
+        userSkill.verifications.forEach(verification => {
+            if (verification.approved) {
+                if (verification.user.equals(user._id) && user.admin) {
+                    adminApprovalCount += 1;
+                } else if (!user.admin) {
+                    normalApprovalCount += 1;
                 }
             }
+        });
+
+        if (adminApprovalCount > 0) {
+            userSkill.verified = true;
+        } else {
+            userSkill.verified = normalApprovalCount >= 3;
         }
 
-        res.status(200).json({ message: 'Skill verificado exitosamente', totalPoints });
+        await userSkill.save();
+        res.status(200).json({
+            message: 'Evidencia confirmada correctamente',
+            userSkill: {
+                id: userSkill._id,
+                verified: userSkill.verified,
+                skill: userSkill.skill,
+                user: userSkill.user,
+                evidence: userSkill.evidence,
+            }
+        });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error al verificar el skill' });
+        console.error('Error al verificar la evidencia:', error);
+        res.status(500).json({error: 'Error interno del servidor'});
     }
 });
 
