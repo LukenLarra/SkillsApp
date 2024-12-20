@@ -155,6 +155,7 @@ export function showSendEvidence() {
         if (!evidence) {
             modalContent.textContent = 'Please provide valid evidence before submitting';
             infoModal.classList.remove('hidden');
+            closeModal.style.backgroundColor = 'red';
             closeModal.addEventListener('click', () => {
                 infoModal.classList.add('hidden');
             }, {once: true});
@@ -167,6 +168,7 @@ export function showSendEvidence() {
         if (!id) {
             modalContent.textContent = 'Id not found for the current skill';
             infoModal.classList.remove('hidden');
+            closeModal.style.backgroundColor = 'red';
             closeModal.addEventListener('click', () => {
                 infoModal.classList.add('hidden');
             }, {once: true});
@@ -187,11 +189,13 @@ export function showSendEvidence() {
                 console.error('Failed to submit evidence:', errorData.error);
                 modalContent.textContent = 'Failed to submit evidence';
                 infoModal.classList.remove('hidden');
+                closeModal.style.backgroundColor = 'red';
                 closeModal.addEventListener('click', () => {
                     infoModal.classList.add('hidden');
                 }, {once: true});
             } else {
                 modalContent.textContent = 'Skill evidences sent successfully!';
+                closeModal.style.backgroundColor = 'green';
                 infoModal.classList.remove('hidden');
                 closeModal.addEventListener('click', () => {
                     infoModal.classList.add('hidden');
@@ -201,7 +205,7 @@ export function showSendEvidence() {
             console.error('Error submitting evidence:', error);
 
             if (error.message && error.response.status === 401) {
-                modalContent.textContent = 'You must be logged in to submit evidence. Please log in first.';
+                modalContent.textContent = 'You must be logged in to submit evidences. Please log in first.';
             } else {
                 modalContent.textContent = 'An unexpected error occurred';
             }

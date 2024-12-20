@@ -36,7 +36,7 @@ export async function obtenerDatos() {
         });
 
         data.push(...elements);
-        await upload(data, "api/data");
+        await upload(data, "api/skills");
         console.log("Datos:", data);
 
     } catch (error) {

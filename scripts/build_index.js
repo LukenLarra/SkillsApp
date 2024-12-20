@@ -36,7 +36,7 @@ export async function build_index() {
     const unverifiedData = await unverifiedResponse.json();
     const unverifiedMap = new Map(unverifiedData.map(item => [item.skillId, item.count]));
 
-    const verifiedResponse = await fetch('http://localhost:3000/api/skills/verifiedSkills');
+    const verifiedResponse = await fetch('http://localhost:3000/skills/verifiedSkills');
     const verifiedData = await verifiedResponse.json();
     const verifiedMap = new Map(verifiedData.map(item => [item.skillId, item.count]));
 
@@ -107,7 +107,7 @@ export async function build_index() {
             canvas.width = 20;
             canvas.height = 20;
             canvas.style.position = 'absolute';
-            canvas.style.top = '5px';
+            canvas.style.top = '0px';
             canvas.style.right = '5px';
 
             const ctx = canvas.getContext('2d');

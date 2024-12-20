@@ -175,13 +175,8 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
             evidence: evidence,
             completed: true,
             completedAt: new Date(),
+            verified: false,
             verifications: []
-        });
-
-        userSkill.verifications.push({
-            user: user._id,
-            approved: false,
-            verifiedAt: new Date()
         });
 
         await userSkill.save();
