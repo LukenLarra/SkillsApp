@@ -225,9 +225,7 @@ async function handleVerification(skillId, approved, userSkillId) {
             console.error(errorResponse.error || 'Error al verificar la evidencia');
         }
 
-        const result = await response.json();
-        console.log(result);
-        window.location.reload();
+        showModal('Evidencia evaluada correctamente', 'green');
     } catch (error) {
         console.error('Error al verificar la evidencia:', error);
         alert(error.message);

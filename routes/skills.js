@@ -244,12 +244,31 @@ router.get('/verifiedSkills', async (req, res) => {
     try {
         const verifiedUserSkills = await UserSkill.aggregate([
             {
-                $match: {verified: true}
+                $match: { verified: true }
+            },
+            {
+                $unwind: '$verifications'
+            },
+            {
+                $lookup: {
+                    from: 'User',
+                    localField: 'verifications.user',
+                    foreignField: '_id',
+                    as: 'verifierDetails'
+                }
+            },
+            {
+                $unwind: '$verifierDetails'
             },
             {
                 $group: {
                     _id: '$skill',
-                    count: {$sum: 1}
+                    count: { $sum: 1 },
+                    adminVerified: {
+                        $sum: {
+                            $cond: [{ $eq: ['$verifierDetails.admin', true] }, 1, 0]
+                        }
+                    }
                 }
             },
             {
@@ -266,7 +285,8 @@ router.get('/verifiedSkills', async (req, res) => {
             {
                 $project: {
                     skillId: '$skillDetails.id',
-                    count: 1
+                    count: 1,
+                    adminVerified: { $gt: ['$adminVerified', 0] }
                 }
             }
         ]);
