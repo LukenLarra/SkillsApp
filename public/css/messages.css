@@ -1,12 +1,15 @@
 .alert {
     padding: 15px;
-    margin: 10px 0;
+    margin: 10px auto;
     border-radius: 5px;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
+    width: 20%;
+    opacity: 1;
+    animation: fadeOut 4s forwards;
 }
 
 .success-message {
@@ -19,4 +22,22 @@
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
 }
