@@ -169,17 +169,19 @@ async function submitEvidence() {
 
     try {
         const response = await fetch(`http://localhost:3000/skills/${skillTreeName}/submit-evidence`, {
-            method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id, evidence}),
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({id, evidence}),
         });
 
         if (!response.ok) {
             const errorData = await response.json();
             console.error('Failed to submit evidence:', errorData.error);
-            alert('Failed to submit evidence');
         }
+        window.location.href = '/';
     } catch (error) {
         console.error('Error submitting evidence:', error);
-        alert(error.message && error.response?.status === 401 ? 'You must be logged in to submit evidences. Please log in first.' : 'An unexpected error occurred');
+        window.location.href = '/';
     }
 }
 
@@ -204,9 +206,10 @@ async function handleVerification(skillId, approved, userSkillId) {
             const errorResponse = await response.json();
             console.error(errorResponse.error || 'Error verifying evidence');
         }
+        window.location.href = '/';
 
     } catch (error) {
         console.error('Error verifying evidence:', error);
-        alert(error.message);
+        window.location.href = '/';
     }
 }

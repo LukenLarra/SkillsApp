@@ -45,24 +45,13 @@ const upload = multer({
 
 /* GET home page. */
 router.get("/:skillTree/view/:id", async (req, res) => {
-    const success_msg = req.session.success_msg || null;
-    const error_msg = req.session.error_msg || null;
-    const error = req.session.error || null;
-
-    delete req.session.success_msg;
-    delete req.session.error_msg;
-    delete req.session.error;
-
     const {skillTree, id} = req.params;
     try {
         const skill = await Skill.findOne({id: Number(id)});
         if (skill) {
             res.render("skill_details", {
                 skill,
-                session: req.session,
-                success_msg: success_msg,
-                error_msg: error_msg,
-                error: error,
+                session: req.session
             });
         } else {
             res.status(404).send(`Skill ${id} not found`);
@@ -95,11 +84,8 @@ router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
     try {
         const skill = await Skill.findOne({id: Number(id)});
         if (!skill) {
-            return res.render('index', {
-                title: 'ELECTRONICS',
-                session: req.session,
-                error_msg: `User not found`
-            });
+            req.session.error_msg = 'User not found';
+            return res.redirect('/');
         }
 
         if (action === 'save') {
@@ -117,12 +103,15 @@ router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
             await skill.save();
             req.session.success_msg = 'Skill updated successfully';
             return res.redirect('/');
+
         } else if (action === 'cancel') {
             return res.redirect('/');
+
         } else if (action === 'delete') {
             await Skill.findOneAndDelete({id: Number(id)});
             req.session.success_msg = 'Skill deleted successfully';
             return res.redirect('/');
+
         } else {
             req.session.error_msg = 'Invalid action. Please try again';
             return res.redirect('/');
@@ -130,7 +119,7 @@ router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
     } catch (err) {
         console.error(err);
         req.session.error_msg = 'Error editing skill';
-        return res.redirect('/');
+        return res.status(500).json({message: 'Error editing skill'});
     }
 });
 
@@ -161,35 +150,37 @@ router.post('/:skillTree/add', upload.single('icon'), async (req, res) => {
 
         await newSkill.save();
         req.session.success_msg = 'Skill added successfully';
-        return res.redirect('/');
+        return res.status(200).json({message: 'Skill added successfully'});
     } catch (error) {
         console.error(error);
         req.session.error_msg = 'Failed to edit skill';
-        return res.redirect('/');
+        return res.status(500).json({message: 'Failed to edit skill'});
     }
 });
 
 router.post('/:skillTreeName/submit-evidence', async (req, res) => {
     const {skillTreeName} = req.params;
-    const {skillId, evidence, userSkillId} = req.body;
+    const skillId = req.body.id;
+    const evidence = req.body.evidence;
+    const userSkillId = req.body.userSkillId;
 
     try {
         if (!req.session || !req.session.username) {
             req.session.error_msg = 'User not authenticated';
-            return res.redirect('/');
+            return res.status(401).json({message: 'User not authenticated'});
         }
-
+        console.log(skillId);
         const username = req.session.username;
         const user = await User.findOne({username: username});
         if (!user) {
             req.session.error_msg = 'User not found';
-            return res.redirect('/');
+            return res.status(404).json({message: 'User not found'});
         }
 
         const skill = await Skill.findOne({id: Number(skillId)});
         if (!skill) {
             req.session.error_msg = 'Skill not found';
-            return res.redirect('/');
+            return res.status(404).json({message: 'Skill not found'});
         }
 
         let userSkill;
@@ -197,7 +188,7 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
             userSkill = await UserSkill.findOne({_id: userSkillId, user: user._id});
             if (!userSkill) {
                 req.session.error_msg = 'UserSkill not found';
-                return res.redirect('/');
+                return res.status(404).json({message: 'UserSkill not found'});
             }
 
             userSkill.evidence = evidence;
@@ -207,7 +198,7 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
 
             await userSkill.save();
             req.session.success_msg = 'Evidencia actualizada correctamente';
-            return res.redirect('/');
+            return res.status(200).json({message: 'Evidencia actualizada correctamente'});
         } else {
             userSkill = new UserSkill({
                 user: user._id,
@@ -218,15 +209,15 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
                 verified: false,
                 verifications: [],
             });
-
+            console.log(userSkill);
             await userSkill.save();
             req.session.success_msg = 'Evidencia enviada correctamente';
-            return res.redirect(`/skills/${skillTreeName}/view/${skill.id}`);
+            return res.status(200).json({message: 'Evidencia enviada correctamente'});
         }
     } catch (error) {
         console.error('Error al enviar la evidencia:', error);
         req.session.error_msg = 'Server Error';
-        return res.redirect('/');
+        return res.status(500).json({message: 'Server Error'});
     }
 });
 
@@ -334,25 +325,25 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
     try {
         if (!req.session || !req.session.username) {
             req.session.error_msg = 'User not authenticated';
-            return res.redirect('/');
+            return res.status(401).json({message: 'User not authenticated'});
         }
 
         const username = req.session.username;
         const user = await User.findOne({username: username});
         if (!user) {
             req.session.error_msg = 'User not found';
-            return res.redirect('/');
+            return res.status(404).json({message: 'User not found'});
         }
 
         const userSkill = await UserSkill.findById(userSkillId).populate('skill').populate('user', 'username');
         if (!userSkill) {
             req.session.error_msg = 'UserSkill not found';
-            return res.redirect('/');
+            return res.status(404).json({message: 'UserSkill not found'});
         }
 
         if (userSkill.skill.id !== Number(skillID)) {
             req.session.error_msg = 'UserSkill does not match skill';
-            return res.redirect('/');
+            return res.status(400).json({message: 'UserSkill does not match skill'});
         }
 
         userSkill.verifications.push({
@@ -383,11 +374,11 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
 
         await userSkill.save();
         req.session.success_msg = 'Evidencia verificada correctamente';
-        return res.redirect('/');
+        return res.status(200).json({message: 'Evidencia verificada correctamente'});
     } catch (error) {
         console.error('Error al verificar la evidencia:', error);
         req.session.error_msg = 'Server Error';
-        return res.redirect('/');
+        return res.status(500).json({message: 'Server Error'});
     }
 });
 

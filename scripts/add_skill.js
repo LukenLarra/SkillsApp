@@ -42,9 +42,13 @@ async function addSkill(event){
             method: 'POST',
             body: formData,
         });
+        if (!response.ok) {
+            console.error('An error occurred while adding the skill.');
+        }
+        window.location.href = '/';
     } catch (error) {
         console.error('Error:', error);
-        alert('An error occurred while adding the skill.');
+        window.location.href = '/';
     }
 }
 
