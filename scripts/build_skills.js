@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             createEvidencesTable();
         }
     }
+
+    manageTaskCheckboxes(svgId);
 });
 
 async function createSVGSkills() {
@@ -212,4 +214,20 @@ async function handleVerification(skillId, approved, userSkillId) {
         console.error('Error verifying evidence:', error);
         window.location.href = '/';
     }
+}
+
+function manageTaskCheckboxes(skillId) {
+    const checkboxes = document.querySelectorAll('.task-checkbox');
+    const storageKey = `taskState-${skillId}`;
+
+    const savedStates = JSON.parse(localStorage.getItem(storageKey)) || {};
+
+    checkboxes.forEach((checkbox, index) => {
+        checkbox.checked = !!savedStates[index];
+
+        checkbox.addEventListener('change', () => {
+            savedStates[index] = checkbox.checked;
+            localStorage.setItem(storageKey, JSON.stringify(savedStates));
+        });
+    });
 }

@@ -1,4 +1,3 @@
-/* Main styles */
 body {
     font-family: Arial, sans-serif;
     max-width: 800px;
@@ -37,12 +36,12 @@ textarea:focus {
 }
 
 #skill-score {
-    width: 100%; /* Ajusta al ancho del contenedor */
-    padding: 10px; /* Espaciado interno */
-    border: 1px solid #ccc; /* Borde gris */
-    border-radius: 4px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de fuente */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #skill-score:focus {
@@ -118,7 +117,7 @@ form #delete:hover {
     background-color: #f61c1c;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-/* Skill Header Section */
+
 #skill-header {
     display: flex;
     flex-direction: column;
@@ -138,11 +137,10 @@ form #delete:hover {
     font-weight: bold;
 }
 
-/* Skill Visualization Section */
 #skill-visualization {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
     margin: 20px 0 30px 0;
 }
 
@@ -158,10 +156,9 @@ form #delete:hover {
     stroke-width: 1px;
 }
 
-/* Description Section */
 #skill-description {
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
@@ -181,7 +178,6 @@ form #delete:hover {
     margin: 0;
 }
 
-/* Tasks Section */
 #tasks-to-complete {
     margin-bottom: 30px;
 }
@@ -276,12 +272,10 @@ form #delete:hover {
     text-decoration: underline;
 }
 
-/* Section Dividers */
 section {
     position: relative;
 }
 
-/* General section headers */
 section h2 {
     font-size: 18px;
     margin-bottom: 15px;
@@ -302,8 +296,8 @@ section h2 {
 
 .evidence-submission tbody td {
     display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
+    justify-content: center;
+    align-items: center;
 }
 
 .evidence-submission tr:nth-child(even) {
@@ -314,7 +308,6 @@ section h2 {
     background-color: #ddd;
 }
 
-/* Buttons */
 .evidence-submission button {
     padding: 8px 12px;
     border: none;
@@ -345,7 +338,6 @@ section h2 {
     display: none;
 }
 
-/* Estilo para el botón que reemplaza el input */
 #upload label {
     display: inline-block;
     background-color: #007bff;
@@ -363,37 +355,11 @@ section h2 {
     background-color: #0056b3;
 }
 
-/* Para mostrar el nombre del archivo seleccionado */
 #upload .file-name {
     margin-top: 10px;
     font-size: 14px;
     font-style: italic;
     color: #555;
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal.hidden {
-    display: none;
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn {
