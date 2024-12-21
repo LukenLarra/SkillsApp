@@ -38,7 +38,6 @@ export async function build_index() {
 
     const verifiedResponse = await fetch('http://localhost:3000/skills/verifiedSkills');
     const verifiedData = await verifiedResponse.json();
-    console.log(verifiedData);
     const verifiedMap = new Map(verifiedData.map(item => [item.skillId, { count: item.count, adminVerified: item.adminVerified }]));
     const container = document.querySelector(".svg-container");
     const role = document.querySelector('.role').textContent;
@@ -122,8 +121,7 @@ export async function build_index() {
             ctx.fillText(count, 9, 11);
 
             if (adminVerified || count > 2) {
-                const hexagon = document.querySelector('.hexagon');
-                hexagon.style.fill = 'green';
+                polygon.style.fill = 'green';
             }
 
             svgWrapper.appendChild(canvas);
