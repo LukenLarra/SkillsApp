@@ -1,17 +1,17 @@
-<% if (success_msg) { %>
-    <div class="alert alert-success" role="alert">
+<% if (typeof success_msg !== 'undefined' && success_msg) { %>
+    <div class="alert success-message">
         <%= success_msg %>
     </div>
 <% } %>
 
-<% if (error_msg) { %>
-    <div class="alert alert-danger" role="alert">
+<% if (typeof error_msg !== 'undefined' && error_msg) { %>
+    <div class="alert error-message">
         <%= error_msg %>
     </div>
 <% } %>
 
-<% if (error) { %>
-    <div class="alert alert-danger" role="alert">
+<% if (typeof error !== 'undefined' && error) { %>
+    <div class="alert error-message">
         <%= error %>
     </div>
 <% } %>

@@ -17,30 +17,11 @@ router.get('/dashboard', function (req, res) {
 });
 
 router.get('/users', function (req, res) {
-    const success_msg = req.query.success_msg || null;
-    const error_msg = req.query.error_msg || null;
-
-    res.render('manage_users', {
-        success_msg,
-        error_msg,
-    });
+    res.render('manage_users');
 });
 
 router.get('/badges', async (req, res) => {
-    try {
-        const success_msg = req.query.success_msg || null;
-        const error_msg = req.query.error_msg || null;
-
-        res.render('badges', {
-            success_msg,
-            error_msg,
-        });
-    } catch (err) {
-        console.error(err);
-        res.status(500).render('badges', {
-            error_msg: 'An error occurred while loading the page. Please try again later.',
-        });
-    }
+    res.render('badges');
 });
 
 router.get('/badges/edit/:id', async (req, res) => {
@@ -64,7 +45,9 @@ router.post('/badges/edit/:id', async (req, res) => {
     try {
         const badge = await Badge.findOne({name: name});
         if (!badge) {
-            return res.redirect(`/badges?error_msg=Badge not found.`);
+            return res.render('badges', {
+                error_msg: 'Badge not found'
+            });
         }
         if (action === 'update') {
             badge.name = name;
@@ -73,13 +56,19 @@ router.post('/badges/edit/:id', async (req, res) => {
             badge.image_url = image_url;
 
             await badge.save();
-            return res.redirect(`/badges?success_msg=Badge updated successfully!`);
+            return res.render('badges', {
+                success_msg: 'Badge updated successfully'
+            })
         } else if (action === 'cancel') {
-            return res.redirect(`/badges?success_msg=Badge update canceled.`);
+            return res.render('badges', {
+                success_msg: 'Update cancelled'
+            });
         }
     } catch (err) {
         console.error(err);
-        return res.redirect(`/badges?error_msg=An error occurred while updating the badge. Please try again.`);
+        return res.render('badges', {
+            error_msg: 'Error updating badge'
+        })
     }
 });
 
@@ -87,10 +76,14 @@ router.post('/badges/delete/:id', async (req, res) => {
     const name = req.params.id;
     try {
         await Badge.findOneAndDelete({name: name});
-        res.redirect('/badges?success_msg=Badge deleted successfully!');
+        res.render('badges', {
+            success_msg: 'Badge deleted successfully'
+        })
     } catch (err) {
         console.error(err);
-        res.redirect('/badges?error_msg=Failed to delete badge. Please try again.');
+        res.render('badges', {
+            error_msg: 'Error deleting badge'
+        })
     }
 });
 
@@ -100,20 +93,28 @@ router.post('/change-password', async (req, res) => {
     try {
         const user = await User.findOne({username: userId});
         if (!user) {
-            return res.redirect(`/users?error_msg=User not found.`);
+            return res.render('manage_users', {
+                error_msg: `User not found`
+            })
         }
 
         const isSamePassword = await user.comparePassword(newPassword);
         if (isSamePassword) {
-            return res.redirect(`/users?error_msg=New password cannot be the same as the current password!`);
+            return res.render('manage_users', {
+                error_msg: `New password cannot be the same as the current password`
+            })
         }
 
         user.password = newPassword;
         await user.save();
-        return res.redirect(`/users?success_msg=Password changed successfully!`);
+        return res.render('manage_users', {
+            success_msg: `Password changed successfully`
+        })
     } catch (err) {
         console.error(err);
-        return res.redirect(`/users?error_msg=An error occurred while changing the password. Please try again.`);
+        return res.render('manage_users', {
+            error_msg: `Error changing password`
+        })
     }
 });
 

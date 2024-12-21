@@ -81,7 +81,11 @@ router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
     try {
         const skill = await Skill.findOne({id: Number(id)});
         if (!skill) {
-            return res.redirect(`/?error_msg=Skill not found.`);
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                error_msg: `User not found`
+            });
         }
 
         if (action === 'save') {
@@ -97,18 +101,37 @@ router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
             }
 
             await skill.save();
-            return res.redirect(`/?success_msg=Skill updated successfully!`);
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                success_msg: 'Skill updated successfully'
+            });
         } else if (action === 'cancel') {
-            res.redirect(`/`);
+            res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session
+            });
         } else if (action === 'delete') {
             await Skill.findOneAndDelete({id: Number(id)});
-            return res.redirect(`/?success_msg=Skill deleted successfully!`);
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                success_msg: 'Skill deleted successfully'
+            });
         } else {
-            return res.redirect(`/?error_msg=Invalid action.`);
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                error_msg: 'Invalid action'
+            });
         }
     } catch (err) {
         console.error(err);
-        return res.redirect(`/?error_msg=An error occurred while processing the request.`);
+        return res.render('index', {
+            title: 'ELECTRONICS',
+            session: req.session,
+            error_msg: 'Error updating skill'
+        });
     }
 });
 
@@ -159,25 +182,41 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
 
     try {
         if (!req.session || !req.session.username) {
-            return res.status(401).json({error: 'Usuario no autenticado'});
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                error_msg: 'Usuario no autenticado'
+            });
         }
 
         const username = req.session.username;
         const user = await User.findOne({username: username});
         if (!user) {
-            return res.status(404).json({error: 'Usuario no encontrado'});
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                error_msg: 'Usuario no encontrado'
+            });
         }
 
         const skill = await Skill.findOne({id: Number(skillId)});
         if (!skill) {
-            return res.status(404).json({error: 'Skill no encontrado'});
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                error_msg: 'Skill no encontrado'
+            });
         }
 
         let userSkill;
         if (userSkillId) {
             userSkill = await UserSkill.findOne({_id: userSkillId, user: user._id});
             if (!userSkill) {
-                return res.status(404).json({error: 'UserSkill no encontrado o no pertenece al usuario'});
+                return res.render('index', {
+                    title: 'ELECTRONICS',
+                    session: req.session,
+                    error_msg: 'UserSkill no encontrado o no pertenece al usuario'
+                });
             }
 
             userSkill.evidence = evidence;
@@ -186,7 +225,11 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
             userSkill.verified = false;
 
             await userSkill.save();
-            return res.status(200).json({message: 'Evidencia actualizada correctamente', userSkill});
+            return res.render('skill_details', {
+                skill: skill,
+                session: req.session,
+                success_msg: 'Evidencia enviada correctamente'
+            });
         } else {
             userSkill = new UserSkill({
                 user: user._id,
@@ -197,12 +240,21 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
                 verified: false,
                 verifications: [],
             });
+
             await userSkill.save();
-            return res.status(201).json({message: 'Evidencia enviada correctamente', userSkill});
+            return res.render('skill_details', {
+                skill: skill,
+                session: req.session,
+                success_msg: 'Evidencia enviada correctamente'
+            });
         }
     } catch (error) {
         console.error('Error al enviar la evidencia:', error);
-        res.status(500).json({error: 'Error interno del servidor'});
+        res.render('index', {
+            title: 'ELECTRONICS',
+            session: req.session,
+            error_msg: 'Error interno del servidor'
+        });
     }
 });
 
@@ -248,7 +300,7 @@ router.get('/verifiedSkills', async (req, res) => {
     try {
         const verifiedUserSkills = await UserSkill.aggregate([
             {
-                $match: { verified: true }
+                $match: {verified: true}
             },
             {
                 $unwind: '$verifications'
@@ -267,10 +319,10 @@ router.get('/verifiedSkills', async (req, res) => {
             {
                 $group: {
                     _id: '$skill',
-                    count: { $sum: 1 },
+                    count: {$sum: 1},
                     adminVerified: {
                         $sum: {
-                            $cond: [{ $eq: ['$verifierDetails.admin', true] }, 1, 0]
+                            $cond: [{$eq: ['$verifierDetails.admin', true]}, 1, 0]
                         }
                     }
                 }
@@ -290,7 +342,7 @@ router.get('/verifiedSkills', async (req, res) => {
                 $project: {
                     skillId: '$skillDetails.id',
                     count: 1,
-                    adminVerified: { $gt: ['$adminVerified', 0] }
+                    adminVerified: {$gt: ['$adminVerified', 0]}
                 }
             }
         ]);
@@ -309,22 +361,38 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
 
     try {
         if (!req.session || !req.session.username) {
-            return res.status(401).json({error: 'Usuario no autenticado'});
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                error_msg: 'Usuario no autenticado'
+            });
         }
 
         const username = req.session.username;
         const user = await User.findOne({username: username});
         if (!user) {
-            return res.status(404).json({error: 'Usuario no encontrado'});
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                error_msg: 'Usuario no encontrado'
+            });
         }
 
-        const userSkill = await UserSkill.findById(userSkillId).populate('skill', 'id text').populate('user', 'username');
+        const userSkill = await UserSkill.findById(userSkillId).populate('skill').populate('user', 'username');
         if (!userSkill) {
-            return res.status(404).json({ error: 'UserSkill no encontrado' });
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                error_msg: 'UserSkill no encontrado'
+            });
         }
 
         if (userSkill.skill.id !== Number(skillID)) {
-            return res.status(400).json({ error: 'El skillID no coincide con el UserSkill' });
+            return res.render('index', {
+                title: 'ELECTRONICS',
+                session: req.session,
+                error_msg: 'UserSkill no pertenece al skill'
+            });
         }
 
         userSkill.verifications.push({
@@ -364,9 +432,18 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
                 evidence: userSkill.evidence,
             }
         });
+        res.render('skill_details', {
+            skill: userSkill.skill,
+            session: req.session,
+            success_msg: 'Evidencia verificada correctamente'
+        });
     } catch (error) {
         console.error('Error al verificar la evidencia:', error);
-        res.status(500).json({error: 'Error interno del servidor'});
+        res.render('index', {
+            title: 'ELECTRONICS',
+            session: req.session,
+            error_msg: 'Error interno del servidor'
+        });
     }
 });
 
