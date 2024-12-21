@@ -17,11 +17,37 @@ router.get('/dashboard', function (req, res) {
 });
 
 router.get('/users', function (req, res) {
-    res.render('manage_users');
+    const success_msg = req.session.success_msg || null;
+    const error_msg = req.session.error_msg || null;
+    const error = req.session.error || null;
+
+
+    delete req.session.success_msg;
+    delete req.session.error_msg;
+    delete req.session.error;
+
+    res.render('manage_users', {
+        success_msg: success_msg,
+        error_msg: error_msg,
+        error: error,
+    });
 });
 
 router.get('/badges', async (req, res) => {
-    res.render('badges');
+    const success_msg = req.session.success_msg || null;
+    const error_msg = req.session.error_msg || null;
+    const error = req.session.error || null;
+
+
+    delete req.session.success_msg;
+    delete req.session.error_msg;
+    delete req.session.error;
+
+    res.render('badges', {
+        success_msg: success_msg,
+        error_msg: error_msg,
+        error: error,
+    });
 });
 
 router.get('/badges/edit/:id', async (req, res) => {
@@ -45,9 +71,8 @@ router.post('/badges/edit/:id', async (req, res) => {
     try {
         const badge = await Badge.findOne({name: name});
         if (!badge) {
-            return res.render('badges', {
-                error_msg: 'Badge not found'
-            });
+            req.session.error_msg = 'Badge not found';
+            return res.redirect('/admin/badges');
         }
         if (action === 'update') {
             badge.name = name;
@@ -56,19 +81,16 @@ router.post('/badges/edit/:id', async (req, res) => {
             badge.image_url = image_url;
 
             await badge.save();
-            return res.render('badges', {
-                success_msg: 'Badge updated successfully'
-            })
+            req.session.success_msg = 'Badge updated successfully';
+            return res.redirect('/admin/badges');
         } else if (action === 'cancel') {
-            return res.render('badges', {
-                success_msg: 'Update cancelled'
-            });
+            req.session.success_msg = 'Badge update cancelled';
+            return res.redirect('/admin/badges');
         }
     } catch (err) {
         console.error(err);
-        return res.render('badges', {
-            error_msg: 'Error updating badge'
-        })
+        req.session.error_msg = 'Server error';
+        return res.redirect('/admin/badges');
     }
 });
 
@@ -76,14 +98,12 @@ router.post('/badges/delete/:id', async (req, res) => {
     const name = req.params.id;
     try {
         await Badge.findOneAndDelete({name: name});
-        res.render('badges', {
-            success_msg: 'Badge deleted successfully'
-        })
+        req.session.success_msg = 'Badge deleted successfully';
+        return res.redirect('/admin/badges');
     } catch (err) {
         console.error(err);
-        res.render('badges', {
-            error_msg: 'Error deleting badge'
-        })
+        req.session.error_msg = 'Server error';
+        return res.redirect('/admin/badges');
     }
 });
 
@@ -93,28 +113,24 @@ router.post('/change-password', async (req, res) => {
     try {
         const user = await User.findOne({username: userId});
         if (!user) {
-            return res.render('manage_users', {
-                error_msg: `User not found`
-            })
+            req.session.error_msg = 'User not found';
+            return res.redirect('/admin/users');
         }
 
         const isSamePassword = await user.comparePassword(newPassword);
         if (isSamePassword) {
-            return res.render('manage_users', {
-                error_msg: `New password cannot be the same as the current password`
-            })
+            req.session.error_msg = 'New password cannot be the same as the old password';
+            return res.redirect('/admin/users');
         }
 
         user.password = newPassword;
         await user.save();
-        return res.render('manage_users', {
-            success_msg: `Password changed successfully`
-        })
+        req.session.success_msg = 'Password changed successfully';
+        return res.redirect('/admin/users');
     } catch (err) {
         console.error(err);
-        return res.render('manage_users', {
-            error_msg: `Error changing password`
-        })
+        req.session.error_msg = 'Server error';
+        return res.redirect('/admin/users');
     }
 });
 

@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
     await build_badges();
-    setupModalHandlers();
 });
 
 async function build_badges() {
@@ -48,33 +47,14 @@ async function build_badges() {
         deleteBtn.appendChild(deleteIcon);
         deleteBtn.appendChild(document.createTextNode(' Delete'));
 
-        deleteBtn.onclick = () => {
-            showDeleteModal(item.name);
-        };
-
-        action.appendChild(editBtn);
-        action.appendChild(deleteBtn);
-        tr.appendChild(action);
-        tbody.appendChild(tr);
-    });
-    table.appendChild(tbody);
-}
-
-function setupModalHandlers() {
-    const modal = document.getElementById('confirmation-modal');
-    const confirmDeleteButton = document.getElementById('confirm-delete');
-    const cancelDeleteButton = document.getElementById('cancel-delete');
-
-    confirmDeleteButton.addEventListener('click', async () => {
-        const badgeName = modal.getAttribute('data-id');
-        if (badgeName) {
+        deleteBtn.onclick = async () => {
             try {
-                const response = await fetch(`/admin/badges/delete/${badgeName}`, {
+                const response = await fetch(`/admin/badges/delete/${item.name}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ name: badgeName })
+                    body: JSON.stringify({ name: item.name })
                 });
 
                 if (response.ok) {
@@ -86,22 +66,12 @@ function setupModalHandlers() {
             } catch (err) {
                 console.error(err);
             }
-        }
+        };
+
+        action.appendChild(editBtn);
+        action.appendChild(deleteBtn);
+        tr.appendChild(action);
+        tbody.appendChild(tr);
     });
-
-    cancelDeleteButton.addEventListener('click', () => {
-        hideModal();
-    });
-}
-
-function showDeleteModal(badgeName) {
-    const modal = document.getElementById('confirmation-modal');
-    modal.setAttribute('data-id', badgeName);
-    modal.classList.remove('hidden');
-}
-
-function hideModal() {
-    const modal = document.getElementById('confirmation-modal');
-    modal.setAttribute('data-id', '');
-    modal.classList.add('hidden');
+    table.appendChild(tbody);
 }

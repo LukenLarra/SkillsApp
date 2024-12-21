@@ -10,6 +10,14 @@
 </head>
 <body>
 <div class="wrapper">
+    <div id="confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+            <p>Are you sure you want to cancel? Changes will not be saved.</p>
+            <button id="confirm-exit" class="btn confirm">Yes, Leave page</button>
+            <button id="cancel-exit" class="btn cancel">No, Stay</button>
+        </div>
+    </div>
+
     <form action="/skills/<%= skillTree %>/add" method="POST" enctype="multipart/form-data">
         <section id="skill-header">
             <article class="skill-title">

@@ -71,21 +71,13 @@ function showChangePasswordForm(username) {
 
 function sendNewPassword() {
     const changeBtn = document.querySelector('.changeBtn');
-    const infoModal = document.getElementById('info-modal');
-    const modalContent = document.querySelector('.modal-content p');
-    const closeModal = document.getElementById('close-modal');
-
     changeBtn.addEventListener('click', async (event) => {
         event.preventDefault();
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
         if (password.length < 6) {
-            modalContent.textContent = 'Password must be at least 6 characters long.';
-            infoModal.classList.remove('hidden');
-            closeModal.addEventListener('click', () => {
-                infoModal.classList.add('hidden');
-            }, { once: true });
+            alert('Password must be at least 6 characters long.');
             return;
         }
 
@@ -97,26 +89,8 @@ function sendNewPassword() {
                 },
                 body: JSON.stringify({ userId: username, newPassword: password }),
             });
-
-            if (response.ok) {
-                modalContent.textContent = 'User password changed successfully!';
-            } else {
-                const errorMessage = await response.text();
-                modalContent.textContent = `${errorMessage}`;
-            }
-
-            infoModal.classList.remove('hidden');
-            closeModal.addEventListener('click', () => {
-                infoModal.classList.add('hidden');
-                if (response.ok) window.location.reload();
-            }, { once: true });
         } catch (error) {
             console.error('Error changing password:', error);
-            modalContent.textContent = 'An unexpected error occurred.';
-            infoModal.classList.remove('hidden');
-            closeModal.addEventListener('click', () => {
-                infoModal.classList.add('hidden');
-            }, { once: true });
         }
     });
 }

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const svgId = container.getAttribute("svgId");
 
     const skill = allSkills.find(item => item.id === Number(svgId));
-    const userSkill = userSkills.find(item => item.skill &&  item.skill.id === skill.id);
+    const userSkill = userSkills.find(item => item.skill && item.skill.id === skill.id);
     if (userSkill) {
         const role = document.querySelector('.role').textContent;
         if (role.trim().replace(/['"]/g, '').toLowerCase() !== 'standard') {
@@ -142,7 +142,7 @@ export function showSendEvidence() {
 
     const button = document.createElement('button');
     button.textContent = 'Submit Evidence';
-    button.type = 'submit';
+    button.type = 'button';
     button.classList.add('evidence-submit');
     button.onclick = submitEvidence;
 
@@ -155,7 +155,7 @@ async function submitEvidence() {
     const textarea = document.querySelector('.evidence-textarea');
     const evidence = textarea.value.trim();
     if (!evidence) {
-        showModal('Please provide valid evidence before submitting', 'red');
+        alert('Please provide valid evidence before submitting');
         return;
     }
 
@@ -163,41 +163,24 @@ async function submitEvidence() {
     const id = document.querySelector('.details-svg').getAttribute('svgId');
 
     if (!id) {
-        showModal('Id not found for the current skill', 'red');
+        alert('Id not found for the current skill');
         return;
     }
 
     try {
         const response = await fetch(`http://localhost:3000/skills/${skillTreeName}/submit-evidence`, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({id, evidence}),
+            method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id, evidence}),
         });
 
         if (!response.ok) {
             const errorData = await response.json();
             console.error('Failed to submit evidence:', errorData.error);
-            showModal('Failed to submit evidence', 'red');
-        } else {
-            showModal('Skill evidences sent successfully!', 'green');
+            alert('Failed to submit evidence');
         }
     } catch (error) {
         console.error('Error submitting evidence:', error);
-        showModal(error.message && error.response.status === 401 ? 'You must be logged in to submit evidences. Please log in first.' : 'An unexpected error occurred', 'red');
+        alert(error.message && error.response?.status === 401 ? 'You must be logged in to submit evidences. Please log in first.' : 'An unexpected error occurred');
     }
-}
-
-function showModal(message, color) {
-    const infoModal = document.getElementById('info-modal');
-    const modalContent = document.querySelector('.modal-content p');
-    const closeModal = document.getElementById('close-modal');
-
-    modalContent.textContent = message;
-    infoModal.classList.remove('hidden');
-    closeModal.style.backgroundColor = color;
-    closeModal.addEventListener('click', () => {
-        infoModal.classList.add('hidden');
-    }, {once: true});
 }
 
 export function hideSendEvidence() {
@@ -210,26 +193,20 @@ async function handleVerification(skillId, approved, userSkillId) {
 
     try {
         const response = await fetch(`http://localhost:3000/skills/${skillTreeName}/${skillId}/verify`, {
-            method: 'POST',
-            headers: {
+            method: 'POST', headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                userSkillId: userSkillId,
-                approved: approved
+            }, body: JSON.stringify({
+                userSkillId: userSkillId, approved: approved
             })
         });
 
         if (!response.ok) {
             const errorResponse = await response.json();
-            console.error(errorResponse.error || 'Error al verificar la evidencia');
+            console.error(errorResponse.error || 'Error verifying evidence');
         }
 
-        showModal('Evidencia evaluada correctamente', 'green');
     } catch (error) {
-        console.error('Error al verificar la evidencia:', error);
+        console.error('Error verifying evidence:', error);
         alert(error.message);
     }
 }
-
-

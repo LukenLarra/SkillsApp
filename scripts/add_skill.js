@@ -42,20 +42,6 @@ async function addSkill(event){
             method: 'POST',
             body: formData,
         });
-
-        if (response.ok) {
-            const successModal = document.getElementById('success-modal');
-            const closeModal = document.getElementById('close-modal');
-
-            successModal.classList.remove('hidden');
-            closeModal.addEventListener('click', () => {
-                successModal.classList.add('hidden');
-                window.location.href = '/';
-            });
-        } else {
-            const error = await response.json();
-            alert(`Failed to add skill: ${error.message}`);
-        }
     } catch (error) {
         console.error('Error:', error);
         alert('An error occurred while adding the skill.');
