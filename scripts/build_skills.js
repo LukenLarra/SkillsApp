@@ -4,18 +4,33 @@ document.addEventListener('DOMContentLoaded', async () => {
     const response = await fetch('http://localhost:3000/api/skills');
     const allSkills = await response.json();
 
+    const user_response = await fetch('http://localhost:3000/api/users');
+    const allUsers = await user_response.json();
+
     const userskill_response = await fetch('http://localhost:3000/api/userSkills');
     const userSkills = await userskill_response.json();
+
+    let username = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
+    username = username.split(' ')[1];
+    const user = allUsers.find(item => item.username === username);
+    let completedSkillMatch = false;
+    if (user) {
+        completedSkillMatch = user.completedSkills.some(completedSkillId =>
+            allSkills.some(skill => skill._id === completedSkillId)
+        );
+    }
 
     const container = document.querySelector(".details-svg");
     const svgId = container.getAttribute("svgId");
 
     const skill = allSkills.find(item => item.id === Number(svgId));
-    const userSkill = userSkills.find(item => item.skill && item.skill.id === skill.id);
-    if (userSkill) {
-        const role = document.querySelector('.role') ? document.querySelector('.role').textContent : null;
-        if (role !== null && role.trim().replace(/['"]/g, '').toLowerCase() === 'standard') {
-            createEvidencesTable();
+    if (skill) {
+        const userSkill = userSkills.find(item => item.skill && item.skill.id === skill.id);
+        if (userSkill) {
+            const role = document.querySelector('.role') ? document.querySelector('.role').textContent : null;
+            if (role === 'admin' || completedSkillMatch) {
+                createEvidencesTable();
+            }
         }
     }
     manageTaskCheckboxes(svgId);
@@ -221,6 +236,10 @@ function manageTaskCheckboxes(skillId) {
 
     const savedStates = JSON.parse(localStorage.getItem(storageKey)) || {};
 
+    const checkAllChecked = () => {
+        return Array.from(checkboxes).every(checkbox => checkbox.checked);
+    };
+
     checkboxes.forEach((checkbox, index) => {
         checkbox.checked = !!savedStates[index];
 
@@ -229,4 +248,8 @@ function manageTaskCheckboxes(skillId) {
             localStorage.setItem(storageKey, JSON.stringify(savedStates));
         });
     });
+
+    if (checkAllChecked()) {
+        showSendEvidence();
+    }
 }
