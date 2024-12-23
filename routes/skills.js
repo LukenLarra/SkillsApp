@@ -336,12 +336,12 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
 
         const username = req.session.username;
 
-        const [user, userSkill] = await Promise.all([
+        const [verifyUser, userSkill] = await Promise.all([
             User.findOne({username: username}),
-            UserSkill.findById(userSkillId).populate('skill').populate('user', 'username')
+            UserSkill.findById(userSkillId).populate('skill').populate('user')
         ]);
 
-        if (!user) {
+        if (!verifyUser) {
             req.session.error_msg = 'User not found';
             return res.status(404).json({message: 'User not found'});
         }
@@ -357,7 +357,7 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
         }
 
         userSkill.verifications.push({
-                user: user._id,
+                user: verifyUser._id,
                 approved: approved,
                 verifiedAt: new Date()
             }
@@ -368,9 +368,9 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
 
         userSkill.verifications.forEach(verification => {
             if (verification.approved) {
-                if (verification.user.equals(user._id) && user.admin) {
+                if (verification.user.equals(verifyUser._id) && verifyUser.admin) {
                     adminApprovalCount = true;
-                } else if (!user.admin) {
+                } else if (!verifyUser.admin) {
                     normalApprovalCount += 1;
                 };
             }
@@ -380,13 +380,18 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
 
         if (userSkill.verified) {
             const skillId = userSkill.skill._id;
-            const existingIndex = user.completedSkills.findIndex(id => id.equals(skillId));
-            if (existingIndex !== -1) {
-                user.completedSkills[existingIndex] = skillId;
-            } else {
-                user.completedSkills.push(skillId);
+            const evidenceUser = await User.findOne({_id: userSkill.user});
+
+            if (evidenceUser) {
+                const existingIndex = evidenceUser.completedSkills.findIndex(id => id.equals(skillId));
+                if (existingIndex === -1) {
+                    evidenceUser.completedSkills.push(skillId);
+                }else {
+                    evidenceUser.completedSkills[existingIndex] = skillId;
+                }
             }
-            await user.save();
+
+            await evidenceUser.save();
         }
 
         await userSkill.save();
