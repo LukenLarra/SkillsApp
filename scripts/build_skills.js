@@ -13,12 +13,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const skill = allSkills.find(item => item.id === Number(svgId));
     const userSkill = userSkills.find(item => item.skill && item.skill.id === skill.id);
     if (userSkill) {
-        const role = document.querySelector('.role').textContent;
-        if (role.trim().replace(/['"]/g, '').toLowerCase() !== 'standard') {
+        const role = document.querySelector('.role') ? document.querySelector('.role').textContent : null;
+        if (role !== null && role.trim().replace(/['"]/g, '').toLowerCase() === 'standard') {
             createEvidencesTable();
         }
     }
-
     manageTaskCheckboxes(svgId);
 });
 

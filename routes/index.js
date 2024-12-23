@@ -12,12 +12,17 @@ router.get('/', function (req, res) {
     delete req.session.error_msg;
     delete req.session.error;
 
+    const user = req.session.username ? {
+        username: req.session.username,
+        isAdmin: req.session.role === 'admin',
+    } : null;
+
     res.render('index', {
         title: 'ELECTRONICS',
-        session: req.session,
         success_msg: success_msg,
         error_msg: error_msg,
         error: error,
+        user: user
     });
 });
 

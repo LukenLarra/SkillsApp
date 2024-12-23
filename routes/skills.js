@@ -46,12 +46,18 @@ const upload = multer({
 /* GET home page. */
 router.get("/:skillTree/view/:id", async (req, res) => {
     const {skillTree, id} = req.params;
+
+    const user = req.session.username ? {
+        username: req.session.username,
+        isAdmin: req.session.role === 'admin',
+    } : null;
+
     try {
         const skill = await Skill.findOne({id: Number(id)});
         if (skill) {
             res.render("skill_details", {
                 skill,
-                session: req.session
+                user: user
             });
         } else {
             res.status(404).send(`Skill ${id} not found`);
@@ -329,13 +335,17 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
         }
 
         const username = req.session.username;
-        const user = await User.findOne({username: username});
+
+        const [user, userSkill] = await Promise.all([
+            User.findOne({username: username}),
+            UserSkill.findById(userSkillId).populate('skill').populate('user', 'username')
+        ]);
+
         if (!user) {
             req.session.error_msg = 'User not found';
             return res.status(404).json({message: 'User not found'});
         }
 
-        const userSkill = await UserSkill.findById(userSkillId).populate('skill').populate('user', 'username');
         if (!userSkill) {
             req.session.error_msg = 'UserSkill not found';
             return res.status(404).json({message: 'UserSkill not found'});
@@ -354,22 +364,29 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
         );
 
         let normalApprovalCount = 0;
-        let adminApprovalCount = 0;
+        let adminApprovalCount = false;
 
         userSkill.verifications.forEach(verification => {
             if (verification.approved) {
                 if (verification.user.equals(user._id) && user.admin) {
-                    adminApprovalCount += 1;
+                    adminApprovalCount = true;
                 } else if (!user.admin) {
                     normalApprovalCount += 1;
-                }
+                };
             }
         });
 
-        if (adminApprovalCount > 0) {
-            userSkill.verified = true;
-        } else {
-            userSkill.verified = normalApprovalCount >= 3;
+        userSkill.verified = adminApprovalCount || normalApprovalCount >= 3;
+
+        if (userSkill.verified) {
+            const skillId = userSkill.skill._id;
+            const existingIndex = user.completedSkills.findIndex(id => id.equals(skillId));
+            if (existingIndex !== -1) {
+                user.completedSkills[existingIndex] = skillId;
+            } else {
+                user.completedSkills.push(skillId);
+            }
+            await user.save();
         }
 
         await userSkill.save();

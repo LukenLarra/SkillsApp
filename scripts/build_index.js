@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 });
 
-export async function build_index() {
+async function build_index() {
     const response = await fetch('http://localhost:3000/api/skills');
     const data = await response.json();
 
@@ -38,9 +38,12 @@ export async function build_index() {
 
     const verifiedResponse = await fetch('http://localhost:3000/skills/verifiedSkills');
     const verifiedData = await verifiedResponse.json();
-    const verifiedMap = new Map(verifiedData.map(item => [item.skillId, { count: item.count, adminVerified: item.adminVerified }]));
+    const verifiedMap = new Map(verifiedData.map(item => [item.skillId, {
+        count: item.count,
+        adminVerified: item.adminVerified
+    }]));
     const container = document.querySelector(".svg-container");
-    const role = document.querySelector('.role').textContent;
+    const role = document.querySelector('.role') ? document.querySelector('.role').textContent : null;
 
     data.forEach(item => {
         const svgWrapper = document.createElement('div');
@@ -99,7 +102,7 @@ export async function build_index() {
         svg.appendChild(image);
 
         if (verifiedMap.has(item.id)) {
-            const { count, adminVerified } = verifiedMap.get(item.id);
+            const {count, adminVerified} = verifiedMap.get(item.id);
             const canvas = document.createElement('canvas');
             canvas.classList.add('verified-canvas');
             canvas.width = 20;
@@ -155,7 +158,9 @@ export async function build_index() {
 
         svgWrapper.addEventListener('mouseover', () => {
             svgWrapper.classList.add('expanded');
-            editIcon.style.display = role.trim().replace(/['"]/g, '').toLowerCase() === 'admin' ? 'block' : 'none';
+            if (role !== null) {
+                editIcon.style.display = role.trim().replace(/['"]/g, '').toLowerCase() === 'admin' ? 'block' : 'none';
+            }
             notebookIcon.style.display = 'block';
 
             const descriptionDiv = document.querySelector('.description-index');
@@ -190,7 +195,7 @@ export async function build_index() {
         });
     });
 
-    if (role.trim().replace(/['"]/g, '').toLowerCase() === 'admin') {
+    if (role !== null && role.trim().replace(/['"]/g, '').toLowerCase() === 'admin') {
         const addSkillContainer = document.querySelector('#addSkillContainer');
         const dashboardContainer = document.querySelector('#dashboardContainer');
         const leaderboardContainer = document.querySelector('#leaderboardContainer');
@@ -199,7 +204,6 @@ export async function build_index() {
         leaderboardContainer.style.display = 'block';
     }
 }
-
 
 async function logout() {
     try {
