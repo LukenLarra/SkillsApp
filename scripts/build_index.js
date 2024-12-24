@@ -29,23 +29,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function build_index() {
-    const response = await fetch('http://localhost:3000/api/skills');
-    const data = await response.json();
+    const skill_response = await fetch('http://localhost:3000/api/skills');
+    const allSkills = await skill_response.json();
 
-    const unverifiedResponse = await fetch('http://localhost:3000/skills/unverifiedSkills');
-    const unverifiedData = await unverifiedResponse.json();
-    const unverifiedMap = new Map(unverifiedData.map(item => [item.skillId, item.count]));
+    const userskill_response = await fetch(`http://localhost:3000/api/userSkills`);
+    const userSkills = await userskill_response.json();
 
-    const verifiedResponse = await fetch('http://localhost:3000/skills/verifiedSkills');
-    const verifiedData = await verifiedResponse.json();
-    const verifiedMap = new Map(verifiedData.map(item => [item.skillId, {
-        count: item.count,
-        adminVerified: item.adminVerified
-    }]));
+    const user_response = await fetch('http://localhost:3000/api/users');
+    const allUsers = await user_response.json();
+
+    let currentUser = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
+    currentUser = currentUser.split(' ')[1];
+    currentUser = allUsers.find(u => u.username === currentUser);
+
     const container = document.querySelector(".svg-container");
     const role = document.querySelector('.role') ? document.querySelector('.role').textContent : null;
 
-    data.forEach(item => {
+    allSkills.forEach(item => {
         const svgWrapper = document.createElement('div');
         svgWrapper.classList.add('svg-wrapper');
         svgWrapper.setAttribute('data-id', item.id);
@@ -101,98 +101,105 @@ async function build_index() {
         image.setAttribute('href', item.icon);
         svg.appendChild(image);
 
-        if (verifiedMap.has(item.id)) {
-            const {count, adminVerified} = verifiedMap.get(item.id);
-            const canvas = document.createElement('canvas');
-            canvas.classList.add('verified-canvas');
-            canvas.width = 20;
-            canvas.height = 20;
-            canvas.style.position = 'absolute';
-            canvas.style.top = '0px';
-            canvas.style.right = '5px';
+        const leftCanvas = document.createElement('canvas');
+        leftCanvas.width = 20;
+        leftCanvas.height = 20;
+        leftCanvas.style.position = 'absolute';
+        leftCanvas.style.left = '5px';
+        svgWrapper.appendChild(leftCanvas);
 
-            const ctx = canvas.getContext('2d');
-            ctx.beginPath();
-            ctx.arc(10, 10, 9, 0, 2 * Math.PI);
-            ctx.fillStyle = 'green';
-            ctx.fill();
+        const rightCanvas = document.createElement('canvas');
+        rightCanvas.width = 20;
+        rightCanvas.height = 20;
+        rightCanvas.style.position = 'absolute';
+        rightCanvas.style.right = '5px';
+        svgWrapper.appendChild(rightCanvas);
 
-            ctx.font = '12px Arial';
-            ctx.fillStyle = 'white';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(count, 9, 11);
+        if (currentUser) {
+            const userSkillData = userSkills.filter(us => us.skill._id === item._id);
+            const totalEvidences = userSkillData.length;
+            const distinctApprovers = new Set(userSkillData.flatMap(us => us.verifications.filter(v => v.approved).map(v => v.user))).size;
 
-            if (adminVerified || count > 2) {
+            if (totalEvidences > 0) {
+                const leftCtx = leftCanvas.getContext('2d');
+                leftCtx.beginPath();
+                leftCtx.arc(10, 10, 9, 0, 2 * Math.PI);
+                leftCtx.fillStyle = 'red';
+                leftCtx.fill();
+                leftCtx.font = '12px Arial';
+                leftCtx.fillStyle = 'white';
+                leftCtx.textAlign = 'center';
+                leftCtx.textBaseline = 'middle';
+                leftCtx.fillText(totalEvidences, 9, 11);
+            }
+
+            if (distinctApprovers > 0) {
+                const rightCtx = rightCanvas.getContext('2d');
+                rightCtx.beginPath();
+                rightCtx.arc(10, 10, 9, 0, 2 * Math.PI);
+                rightCtx.fillStyle = 'green';
+                rightCtx.fill();
+                rightCtx.font = '12px Arial';
+                rightCtx.fillStyle = 'white';
+                rightCtx.textAlign = 'center';
+                rightCtx.textBaseline = 'middle';
+                rightCtx.fillText(distinctApprovers, 9, 11);
+            }
+
+            // Check if any approver is admin
+            const approvers = userSkillData.flatMap(us => us.verifications.filter(v => v.approved).map(v => ({
+                approverId: v.user,
+                submittedBy: us.user
+            })));
+
+            const isAdminApprover = approvers.some(({approverId, submittedBy}) => {
+                const approver = allUsers.find(u => u._id === approverId);
+                console.log(approver);
+                return approver && approver.admin && submittedBy._id === currentUser._id;
+            });
+
+            if (isAdminApprover || distinctApprovers > 2) {
                 polygon.style.fill = 'green';
             }
 
-            svgWrapper.appendChild(canvas);
+            svgWrapper.addEventListener('mouseover', () => {
+                svgWrapper.classList.add('expanded');
+                if (role !== null) {
+                    editIcon.style.display = role.trim().replace(/['"]/g, '').toLowerCase() === 'admin' ? 'block' : 'none';
+                }
+                notebookIcon.style.display = 'block';
+
+                const descriptionDiv = document.querySelector('.description-index');
+                descriptionDiv.textContent = item.description;
+                descriptionDiv.style.backgroundColor = '#f1e187';
+                descriptionDiv.style.color = 'black';
+                descriptionDiv.style.borderTop = '1px solid black';
+            });
+
+            svgWrapper.addEventListener('mouseleave', () => {
+                svgWrapper.classList.remove('expanded');
+                editIcon.style.display = 'none';
+                notebookIcon.style.display = 'none';
+
+                const descriptionDiv = document.querySelector('.description-index');
+                descriptionDiv.textContent = '';
+                descriptionDiv.style.backgroundColor = '';
+                descriptionDiv.style.color = '';
+                descriptionDiv.style.borderTop = 'none';
+            });
+
+            notebookIcon.addEventListener('click', async (event) => {
+                event.stopPropagation();
+                const skillTree = 'electronics';
+                window.location.href = `/skills/${skillTree}/view/${item.id}`;
+            });
+
+            editIcon.addEventListener('click', async (event) => {
+                event.stopPropagation();
+                const skillTree = 'electronics';
+                window.location.href = `/skills/${skillTree}/edit/${item.id}`;
+            });
         }
-
-        if (unverifiedMap.has(item.id)) {
-            const count = unverifiedMap.get(item.id);
-
-            const canvas = document.createElement('canvas');
-            canvas.classList.add('unverified-canvas');
-            canvas.width = 20;
-            canvas.height = 20;
-            canvas.style.position = 'absolute';
-            canvas.style.top = '0px';
-            canvas.style.left = '5px';
-
-            const ctx = canvas.getContext('2d');
-            ctx.beginPath();
-            ctx.arc(10, 10, 9, 0, 2 * Math.PI);
-            ctx.fillStyle = 'red';
-            ctx.fill();
-
-            ctx.font = '12px Arial';
-            ctx.fillStyle = 'white';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(count, 9, 11);
-
-            svgWrapper.appendChild(canvas);
-        }
-
-        svgWrapper.addEventListener('mouseover', () => {
-            svgWrapper.classList.add('expanded');
-            if (role !== null) {
-                editIcon.style.display = role.trim().replace(/['"]/g, '').toLowerCase() === 'admin' ? 'block' : 'none';
-            }
-            notebookIcon.style.display = 'block';
-
-            const descriptionDiv = document.querySelector('.description-index');
-            descriptionDiv.textContent = item.description;
-            descriptionDiv.style.backgroundColor = '#f1e187';
-            descriptionDiv.style.color = 'black';
-            descriptionDiv.style.borderTop = '1px solid black';
-        });
-
-        svgWrapper.addEventListener('mouseleave', () => {
-            svgWrapper.classList.remove('expanded');
-            editIcon.style.display = 'none';
-            notebookIcon.style.display = 'none';
-
-            const descriptionDiv = document.querySelector('.description-index');
-            descriptionDiv.textContent = '';
-            descriptionDiv.style.backgroundColor = '';
-            descriptionDiv.style.color = '';
-            descriptionDiv.style.borderTop = 'none';
-        });
-
-        notebookIcon.addEventListener('click', async (event) => {
-            event.stopPropagation();
-            const skillTree = 'electronics';
-            window.location.href = `/skills/${skillTree}/view/${item.id}`;
-        });
-
-        editIcon.addEventListener('click', async (event) => {
-            event.stopPropagation();
-            const skillTree = 'electronics';
-            window.location.href = `/skills/${skillTree}/edit/${item.id}`;
-        });
     });
 
     if (role !== null && role.trim().replace(/['"]/g, '').toLowerCase() === 'admin') {

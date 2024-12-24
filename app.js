@@ -85,8 +85,8 @@ app.get('/api/users', async (req, res) => {
 app.get('/api/userSkills', async (req, res) => {
     try {
         const userSkills = await UserSkill.find()
-            .populate('skill', 'id text')
-            .populate('user', 'username');
+            .populate('skill')
+            .populate('user');
         res.json(userSkills);
     } catch (err) {
         console.error('Error retrieving user skills:', err);
