@@ -154,7 +154,6 @@ async function build_index() {
 
             const isAdminApprover = approvers.some(({approverId, submittedBy}) => {
                 const approver = allUsers.find(u => u._id === approverId);
-                console.log(approver);
                 return approver && approver.admin && submittedBy._id === currentUser._id;
             });
 

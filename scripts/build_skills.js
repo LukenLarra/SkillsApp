@@ -12,19 +12,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let username = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
     username = username.split(' ')[1];
-    const user = allUsers.find(item => item.username === username);
-    let completedSkillMatch = false;
-    if (user) {
-        completedSkillMatch = user.completedSkills.some(completedSkillId =>
-            allSkills.some(skill => skill._id === completedSkillId)
-        );
-    }
+    const currentUser = allUsers.find(item => item.username === username);
 
     const container = document.querySelector(".details-svg");
     const svgId = container.getAttribute("svgId");
-
     const skill = allSkills.find(item => item.id === Number(svgId));
+
     if (skill) {
+        let completedSkillMatch = false;
+        if (currentUser) {
+            completedSkillMatch = currentUser.completedSkills.some(completedSkillId => skill._id === completedSkillId);
+        }
         const userSkill = userSkills.find(item => item.skill && item.skill.id === skill.id);
         if (userSkill) {
             const role = document.querySelector('.role') ? document.querySelector('.role').textContent : null;
@@ -33,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     }
-    manageTaskCheckboxes(svgId);
+    manageTaskCheckboxes(svgId, currentUser.username);
 });
 
 async function createSVGSkills() {
@@ -125,7 +123,6 @@ async function createEvidencesTable() {
         sameUser = userSkills.user._id === currentUser._id;
     }
 
-
     if (!userMatch && !sameUser) {
         hasRows = true;
         const dataRow = document.createElement('tr');
@@ -142,14 +139,14 @@ async function createEvidencesTable() {
         approveButton.textContent = 'Approve';
         approveButton.classList.add('approve-button');
         approveButton.onclick = async () => {
-            await handleVerification(userSkills.skill.id, true, userSkills._id);
+            await sendVerification(userSkills.skill.id, true, userSkills._id);
         }
 
         const rejectButton = document.createElement('button');
         rejectButton.textContent = 'Reject';
         rejectButton.classList.add('reject-button');
         rejectButton.onclick = async () => {
-            await handleVerification(userSkills.skill.id, false, userSkills._id);
+            await sendVerification(userSkills.skill.id, false, userSkills._id);
         }
 
         actionTd.appendChild(approveButton);
@@ -234,7 +231,7 @@ export function hideSendEvidence() {
     section.innerHTML = '';
 }
 
-async function handleVerification(skillId, approved, userSkillId) {
+async function sendVerification(skillId, approved, userSkillId) {
     const skillTreeName = "electronics";
 
     try {
@@ -258,9 +255,9 @@ async function handleVerification(skillId, approved, userSkillId) {
     }
 }
 
-function manageTaskCheckboxes(skillId) {
+function manageTaskCheckboxes(skillId, userId) {
     const checkboxes = document.querySelectorAll('.task-checkbox');
-    const storageKey = `taskState-${skillId}`;
+    const storageKey = `taskState-${userId}-${skillId}`;
 
     const savedStates = JSON.parse(localStorage.getItem(storageKey)) || {};
 
