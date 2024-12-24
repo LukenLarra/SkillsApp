@@ -278,7 +278,7 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
                     adminApprovalCount = true;
                 } else if (!verifyUser.admin) {
                     normalApprovalCount += 1;
-                };
+                }
             }
         });
 

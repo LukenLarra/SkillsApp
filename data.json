@@ -4,7 +4,7 @@
     "text": "Light up an\r\nLED for the first\r\ntime",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon1.svg",
     "description": "The quintessential first step in electronics! Learn the basics of circuits and components by lighting up an LED",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Gather necessary components (LED, resistor, battery, wires)",
       "Learn about LED polarity and how to identify anode/cathode",
@@ -27,7 +27,7 @@
     "text": "Learn to\r\nuse wire strippers",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon2.svg",
     "description": "Domina el uso de pelacables para trabajar de manera precisa y segura en proyectos electrónicos. Aprende a ajustar las herramientas según el grosor del cable y a evitar daños en los conductores internos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Familiarízate con los diferentes tipos de pelacables y sus funciones.",
       "Practica pelar cables de distintos grosores sin dañar los conductores.",
@@ -45,7 +45,7 @@
     "text": "Complete\r\nan electronics kit",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon3.svg",
     "description": "En este proyecto, completarás un kit de electrónica, lo que te ayudará a entender conceptos básicos de circuitos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Reúne todas las piezas del kit.",
       "Sigue el manual para ensamblar el circuito.",
@@ -63,7 +63,7 @@
     "text": "Learn to Solder",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon4.svg",
     "description": "Aprender a soldar es esencial para trabajar con componentes electrónicos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Practica con una placa de pruebas.",
       "Sigue tutoriales en video sobre técnicas de soldadura.",
@@ -81,7 +81,7 @@
     "text": "Learn to use\r\na breadboard",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon5.svg",
     "description": "Utilizar una breadboard te permitirá experimentar con circuitos sin soldar.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Familiarízate con la disposición de la breadboard.",
       "Construye circuitos simples siguiendo esquemas.",
@@ -99,7 +99,7 @@
     "text": "Get a circuit\r\nwrong and try\r\nagain",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon6.svg",
     "description": "El error es parte del proceso de aprendizaje. Este ejercicio te enseñará a diagnosticar problemas.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Construye un circuito con errores intencionados.",
       "Identifica y corrige los errores.",
@@ -117,7 +117,7 @@
     "text": "Learn Ohm’s\r\nLaw",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon7.svg",
     "description": "Ohm’s Law es fundamental para entender el comportamiento de los circuitos eléctricos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Estudia la fórmula de Ohm.",
       "Realiza ejercicios prácticos aplicando la ley.",
@@ -135,7 +135,7 @@
     "text": "Fix something\r\nsomething\r\nthat’s broken",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon8.svg",
     "description": "Arreglar dispositivos rotos te ayudará a aplicar tus conocimientos de electrónica.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Identifica el problema en el dispositivo.",
       "Desmonta el dispositivo con cuidado.",
@@ -153,7 +153,7 @@
     "text": "Measure\r\nvoltage with\r\na multimeter",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
     "description": "Medir voltaje es una habilidad crucial para cualquier proyecto electrónico.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Configura el multímetro correctamente.",
       "Realiza mediciones en diferentes partes del circuito.",
@@ -171,7 +171,7 @@
     "text": "Learn to\r\nread a schematic",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
     "description": "Leer esquemas es esencial para entender cómo funcionan los circuitos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Familiarízate con los símbolos en los esquemas.",
       "Practica leyendo esquemas de circuitos simples.",
@@ -189,7 +189,7 @@
     "text": "Learn to read\r\na datasheet",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon11.svg",
     "description": "Las hojas de datos son cruciales para entender las especificaciones de los componentes.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Localiza información clave en una hoja de datos.",
       "Compara hojas de datos de diferentes componentes.",
@@ -207,7 +207,7 @@
     "text": "Learn to\r\ncontrol the\r\nbrightness of\r\nan LED",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon12.svg",
     "description": "Controlar el brillo de un LED te enseñará sobre el manejo de corriente.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Construye un circuito simple con un LED.",
       "Utiliza un potenciómetro para ajustar el brillo.",
@@ -225,7 +225,7 @@
     "text": "Learn to\r\ndesolder a\r\nthrough hole\r\ncomponent",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon4.svg",
     "description": "Desoldar componentes es una habilidad importante para reparar circuitos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Prepara las herramientas necesarias para desoldar.",
       "Sigue un tutorial sobre desoldadura.",
@@ -243,7 +243,7 @@
     "text": "Make\r\nsomething that\r\nmakes noise",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon14.svg",
     "description": "Crear un dispositivo que haga ruido te ayudará a aprender sobre circuitos de audio.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Diseña un circuito que incluya un altavoz.",
       "Construye el circuito y realiza pruebas.",
@@ -261,7 +261,7 @@
     "text": "Turn a\r\nbreadboard\r\ncircuit into a\r\nschematic",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
     "description": "Aprende a convertir un circuito montado en una placa de pruebas en un esquema eléctrico, identificando cada componente y su conexión.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Dibuja el circuito en la placa de pruebas.",
       "Identifica y nombra todos los componentes.",
@@ -279,7 +279,7 @@
     "text": "Measure\r\ncurrent with a\r\nmultimeter",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
     "description": "Domina el uso de un multímetro para medir la corriente en un circuito eléctrico, entendiendo su configuración y técnicas de medición.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Configura el multímetro en la función de medición de corriente.",
       "Conecta el multímetro en serie con el circuito.",
@@ -297,7 +297,7 @@
     "text": "Make a voltage\r\ndivider to lower\r\nthe voltage\r\nfor a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon17.svg",
     "description": "Construye un divisor de voltaje para reducir el voltaje en un circuito y aprende sobre las relaciones entre resistencias y voltaje.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Selecciona los valores de resistencias adecuadas para el divisor.",
       "Monta el divisor en una placa de pruebas.",
@@ -315,7 +315,7 @@
     "text": "Turn\r\nsomething\r\non using\r\na sensor",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon18.svg",
     "description": "Utiliza un sensor para activar un dispositivo o circuito, explorando cómo funcionan los sensores y sus aplicaciones.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Selecciona un sensor adecuado para tu proyecto.",
       "Conéctalo a un microcontrolador o circuito.",
@@ -333,7 +333,7 @@
     "text": "Use a diode\r\nprotect your\r\ncircuit from\r\nreverse voltages",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon19.svg",
     "description": "Aprende a usar un diodo para proteger tu circuito de voltajes inversos y comprender su funcionamiento en diferentes configuraciones.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Selecciona un diodo adecuado para tu circuito.",
       "Conéctalo en la dirección correcta para la protección.",
@@ -351,7 +351,7 @@
     "text": "Make an\r\noscillator that\r\nmakes noise",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon14.svg",
     "description": "Crea un oscilador simple que produzca sonidos y experimenta con diferentes componentes para alterar la frecuencia.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Selecciona los componentes necesarios para el oscilador.",
       "Monta el circuito en una placa de pruebas.",
@@ -369,7 +369,7 @@
     "text": "Use a relay\r\nto switch\r\nsomething on at\r\na higher voltage",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon21.svg",
     "description": "Aprende a usar un relé para controlar dispositivos que funcionan a voltajes más altos, entendiendo su configuración y funcionamiento.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Conecta el relé a un circuito de bajo voltaje.",
       "Configura el relé para activar un dispositivo de alto voltaje.",
@@ -387,7 +387,7 @@
     "text": "Make a\r\ncapacitor rocket\r\n(too much voltage)",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon22.svg",
     "description": "Construye un cohete de capacitor utilizando una descarga rápida de energía, y aprende sobre los principios detrás de este experimento.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Selecciona capacitores adecuados y resiste la energía.",
       "Monta el cohete y asegúrate de que sea seguro.",
@@ -405,7 +405,7 @@
     "text": "Learn to\r\nsolder surfcace\r\nmount parts",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon23.svg",
     "description": "Desarrolla habilidades de soldadura para componentes de montaje en superficie, y comprende la diferencia con la soldadura convencional.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Practica con componentes de montaje en superficie y placas de circuito.",
       "Aprende las técnicas de soldadura adecuadas.",
@@ -423,7 +423,7 @@
     "text": "Use a\r\n555 timer\r\nin a circuit",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon24.svg",
     "description": "Incorpora un temporizador 555 en un circuito y experimenta con sus diferentes modos de operación.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Estudia el funcionamiento del temporizador 555.",
       "Configura el temporizador en modo astable o monostable.",
@@ -441,7 +441,7 @@
     "text": "Make a sound\r\nlouder with a\r\nspeaker",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon14.svg",
     "description": "Aprende a amplificar el sonido utilizando un altavoz, explorando diferentes configuraciones y componentes.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Selecciona un altavoz adecuado para tu proyecto.",
       "Conéctalo a un amplificador o circuito adecuado.",
@@ -459,7 +459,7 @@
     "text": "Use\r\naddressable\r\nRGB LEDs in a\r\nproject",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon12.svg",
     "description": "Aprende a utilizar LEDs RGB direccionables en tus proyectos, controlando su color y brillo individualmente.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Investiga cómo funcionan los LEDs RGB direccionables.",
       "Configura un circuito básico con un microcontrolador.",
@@ -477,7 +477,7 @@
     "text": "Make a\r\nproject\r\nwith a\r\nRaspberry Pi",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon27.svg",
     "description": "Desarrolla un proyecto utilizando Raspberry Pi, explorando su capacidad para ejecutar aplicaciones y controlar dispositivos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Selecciona un proyecto adecuado para Raspberry Pi.",
       "Instala el sistema operativo y las librerías necesarias.",
@@ -495,7 +495,7 @@
     "text": "Let the\r\nsmoke out\r\naccidentally",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon28.svg",
     "description": "Comprende los riesgos y errores comunes en proyectos electrónicos que pueden resultar en fallos catastróficos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Identifica componentes propensos a fallar.",
       "Realiza pruebas controladas para observar el comportamiento de circuitos.",
@@ -513,7 +513,7 @@
     "text": "Use fritzing\r\nor TinkerCAD\r\nto create a\r\ncircuit diagram",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon29.svg",
     "description": "Aprende a crear diagramas de circuitos utilizando herramientas de software como Fritzing o TinkerCAD.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Elige una herramienta de diseño de circuitos.",
       "Crea un diagrama básico de un circuito sencillo.",
@@ -531,7 +531,7 @@
     "text": "Make\r\nsomething\r\nwith Arduino",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon30.svg",
     "description": "Crea un proyecto práctico utilizando Arduino, explorando sus capacidades de programación y hardware.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Selecciona un proyecto interesante para desarrollar con Arduino.",
       "Escribe el código necesario para tu proyecto.",
@@ -549,7 +549,7 @@
     "text": "Let the smoke\r\nout of an Arduino\r\naccidentally",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon31.svg",
     "description": "Explora los errores comunes al trabajar con Arduino y aprende a evitar desastres en tus proyectos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Investiga los errores más comunes al programar Arduino.",
       "Realiza experimentos controlados para observar efectos.",
@@ -567,7 +567,7 @@
     "text": "Measure\r\nfrequency with a\r\nmultimeter",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
     "description": "Aprende a medir la frecuencia de señales utilizando un multímetro.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Familiarízate con el multímetro y sus funciones.",
       "Conéctalo a un circuito de prueba.",
@@ -585,7 +585,7 @@
     "text": "Use an\r\nOp-Amp  in\r\na circuit",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon33.svg",
     "description": "Comprende cómo usar amplificadores operacionales (Op-Amps) en circuitos electrónicos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Estudia el funcionamiento de los Op-Amps.",
       "Diseña un circuito básico que incluya un Op-Amp.",
@@ -603,7 +603,7 @@
     "text": "Use a crowbar\r\ncircuit to protect\r\nagainst over voltage",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon17.svg",
     "description": "Aprende a implementar un circuito de protección contra sobretensiones utilizando un crowbar.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Investiga cómo funciona un circuito crowbar.",
       "Diseña un circuito de protección adecuado.",
@@ -621,7 +621,7 @@
     "text": "Use a surge\r\ndiode to protect\r\na circuit",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon19.svg",
     "description": "Descubre cómo utilizar diodos de protección contra sobretensiones en tus circuitos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Aprende sobre la función de un diodo de protección.",
       "Integra un diodo de protección en un circuito.",
@@ -639,7 +639,7 @@
     "text": "Make\r\nsomething\r\nfor a friend",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon36.svg",
     "description": "Crea un proyecto personalizado como regalo para un amigo, aplicando lo aprendido en electrónica.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Selecciona un proyecto que le gustaría a tu amigo.",
       "Diseña y construye el proyecto.",
@@ -657,7 +657,7 @@
     "text": "Make a motor\r\ncontroller with\r\na H Bridge",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon37.svg",
     "description": "Build a motor controller using an H Bridge to control the speed and direction of a DC motor.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Research H Bridge configurations.",
       "Design the circuit for the motor controller.",
@@ -675,7 +675,7 @@
     "text": "Make a\r\ncounter with\r\nlogic gates",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon38.svg",
     "description": "Create a digital counter using logic gates to demonstrate binary counting.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Design a circuit for the binary counter using logic gates.",
       "Build the circuit on a breadboard.",
@@ -693,7 +693,7 @@
     "text": "Apply solder\r\npaste to a PCB\r\nwith a stencil",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon39.svg",
     "description": "Learn to apply solder paste to a PCB using a stencil for surface mount components.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Prepare the PCB and stencil for solder paste application.",
       "Apply solder paste evenly using the stencil.",
@@ -711,7 +711,7 @@
     "text": "Teach a\r\nfriend an\r\nelectronics skill",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon40.svg",
     "description": "Share your knowledge of electronics by teaching a friend a specific skill or project.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Select an electronics skill to teach.",
       "Prepare a lesson plan or project outline.",
@@ -729,7 +729,7 @@
     "text": "Make something\r\nwith a 7\r\nsegment display",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon41.svg",
     "description": "Create a project that uses a 7-segment display to show numbers or characters.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Design a circuit that includes a 7-segment display.",
       "Write a program to control the display.",
@@ -747,7 +747,7 @@
     "text": "Measure\r\nvoltage with an\r\noscilloscope",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon42.svg",
     "description": "Use an oscilloscope to measure and visualize voltage signals in electronic circuits.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Set up the oscilloscope for measurement.",
       "Connect the probes to the circuit.",
@@ -765,7 +765,7 @@
     "text": "Measure\r\ncapacitor equivalent\r\nseries resistance",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon43.svg",
     "description": "Learn to measure the equivalent series resistance (ESR) of a capacitor using appropriate tools.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Select the capacitor to be measured.",
       "Use a multimeter or LCR meter for the measurement.",
@@ -783,7 +783,7 @@
     "text": "Make an\r\nInternet of Things\r\n(IoT) project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon44.svg",
     "description": "Create a project that integrates IoT concepts, connecting devices and systems to the internet.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Choose an IoT platform or framework.",
       "Design the system architecture.",
@@ -801,7 +801,7 @@
     "text": "Make\r\nsomething with\r\nsolar panels",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon45.svg",
     "description": "Design and build a project that utilizes solar panels for energy generation.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Determine the solar panel specifications needed.",
       "Design the solar energy system.",
@@ -819,7 +819,7 @@
     "text": "Look at an\r\naudio input\r\non an oscilloscope",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon46.svg",
     "description": "Use an oscilloscope to analyze audio input signals and understand their characteristics.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Connect the audio source to the oscilloscope.",
       "Set the oscilloscope to the appropriate settings for audio signals.",
@@ -837,7 +837,7 @@
     "text": "Make a\r\nregulated\r\npower supply",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon47.svg",
     "description": "Design and build a regulated power supply to provide a stable voltage output.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Select components for the power supply circuit.",
       "Assemble the circuit on a PCB or breadboard.",
@@ -855,7 +855,7 @@
     "text": "Use a MOSFET\r\ninstead of a relay\r\nin a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon48.svg",
     "description": "Aprender a utilizar un MOSFET en lugar de un relé en un proyecto puede mejorar la eficiencia y la velocidad de conmutación del circuito.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Investigar las diferencias entre un MOSFET y un relé.",
       "Seleccionar un MOSFET adecuado para el proyecto.",
@@ -873,7 +873,7 @@
     "text": "Make your\r\nown\r\nUSB cable",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon49.svg",
     "description": "Hacer tu propio cable USB te permitirá personalizar la longitud y el tipo de conector, adaptándolo a tus necesidades.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Seleccionar los materiales necesarios para el cable USB.",
       "Cortar y pelar los cables adecuadamente.",
@@ -891,7 +891,7 @@
     "text": "Use an LED\r\nmatrix in\r\na project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon50.svg",
     "description": "Usar una matriz de LEDs puede añadir efectos visuales interesantes y es útil para mostrar información de forma dinámica.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Planificar el diseño de la matriz de LEDs en el proyecto.",
       "Conectar la matriz de LEDs a un microcontrolador.",
@@ -909,7 +909,7 @@
     "text": "Filter\r\nunwanted noise\r\nfrom a signal",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon46.svg",
     "description": "Filtrar el ruido no deseado de una señal es fundamental para obtener datos precisos y mejorar la calidad de las comunicaciones.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Identificar las fuentes de ruido en la señal.",
       "Seleccionar el tipo de filtro adecuado para la aplicación.",
@@ -927,7 +927,7 @@
     "text": "Use a freqency\r\nanalyser\r\nfor a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon9.svg",
     "description": "Un analizador de frecuencias es una herramienta esencial para medir y visualizar las componentes de frecuencia de una señal.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Familiarizarse con el funcionamiento del analizador de frecuencias.",
       "Configurar el analizador para medir la señal deseada.",
@@ -945,7 +945,7 @@
     "text": "Order a\r\nPCB with\r\nyour design",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon47.svg",
     "description": "Ordenar una placa de circuito impreso (PCB) con tu diseño es un paso clave en el desarrollo de proyectos electrónicos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Crear el diseño de la PCB utilizando software especializado.",
       "Exportar los archivos necesarios para la fabricación.",
@@ -963,7 +963,7 @@
     "text": "Repair a\r\nbroken trace\r\non a PCB",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon54.svg",
     "description": "Reparar una traza rota en una PCB es fundamental para restaurar el funcionamiento del circuito.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Identificar la traza rota utilizando un multímetro.",
       "Preparar el área de la reparación limpiando la superficie.",
@@ -981,7 +981,7 @@
     "text": "Use\r\nautomatic\r\ngain control",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon10.svg",
     "description": "El control automático de ganancia (AGC) ayuda a mantener la calidad de la señal al ajustar la ganancia según la amplitud de la señal recibida.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Estudiar el principio de funcionamiento del AGC.",
       "Implementar un circuito de AGC en un sistema de audio.",
@@ -999,7 +999,7 @@
     "text": "Make a\r\nPID circuit\r\nwith Op-Amps",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon33.svg",
     "description": "Hacer un circuito PID con amplificadores operacionales permite controlar procesos de manera eficiente mediante ajustes automáticos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Diseñar el circuito PID utilizando amplificadores operacionales.",
       "Simular el circuito para verificar su funcionamiento.",
@@ -1017,7 +1017,7 @@
     "text": "Teach a\r\nclass on\r\nElectronics",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon40.svg",
     "description": "Enseñar una clase sobre electrónica permite compartir conocimientos y fomentar el interés en el campo.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Preparar un plan de estudios sobre temas clave de electrónica.",
       "Crear materiales didácticos para los estudiantes.",
@@ -1035,7 +1035,7 @@
     "text": "Learn\r\nPCB Design\r\nSoftware",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon47.svg",
     "description": "Aprender a utilizar software de diseño de PCB es esencial para la creación de circuitos electrónicos.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Investigar diferentes programas de diseño de PCB.",
       "Realizar un tutorial sobre cómo usar un software específico.",
@@ -1053,7 +1053,7 @@
     "text": "Use an\r\ne-paper display\r\nin a project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon59.svg",
     "description": "Usar una pantalla e-paper en un proyecto permite crear dispositivos de bajo consumo y buena legibilidad.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Seleccionar un modelo de pantalla e-paper adecuado.",
       "Desarrollar un prototipo que integre la pantalla e-paper.",
@@ -1071,7 +1071,7 @@
     "text": "Build a\r\nRadio Frequency\r\n(RF)Project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon60.svg",
     "description": "Construir un proyecto de radiofrecuencia (RF) es fundamental para la comunicación inalámbrica.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Investigar los componentes necesarios para un proyecto RF.",
       "Diseñar el circuito y realizar las pruebas de alcance.",
@@ -1089,7 +1089,7 @@
     "text": "Make an\r\nopen source\r\nproject",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon61.svg",
     "description": "Crear un proyecto de código abierto fomenta la colaboración y el aprendizaje comunitario.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Definir el objetivo y alcance del proyecto.",
       "Documentar el proceso y compartir el código en una plataforma pública.",
@@ -1107,7 +1107,7 @@
     "text": "Use capacitive\r\ntouch in a PCB\r\ndesign",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon62.svg",
     "description": "Incorporar tecnología de toque capacitivo en un diseño de PCB permite interfaces más intuitivas.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Investigar los principios del diseño de sensores táctiles capacitivos.",
       "Desarrollar un prototipo de PCB con touch capacitivo.",
@@ -1125,7 +1125,7 @@
     "text": "Make\r\nsomething\r\nwith PCB Art",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon63.svg",
     "description": "Crear arte utilizando PCBs combina creatividad y habilidades técnicas en electrónica.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Reunir materiales y herramientas para el proyecto de arte.",
       "Diseñar una pieza artística que utilice PCBs.",
@@ -1143,7 +1143,7 @@
     "text": "Make an\r\nelectronic\r\nsculpture",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon64.svg",
     "description": "Hacer una escultura electrónica fusiona arte y tecnología, creando obras interactivas.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Diseñar la escultura y planificar los circuitos necesarios.",
       "Construir la escultura utilizando componentes electrónicos.",
@@ -1161,7 +1161,7 @@
     "text": "Make a switch\r\nmode power\r\nsupply",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon21.svg",
     "description": "Construir una fuente de alimentación conmutada es clave para proyectos que requieren eficiencia energética.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Investigar los componentes y topologías de fuentes de alimentación conmutadas.",
       "Diseñar el circuito de la fuente de alimentación.",
@@ -1179,7 +1179,7 @@
     "text": "Release a\r\ntutorial on a\r\nproject you've made",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon66.svg",
     "description": "Publicar un tutorial sobre un proyecto realizado ayuda a compartir conocimientos y experiencias.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Documentar todos los pasos del proyecto de manera clara.",
       "Crear contenido visual para complementar el tutorial.",
@@ -1197,7 +1197,7 @@
     "text": "Create an\r\nFPGA Project",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/svg/electronics_icons/icon67.svg",
     "description": "Crear un proyecto con FPGA permite aprender sobre diseño digital y programación de hardware.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Seleccionar una FPGA adecuada para el proyecto.",
       "Desarrollar el diseño y la programación necesarios.",
@@ -1215,7 +1215,7 @@
     "text": "Write your\r\nown C/C++ library\r\nfor a sensor\r\nfrom scratch",
     "icon": "https://tinkererway.dev/../../web_skill_trees_resources/../../web_skill_trees_resources/svg/electronics_icons/icon68.svg",
     "description": "Crear tu propia biblioteca en C/C++ para un sensor desde cero te permitirá entender mejor la interacción entre el hardware y el software, además de mejorar tus habilidades en programación de bajo nivel.",
-    "score": 1,
+    "score": 10,
     "tasks": [
       "Investigar los diferentes tipos de sensores y sus protocolos de comunicación.",
       "Diseñar la arquitectura de la biblioteca teniendo en cuenta la modularidad y la reutilización de código.",
