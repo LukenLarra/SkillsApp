@@ -101,7 +101,7 @@ async function createEvidencesTable() {
 
     let username = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
     username = username.split(' ')[1];
-    const user = allUsers.find(item => item.username === username);
+    const currentUser = allUsers.find(item => item.username === username);
 
     const heading = document.createElement('h2');
     heading.textContent = 'Unverified Evidence Submissions';
@@ -119,11 +119,14 @@ async function createEvidencesTable() {
     table.appendChild(headerRow);
 
     let userMatch = false;
+    let sameUser = false;
     if (userSkills.verifications.length !== 0) {
-        userMatch = !!userSkills.verifications.find(item => item.user === user._id);
+        userMatch = !!userSkills.verifications.find(item => item.user === currentUser._id);
+        sameUser = userSkills.user._id === currentUser._id;
     }
 
-    if (!userMatch) {
+
+    if (!userMatch && !sameUser) {
         hasRows = true;
         const dataRow = document.createElement('tr');
         const userTd = document.createElement('td');
