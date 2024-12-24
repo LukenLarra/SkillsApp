@@ -212,26 +212,6 @@ async function build_index() {
     }
 }
 
-async function logout() {
-    try {
-        const response = await fetch('/users/logout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({})
-        });
-
-        if (response.ok) {
-            window.location.href = '/users/login';
-        } else {
-            console.error('Logout failed', response.status);
-        }
-    } catch (error) {
-        console.error('Error during logout:', error);
-    }
-}
-
 async function login() {
     window.location.href = '/users/login';
 }
