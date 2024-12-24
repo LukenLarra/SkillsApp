@@ -89,12 +89,25 @@ async function createSVGSkills() {
 
 async function createEvidencesTable() {
     const section = document.querySelector(".evidence-submission");
+    const container = document.querySelector(".details-svg");
+    const svgId = container.getAttribute("svgId");
+    let hasRows = false;
+
+    const userskill_response = await fetch(`http://localhost:3000/api/userSkills/${svgId}`);
+    const userSkills = await userskill_response.json();
+
+    const user_response = await fetch('http://localhost:3000/api/users');
+    const allUsers = await user_response.json();
+
+    let username = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
+    username = username.split(' ')[1];
+    const user = allUsers.find(item => item.username === username);
 
     const heading = document.createElement('h2');
     heading.textContent = 'Unverified Evidence Submissions';
 
     const table = document.createElement('table');
-    table.border = '1';
+    table.style.border = '1';
 
     const headerRow = document.createElement('tr');
     const headers = ['Users', 'Evidences', 'Actions'];
@@ -105,41 +118,53 @@ async function createEvidencesTable() {
     });
     table.appendChild(headerRow);
 
-    const container = document.querySelector(".details-svg");
-    const svgId = container.getAttribute("svgId");
-
-    const userskill_response = await fetch(`http://localhost:3000/api/userSkills/${svgId}`);
-    const userSkills = await userskill_response.json();
-
-    const dataRow = document.createElement('tr');
-
-    const userTd = document.createElement('td');
-    userTd.textContent = userSkills.user?.username || 'Unknown User';
-    dataRow.appendChild(userTd);
-
-    const evidenceTd = document.createElement('td');
-    evidenceTd.textContent = userSkills.evidence.split('\n') || 'No evidence provided';
-    dataRow.appendChild(evidenceTd);
-
-    const actionTd = document.createElement('td');
-    const approveButton = document.createElement('button');
-    approveButton.textContent = 'Approve';
-    approveButton.classList.add('approve-button');
-    approveButton.onclick = async () => {
-        await handleVerification(userSkills.skill.id, true, userSkills._id);
+    let userMatch = false;
+    if (userSkills.verifications.length !== 0) {
+        userMatch = !!userSkills.verifications.find(item => item.user === user._id);
     }
 
-    const rejectButton = document.createElement('button');
-    rejectButton.textContent = 'Reject';
-    rejectButton.classList.add('reject-button');
-    rejectButton.onclick = async () => {
-        await handleVerification(userSkills.skill.id, false, userSkills._id);
+    if (!userMatch) {
+        hasRows = true;
+        const dataRow = document.createElement('tr');
+        const userTd = document.createElement('td');
+        userTd.textContent = userSkills.user?.username || 'Unknown User';
+        dataRow.appendChild(userTd);
+
+        const evidenceTd = document.createElement('td');
+        evidenceTd.textContent = userSkills.evidence.split('\n') || 'No evidence provided';
+        dataRow.appendChild(evidenceTd);
+
+        const actionTd = document.createElement('td');
+        const approveButton = document.createElement('button');
+        approveButton.textContent = 'Approve';
+        approveButton.classList.add('approve-button');
+        approveButton.onclick = async () => {
+            await handleVerification(userSkills.skill.id, true, userSkills._id);
+        }
+
+        const rejectButton = document.createElement('button');
+        rejectButton.textContent = 'Reject';
+        rejectButton.classList.add('reject-button');
+        rejectButton.onclick = async () => {
+            await handleVerification(userSkills.skill.id, false, userSkills._id);
+        }
+
+        actionTd.appendChild(approveButton);
+        actionTd.appendChild(rejectButton);
+        dataRow.appendChild(actionTd);
+        table.appendChild(dataRow);
     }
 
-    actionTd.appendChild(approveButton);
-    actionTd.appendChild(rejectButton);
-    dataRow.appendChild(actionTd);
-    table.appendChild(dataRow);
+    if (!hasRows) {
+        const emptyRow = document.createElement('tr');
+        const emptyTd = document.createElement('td');
+        emptyTd.colSpan = 3;
+        emptyTd.textContent = 'No evidences to verify';
+        emptyTd.style.textAlign = 'center';
+        emptyRow.appendChild(emptyTd);
+        table.appendChild(emptyRow);
+    }
+
     section.appendChild(heading);
     section.appendChild(table);
 }

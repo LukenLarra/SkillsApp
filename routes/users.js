@@ -102,7 +102,14 @@ router.post('/logout', (req, res) => {
 });
 
 router.get('/leaderboard', (req, res) => {
-    res.render('leaderboard');
+    const user = req.session.username ? {
+        username: req.session.username,
+        isAdmin: req.session.role === 'admin',
+    } : null;
+
+    res.render('leaderboard', {
+        user: user
+    });
 });
 
 export default router;

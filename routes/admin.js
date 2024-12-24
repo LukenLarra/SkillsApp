@@ -21,15 +21,20 @@ router.get('/users', function (req, res) {
     const error_msg = req.session.error_msg || null;
     const error = req.session.error || null;
 
-
     delete req.session.success_msg;
     delete req.session.error_msg;
     delete req.session.error;
+
+    const user = req.session.username ? {
+        username: req.session.username,
+        isAdmin: req.session.role === 'admin',
+    } : null;
 
     res.render('manage_users', {
         success_msg: success_msg,
         error_msg: error_msg,
         error: error,
+        user: user
     });
 });
 
@@ -38,15 +43,20 @@ router.get('/badges', async (req, res) => {
     const error_msg = req.session.error_msg || null;
     const error = req.session.error || null;
 
-
     delete req.session.success_msg;
     delete req.session.error_msg;
     delete req.session.error;
+
+    const user = req.session.username ? {
+        username: req.session.username,
+        isAdmin: req.session.role === 'admin',
+    } : null;
 
     res.render('badges', {
         success_msg: success_msg,
         error_msg: error_msg,
         error: error,
+        user: user
     });
 });
 

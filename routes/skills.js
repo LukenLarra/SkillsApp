@@ -131,7 +131,10 @@ router.post('/:skillTree/edit/:id', upload.single('icon'), async (req, res) => {
 
 router.get('/:skillTree/add', async (req, res) => {
     const {skillTree} = req.params;
-    res.render('add_skill', {skillTree});
+
+    res.render('add_skill', {
+        skillTree
+    });
 });
 
 router.post('/:skillTree/add', upload.single('icon'), async (req, res) => {
