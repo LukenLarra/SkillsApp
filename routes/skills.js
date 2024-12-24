@@ -389,6 +389,7 @@ router.post('/:skillTreeName/:skillID/verify', async (req, res) => {
                 const existingIndex = evidenceUser.completedSkills.findIndex(id => id.equals(skillId));
                 if (existingIndex === -1) {
                     evidenceUser.completedSkills.push(skillId);
+                    evidenceUser.score += userSkill.skill.score;
                 }else {
                     evidenceUser.completedSkills[existingIndex] = skillId;
                 }
