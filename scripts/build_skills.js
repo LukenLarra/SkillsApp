@@ -94,6 +94,8 @@ async function createEvidencesTable() {
     const userskill_response = await fetch(`http://localhost:3000/api/userSkills/${svgId}`);
     const userSkills = await userskill_response.json();
 
+    console.log(userSkills);
+
     const user_response = await fetch('http://localhost:3000/api/users');
     const allUsers = await user_response.json();
 
@@ -116,44 +118,46 @@ async function createEvidencesTable() {
     });
     table.appendChild(headerRow);
 
-    let userMatch = false;
-    let sameUser = false;
-    if (userSkills.verifications.length !== 0) {
-        userMatch = !!userSkills.verifications.find(item => item.user === currentUser._id);
-        sameUser = userSkills.user._id === currentUser._id;
-    }
-
-    if (!userMatch && !sameUser) {
-        hasRows = true;
-        const dataRow = document.createElement('tr');
-        const userTd = document.createElement('td');
-        userTd.textContent = userSkills.user?.username || 'Unknown User';
-        dataRow.appendChild(userTd);
-
-        const evidenceTd = document.createElement('td');
-        evidenceTd.textContent = userSkills.evidence.split('\n') || 'No evidence provided';
-        dataRow.appendChild(evidenceTd);
-
-        const actionTd = document.createElement('td');
-        const approveButton = document.createElement('button');
-        approveButton.textContent = 'Approve';
-        approveButton.classList.add('approve-button');
-        approveButton.onclick = async () => {
-            await sendVerification(userSkills.skill.id, true, userSkills._id);
+    userSkills.forEach(userSkill => {
+        let userMatch = false;
+        let sameUser = false;
+        if (userSkill.verifications.length !== 0) {
+            userMatch = !!userSkill.verifications.find(item => item.user === currentUser._id);
+            sameUser = userSkill.user._id === currentUser._id;
         }
 
-        const rejectButton = document.createElement('button');
-        rejectButton.textContent = 'Reject';
-        rejectButton.classList.add('reject-button');
-        rejectButton.onclick = async () => {
-            await sendVerification(userSkills.skill.id, false, userSkills._id);
-        }
+        if (!userMatch && !sameUser) {
+            hasRows = true;
+            const dataRow = document.createElement('tr');
+            const userTd = document.createElement('td');
+            userTd.textContent = userSkill.user?.username || 'Unknown User';
+            dataRow.appendChild(userTd);
 
-        actionTd.appendChild(approveButton);
-        actionTd.appendChild(rejectButton);
-        dataRow.appendChild(actionTd);
-        table.appendChild(dataRow);
-    }
+            const evidenceTd = document.createElement('td');
+            evidenceTd.textContent = userSkill.evidence.split('\n') || 'No evidence provided';
+            dataRow.appendChild(evidenceTd);
+
+            const actionTd = document.createElement('td');
+            const approveButton = document.createElement('button');
+            approveButton.textContent = 'Approve';
+            approveButton.classList.add('approve-button');
+            approveButton.onclick = async () => {
+                await sendVerification(userSkill.skill.id, true, userSkill._id);
+            }
+
+            const rejectButton = document.createElement('button');
+            rejectButton.textContent = 'Reject';
+            rejectButton.classList.add('reject-button');
+            rejectButton.onclick = async () => {
+                await sendVerification(userSkill.skill.id, false, userSkill._id);
+            }
+
+            actionTd.appendChild(approveButton);
+            actionTd.appendChild(rejectButton);
+            dataRow.appendChild(actionTd);
+            table.appendChild(dataRow);
+        }
+    });
 
     if (!hasRows) {
         const emptyRow = document.createElement('tr');

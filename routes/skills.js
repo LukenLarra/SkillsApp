@@ -178,7 +178,7 @@ router.post('/:skillTreeName/submit-evidence', async (req, res) => {
             req.session.error_msg = 'User not authenticated';
             return res.status(401).json({message: 'User not authenticated'});
         }
-        console.log(skillId);
+
         const username = req.session.username;
         const user = await User.findOne({username: username});
         if (!user) {

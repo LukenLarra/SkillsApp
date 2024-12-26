@@ -101,10 +101,10 @@ app.get('/api/userSkills/:id', async (req, res) => {
             .populate('skill', 'id text')
             .populate('user', 'username');
 
-        const matchingSkill = userSkills.find(userSkill => userSkill.skill && userSkill.skill.id === id);
+        const matchingSkills = userSkills.filter(userSkill => userSkill.skill && userSkill.skill.id === id);
 
-        if (matchingSkill) {
-            res.json(matchingSkill);
+        if (matchingSkills) {
+            res.json(matchingSkills);
         } else {
             res.status(404).send('Skill not found');
         }
