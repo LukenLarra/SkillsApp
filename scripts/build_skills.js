@@ -31,7 +31,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     }
-    manageTaskCheckboxes(svgId, currentUser.username);
+
+    if (currentUser) {
+        manageTaskCheckboxes(svgId, currentUser.username);
+    }
 });
 
 async function createSVGSkills() {
@@ -173,9 +176,17 @@ async function createEvidencesTable() {
     section.appendChild(table);
 }
 
-export function showSendEvidence() {
+export async function showSendEvidence() {
+    let currentUser = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
+    currentUser = currentUser.split(' ')[1];
+
+    const container = document.querySelector(".details-svg");
+    const svgId = container.getAttribute("svgId");
+
     const section = document.querySelector('.evidence');
-    section.innerHTML = '';
+
+    const response = await fetch(`http://localhost:3000/api/userSkills/${svgId}/${currentUser}`);
+    const userSkills = await response.json();
 
     const h2 = document.createElement('h2');
     h2.textContent = 'Provide Evidence';
@@ -190,6 +201,14 @@ export function showSendEvidence() {
     button.type = 'button';
     button.classList.add('evidence-submit');
     button.onclick = submitEvidence;
+
+    if (userSkills.length > 0) {
+        userSkills.forEach(userSkill => {
+            textarea.innerHTML = userSkill.evidence;
+        });
+    } else {
+        textarea.innerHTML = '';
+    }
 
     section.appendChild(h2);
     section.appendChild(textarea);
@@ -212,11 +231,23 @@ async function submitEvidence() {
         return;
     }
 
+    let currentUser = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
+    currentUser = currentUser.split(' ')[1];
+
+    if (!currentUser) {
+        alert('User not authenticated');
+        return;
+    }
+
+    const response = await fetch(`http://localhost:3000/api/userSkills/${id}/${currentUser}`);
+    const userSkills = await response.json();
+
+    const userSkillId = userSkills.length > 0 ? userSkills[0]._id : null;
     try {
         const response = await fetch(`http://localhost:3000/skills/${skillTreeName}/submit-evidence`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({id, evidence}),
+            body: JSON.stringify({id, evidence, userSkillId}),
         });
 
         if (!response.ok) {

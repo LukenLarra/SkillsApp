@@ -114,6 +114,24 @@ app.get('/api/userSkills/:id', async (req, res) => {
     }
 });
 
+app.get('/api/userSkills/:id/:currentUser', async (req, res) => {
+    const id = Number(req.params.id);
+    const currentUser = req.params.currentUser;
+
+    try {
+        const userSkills = await UserSkill.find()
+            .populate('skill', 'id text')
+            .populate('user', 'username');
+
+        const matchingSkills = userSkills.filter(userSkill => userSkill.skill && userSkill.skill.id === id && userSkill.user.username === currentUser);
+
+        res.json(matchingSkills);
+    } catch (err) {
+        console.error('Error retrieving skills:', err);
+        res.status(500).send('Error retrieving skills from the database');
+    }
+});
+
 app.post('/api/badges', (req, res) => {
     const data = req.body;
     fs.writeFile('badges.json', JSON.stringify(data, null, 2), (err) => {
