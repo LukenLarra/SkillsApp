@@ -1,3 +1,5 @@
+import {getCurrentUser} from "./currentUser.js";
+
 document.addEventListener('DOMContentLoaded', async () => {
     await createSVGSkills();
 
@@ -10,9 +12,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const userskill_response = await fetch('http://localhost:3000/api/userSkills');
     const userSkills = await userskill_response.json();
 
-    let username = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
-    username = username.split(' ')[1];
-    const currentUser = allUsers.find(item => item.username === username);
+    let currentUser = getCurrentUser();
+    currentUser = allUsers.find(item => item.username === currentUser);
 
     const container = document.querySelector(".details-svg");
     const svgId = container.getAttribute("svgId");
@@ -102,9 +103,8 @@ async function createEvidencesTable() {
     const user_response = await fetch('http://localhost:3000/api/users');
     const allUsers = await user_response.json();
 
-    let username = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
-    username = username.split(' ')[1];
-    const currentUser = allUsers.find(item => item.username === username);
+    let currentUser = getCurrentUser();
+    currentUser = allUsers.find(item => item.username === currentUser);
 
     const heading = document.createElement('h2');
     heading.textContent = 'Unverified Evidence Submissions';
@@ -177,8 +177,7 @@ async function createEvidencesTable() {
 }
 
 export async function showSendEvidence() {
-    let currentUser = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
-    currentUser = currentUser.split(' ')[1];
+    const currentUser = getCurrentUser();
 
     const container = document.querySelector(".details-svg");
     const svgId = container.getAttribute("svgId");
@@ -231,8 +230,7 @@ async function submitEvidence() {
         return;
     }
 
-    let currentUser = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
-    currentUser = currentUser.split(' ')[1];
+    const currentUser = getCurrentUser();
 
     if (!currentUser) {
         alert('User not authenticated');

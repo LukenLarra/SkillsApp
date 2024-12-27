@@ -1,3 +1,5 @@
+import {getCurrentUser} from "./currentUser.js";
+
 document.addEventListener('DOMContentLoaded', async () => {
     await build_index();
 
@@ -6,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const newSkillButton = document.querySelector('.newSkill-button');
     const dashboardButton = document.querySelector('.dashboard-button');
     const leaderboardButton = document.querySelector('.leaderboard-button');
+
     if (logoutButton) {
         logoutButton.addEventListener('click', logout);
     }
@@ -38,8 +41,7 @@ async function build_index() {
     const user_response = await fetch('http://localhost:3000/api/users');
     const allUsers = await user_response.json();
 
-    let currentUser = document.querySelector('.username') ? document.querySelector('.username').textContent : null;
-    currentUser = currentUser.split(' ')[1];
+    let currentUser = getCurrentUser();
     currentUser = allUsers.find(u => u.username === currentUser);
 
     const container = document.querySelector(".svg-container");
