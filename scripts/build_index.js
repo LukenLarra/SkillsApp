@@ -191,13 +191,13 @@ async function build_index() {
 
             notebookIcon.addEventListener('click', async (event) => {
                 event.stopPropagation();
-                const skillTree = 'electronics';
+                const skillTree = item.set;
                 window.location.href = `/skills/${skillTree}/view/${item.id}`;
             });
 
             editIcon.addEventListener('click', async (event) => {
                 event.stopPropagation();
-                const skillTree = 'electronics';
+                const skillTree = item.set;
                 window.location.href = `/skills/${skillTree}/edit/${item.id}`;
             });
         }

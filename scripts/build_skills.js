@@ -217,21 +217,25 @@ export async function showSendEvidence() {
 async function submitEvidence() {
     const textarea = document.querySelector('.evidence-textarea');
     const evidence = textarea.value.trim();
+
     if (!evidence) {
         alert('Please provide valid evidence before submitting');
         return;
     }
 
-    const skillTreeName = 'electronics';
     const id = document.querySelector('.details-svg').getAttribute('svgId');
-
     if (!id) {
         alert('Id not found for the current skill');
         return;
     }
 
-    const currentUser = getCurrentUser();
+    const skill_response = await fetch(`http://localhost:3000/api/skills/`);
+    const allSkills = await skill_response.json();
+    const skill = allSkills.find(item => item.id === Number(id));
 
+    const skillTreeName = skill.set;
+
+    const currentUser = getCurrentUser();
     if (!currentUser) {
         alert('User not authenticated');
         return;
@@ -239,8 +243,8 @@ async function submitEvidence() {
 
     const response = await fetch(`http://localhost:3000/api/userSkills/${id}/${currentUser}`);
     const userSkills = await response.json();
-
     const userSkillId = userSkills.length > 0 ? userSkills[0]._id : null;
+
     try {
         const response = await fetch(`http://localhost:3000/skills/${skillTreeName}/submit-evidence`, {
             method: 'POST',
