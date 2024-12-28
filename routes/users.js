@@ -105,7 +105,7 @@ router.post('/logout', (req, res) => {
 router.get('/leaderboard', async (req, res) => {
     const user = req.session.username ? {
         username: req.session.username,
-        isAdmin: req.session.role === 'admin',
+        isAdmin: req.session.role === 'admin'
     } : null;
 
     const allSkills = await Skill.find();

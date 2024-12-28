@@ -70,27 +70,34 @@ nav ul {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.user-info .skill-tree-title{
-    font-weight: bold;
+.skill-trees{
+    display: flex;
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    z-index: 1000;
+    flex-direction: row;
+    gap: 10px;
 }
 
-.user-info .skill-trees{
-    display: flex;
+.skill-tree-title{
+    font-weight: bold;
+    display: block;
 }
 
 .skill-tree-list {
+    display: block;
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex;
     gap: 15px;
 }
 
 .skill-tree-element {
-    display: inline;
     font-family: Arial, sans-serif;
     font-size: 16px;
     margin: 15px 5px;
+    display: block;
 }
 
 .skill-tree-element::after {
@@ -100,4 +107,20 @@ nav ul {
 
 .skill-tree-element:last-child::after {
     content: "";
+}
+
+.skill-tree-element a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    transition: all 0.3s ease;
+}
+
+.skill-tree-element a:hover {
+    background-color: #0056b3;
+    text-decoration: none;
 }

@@ -4,6 +4,21 @@
         <span class="role" style="display: none;"><%= user.isAdmin ? 'admin' : 'standard' %></span>
 
         <div class="button-container">
+            <div class="skill-trees">
+                <p class="skill-tree-title">Skill Trees:</p>
+                <% if (skillTree && Object.keys(skillTree).length > 0) { %>
+                    <ul class="skill-tree-list">
+                        <% Object.entries(skillTree).forEach(([key, value]) => { %>
+                            <li class="skill-tree-element">
+                                <a href="/" class="skillTree-link"> <%= key %> (<%= value %>) </a>
+                            </li>
+                        <% }); %>
+                    </ul>
+                <% } else { %>
+                    <p>No skill trees available</p>
+                <% } %>
+            </div>
+
             <% if (user.isAdmin) { %>
                 <div id="addSkillContainer" class="newSkill-container" style="display: block">
                     <a href="/skills/electronics/add" class="newSkill-button button">
@@ -28,19 +43,6 @@
                 <a href="#" onclick="logout(); return false;" class="logout-button button">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
-            </div>
-
-            <div class="skill-trees">
-                <p class="skill-tree-title">Skill Trees:</p>
-                <% if (skillTree && Object.keys(skillTree).length > 0) { %>
-                    <ul class="skill-tree-list">
-                        <% Object.entries(skillTree).forEach(([key, value]) => { %>
-                            <li class="skill-tree-element"><%= key %> (<%= value %>)</li>
-                        <% }); %>
-                    </ul>
-                <% } else { %>
-                    <p>No skill trees available</p>
-                <% } %>
             </div>
         </div>
     </div>
