@@ -4,6 +4,7 @@ import {fileURLToPath} from "url";
 import fs from 'fs';
 import checkPassword from "../scripts/register.js";
 import User from '../models/user.model.js';
+import Skill from "../models/skill.model.js";
 
 let router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -101,14 +102,29 @@ router.post('/logout', (req, res) => {
     });
 });
 
-router.get('/leaderboard', (req, res) => {
+router.get('/leaderboard', async (req, res) => {
     const user = req.session.username ? {
         username: req.session.username,
         isAdmin: req.session.role === 'admin',
     } : null;
 
+    const allSkills = await Skill.find();
+
+    const skillSets = {};
+
+    allSkills.forEach(skill => {
+        const skillTree = skill.set;
+
+        if (skillSets[skillTree]) {
+            skillSets[skillTree]++;
+        } else {
+            skillSets[skillTree] = 1;
+        }
+    });
+
     res.render('leaderboard', {
-        user: user
+        user: user,
+        skillTree: skillSets
     });
 });
 

@@ -43,7 +43,6 @@ const upload = multer({
     limits: {fileSize: 1024 * 1024}
 });
 
-/* GET home page. */
 router.get("/:skillTree/view/:id", async (req, res) => {
     const {skillTree, id} = req.params;
 
@@ -52,12 +51,27 @@ router.get("/:skillTree/view/:id", async (req, res) => {
         isAdmin: req.session.role === 'admin',
     } : null;
 
+    const allSkills = await Skill.find();
+
+    const skillSets = {};
+
+    allSkills.forEach(skill => {
+        const skillTree = skill.set;
+
+        if (skillSets[skillTree]) {
+            skillSets[skillTree]++;
+        } else {
+            skillSets[skillTree] = 1;
+        }
+    });
+
     try {
         const skill = await Skill.findOne({id: Number(id)});
         if (skill) {
             res.render("skill_details", {
                 skill,
-                user: user
+                user: user,
+                skillTree: skillSets
             });
         } else {
             res.status(404).send(`Skill ${id} not found`);

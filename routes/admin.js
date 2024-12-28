@@ -1,6 +1,7 @@
 import express from 'express';
 import Badge from "../models/badge.model.js";
 import User from "../models/user.model.js";
+import Skill from "../models/skill.model.js";
 
 let router = express.Router();
 
@@ -16,7 +17,7 @@ router.get('/dashboard', function (req, res) {
     res.render('admin_dashboard');
 });
 
-router.get('/users', function (req, res) {
+router.get('/users', async function (req, res) {
     const success_msg = req.session.success_msg || null;
     const error_msg = req.session.error_msg || null;
     const error = req.session.error || null;
@@ -30,11 +31,24 @@ router.get('/users', function (req, res) {
         isAdmin: req.session.role === 'admin',
     } : null;
 
+    const allSkills = await Skill.find();
+    const skillSets = {};
+    allSkills.forEach(skill => {
+        const skillTree = skill.set;
+
+        if (skillSets[skillTree]) {
+            skillSets[skillTree]++;
+        } else {
+            skillSets[skillTree] = 1;
+        }
+    });
+
     res.render('manage_users', {
         success_msg: success_msg,
         error_msg: error_msg,
         error: error,
-        user: user
+        user: user,
+        skillTree: skillSets
     });
 });
 
@@ -52,11 +66,24 @@ router.get('/badges', async (req, res) => {
         isAdmin: req.session.role === 'admin',
     } : null;
 
+    const allSkills = await Skill.find();
+    const skillSets = {};
+    allSkills.forEach(skill => {
+        const skillTree = skill.set;
+
+        if (skillSets[skillTree]) {
+            skillSets[skillTree]++;
+        } else {
+            skillSets[skillTree] = 1;
+        }
+    });
+
     res.render('badges', {
         success_msg: success_msg,
         error_msg: error_msg,
         error: error,
-        user: user
+        user: user,
+        skillTree: skillSets
     });
 });
 
