@@ -100,7 +100,11 @@ async function build_index() {
         image.setAttribute('y', '60%');
         image.setAttribute('width', '30');
         image.setAttribute('height', '30');
-        image.setAttribute('href', item.icon);
+        if (item.icon !== null) {
+            image.setAttribute('href', item.icon);
+        }else{
+            image.style.display = 'none';
+        }
         svg.appendChild(image);
 
         const leftCanvas = document.createElement('canvas');
@@ -163,44 +167,44 @@ async function build_index() {
                 polygon.style.fill = 'green';
             }
 
-            svgWrapper.addEventListener('mouseover', () => {
-                svgWrapper.classList.add('expanded');
-                if (role !== null) {
-                    editIcon.style.display = role.trim().replace(/['"]/g, '').toLowerCase() === 'admin' ? 'block' : 'none';
-                }
-                notebookIcon.style.display = 'block';
-
-                const descriptionDiv = document.querySelector('.description-index');
-                descriptionDiv.textContent = item.description;
-                descriptionDiv.style.backgroundColor = '#f1e187';
-                descriptionDiv.style.color = 'black';
-                descriptionDiv.style.borderTop = '1px solid black';
-            });
-
-            svgWrapper.addEventListener('mouseleave', () => {
-                svgWrapper.classList.remove('expanded');
-                editIcon.style.display = 'none';
-                notebookIcon.style.display = 'none';
-
-                const descriptionDiv = document.querySelector('.description-index');
-                descriptionDiv.textContent = '';
-                descriptionDiv.style.backgroundColor = '';
-                descriptionDiv.style.color = '';
-                descriptionDiv.style.borderTop = 'none';
-            });
-
-            notebookIcon.addEventListener('click', async (event) => {
-                event.stopPropagation();
-                const skillTree = item.set;
-                window.location.href = `/skills/${skillTree}/view/${item.id}`;
-            });
-
             editIcon.addEventListener('click', async (event) => {
                 event.stopPropagation();
                 const skillTree = item.set;
                 window.location.href = `/skills/${skillTree}/edit/${item.id}`;
             });
         }
+
+        svgWrapper.addEventListener('mouseover', () => {
+            svgWrapper.classList.add('expanded');
+            if (role !== null) {
+                editIcon.style.display = role.trim().replace(/['"]/g, '').toLowerCase() === 'admin' ? 'block' : 'none';
+            }
+            notebookIcon.style.display = 'block';
+
+            const descriptionDiv = document.querySelector('.description-index');
+            descriptionDiv.textContent = item.description;
+            descriptionDiv.style.backgroundColor = '#f1e187';
+            descriptionDiv.style.color = 'black';
+            descriptionDiv.style.borderTop = '1px solid black';
+        });
+
+        svgWrapper.addEventListener('mouseleave', () => {
+            svgWrapper.classList.remove('expanded');
+            editIcon.style.display = 'none';
+            notebookIcon.style.display = 'none';
+
+            const descriptionDiv = document.querySelector('.description-index');
+            descriptionDiv.textContent = '';
+            descriptionDiv.style.backgroundColor = '';
+            descriptionDiv.style.color = '';
+            descriptionDiv.style.borderTop = 'none';
+        });
+
+        notebookIcon.addEventListener('click', async (event) => {
+            event.stopPropagation();
+            const skillTree = item.set;
+            window.location.href = `/skills/${skillTree}/view/${item.id}`;
+        });
     });
 
     if (role !== null && role.trim().replace(/['"]/g, '').toLowerCase() === 'admin') {
