@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="/css/authentication.css">
     <script type="module" src="/scripts/register.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/messages.css">
 </head>
 <body>
+
+<%- include('partials/messages') %>
+
 <div class="container">
     <h1>Register</h1>
     <form class="registerForm" action="/users/register" method="post">
@@ -28,9 +32,6 @@
         <div>
             <p>Already have an account? <a href="/users/login">Login here</a></p>
         </div>
-        <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
-            <p id="error-message" style="color: red;"><%= errorMessage %></p>
-        <% } %>
     </form>
 </div>
 

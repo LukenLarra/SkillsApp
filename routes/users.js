@@ -15,15 +15,35 @@ router.get('/', function (req, res) {
 });
 
 router.get('/login', (req, res) => {
-    const errorMessage = req.session.errorMessage;
-    req.session.errorMessage = null;
-    res.render('login', {errorMessage});
+    const success_msg = req.session.success_msg || null;
+    const error_msg = req.session.error_msg || null;
+    const error = req.session.error || null;
+
+    delete req.session.success_msg;
+    delete req.session.error_msg;
+    delete req.session.error;
+
+    res.render('login', {
+        success_msg: success_msg,
+        error_msg: error_msg,
+        error: error
+    });
 });
 
 router.get('/register', (req, res) => {
-    const errorMessage = req.session.errorMessage || null;
-    req.session.errorMessage = null;
-    res.render('register', {errorMessage});
+    const success_msg = req.session.success_msg || null;
+    const error_msg = req.session.error_msg || null;
+    const error = req.session.error || null;
+
+    delete req.session.success_msg;
+    delete req.session.error_msg;
+    delete req.session.error;
+
+    res.render('register', {
+        success_msg: success_msg,
+        error_msg: error_msg,
+        error: error
+    });
 });
 
 router.post('/register', async (req, res) => {
@@ -36,14 +56,14 @@ router.post('/register', async (req, res) => {
         console.log('Registering user:', username, password, password_conf);
 
         if (!checkPassword(password, password_conf)) {
-            req.session.errorMessage = 'Las contraseñas no coinciden o no cumplen con los requisitos mínimos';
-            return res.redirect('/users/register');
+            req.session.error_msg = 'Las contraseñas no coinciden o no cumplen con los requisitos mínimos';
+            return res.status(404).redirect('/users/register');
         }
 
         const existingUser = await User.findOne({username});
         if (existingUser) {
-            req.session.errorMessage = 'El nombre de usuario ya está en uso. Por favor, elije otro.';
-            return res.redirect('/users/register');
+            req.session.error_msg = 'El nombre de usuario ya está en uso';
+            return res.status(404).redirect('/users/register');
         }
 
         const count = await User.countDocuments().exec();
@@ -58,10 +78,12 @@ router.post('/register', async (req, res) => {
 
         await newUser.save();
 
+        req.session.success_msg = 'Usuario registrado correctamente. Por favor, inicie sesión';
         res.redirect('/users/login');
     } catch (error) {
         console.error('Error registering user:', error);
-        res.status(500).send('Error registering user');
+        req.session.error_msg = 'Error registering user';
+        res.status(500).redirect('/users/register');
     }
 });
 
@@ -71,15 +93,15 @@ router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({username});
         if (!user) {
-            req.session.errorMessage = 'El nombre de usuario o la contraseña son incorrectos';
-            return res.redirect('/users/login');
+            req.session.error_msg = 'El usuario no coincide con ningún usuario registrado';
+            return res.status(404).redirect('/users/login');
         }
 
         const isMatch = await user.comparePassword(password);
 
         if (!isMatch) {
-            req.session.errorMessage = 'El nombre de usuario o la contraseña son incorrectos';
-            return res.redirect('/users/login');
+            req.session.error_msg = 'La contraseña no coincide con el usuario';
+            return res.status(404).redirect('/users/login');
         }
 
         req.session.username = user.username;
@@ -88,7 +110,8 @@ router.post('/login', async (req, res) => {
         res.redirect('/');
     } catch (error) {
         console.error('Error during login:', error);
-        res.status(500).send('Error del servidor');
+        req.session.error_msg = 'Error during login';
+        return res.status(500).redirect('/users/login');
     }
 });
 
