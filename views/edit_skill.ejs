@@ -48,18 +48,14 @@
         <section id="tasks-to-complete">
             <h2>Tasks to Complete</h2>
             <label for="task-list"></label>
-            <textarea id="task-list" name="tasks" spellcheck="false" required>
-                <%= skill.tasks.join('\n') %>
-            </textarea>
+            <textarea id="task-list" name="tasks" spellcheck="false" required><%= skill.tasks.join('\n') %></textarea>
         </section>
 
         <!-- Resources Section -->
         <section id="resources">
             <h2>Resources</h2>
             <label for="resource-list"></label>
-            <textarea id="resource-list" name="resources" spellcheck="false" required>
-                <%= skill.resources.join('\n') %>
-            </textarea>
+            <textarea id="resource-list" name="resources" spellcheck="false" required><%= skill.resources.join('\n') %></textarea>
         </section>
 
         <section id="upload">
