@@ -151,23 +151,23 @@ router.post('/change-password', async (req, res) => {
         const user = await User.findOne({username: userId});
         if (!user) {
             req.session.error_msg = 'User not found';
-            return res.redirect('/admin/users');
+            return res.status(404).json({message: 'User not found'});
         }
 
         const isSamePassword = await user.comparePassword(newPassword);
         if (isSamePassword) {
             req.session.error_msg = 'New password cannot be the same as the old password';
-            return res.redirect('/admin/users');
+            return res.status(404).json({message: 'New password cannot be the same as the old password'});
         }
 
         user.password = newPassword;
         await user.save();
         req.session.success_msg = 'Password changed successfully';
-        return res.redirect('/admin/users');
+        return res.status(200).json({message: 'Password changed successfully'});
     } catch (err) {
         console.error(err);
         req.session.error_msg = 'Server error';
-        return res.redirect('/admin/users');
+        return res.status(500).json({message: 'Server error'});
     }
 });
 

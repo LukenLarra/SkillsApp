@@ -89,6 +89,11 @@ function sendNewPassword() {
                 },
                 body: JSON.stringify({ userId: username, newPassword: password }),
             });
+
+            if (!response.ok) {
+                console.error('An error occurred while changing the password.');
+            }
+            window.location.reload();
         } catch (error) {
             console.error('Error changing password:', error);
         }
